@@ -14,16 +14,15 @@
 
     <style>
         :root {
-            /* PALETA ORIGINAL REFINADA: AZUL OSCURO & NARANJA OCRE */
-            --primary-bg: #FDFDFD;      /* Blanco casi puro */
-            --secondary-bg: #F9F9F9;    /* Gris muy claro (fondo secciones) */
-            --accent-main: #E77B3F;     /* Naranja Ocre */
-            --accent-hover: #D76F32;    /* Naranja más oscuro para hover */
-            --text-dark: #2C3E50;       /* Azul muy oscuro (espacio) */
-            --text-muted: #6C757D;      /* Gris para texto secundario */
-            --white: #FFFFFF;
-            --border-light: #E9ECEF;
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+            /* PALETA: AZUL OSCURO & NARANJA OCRE */
+            --primary-bg: #FFFFFF;      
+            --secondary-bg: #F8F9FA;    /* Gris muy suave */
+            --accent-main: #E77B3F;     /* Naranja Ocre (Cálido y profesional) */
+            --accent-hover: #D76F32;    
+            --text-dark: #2C3E50;       /* Azul muy oscuro (Texto principal) */
+            --text-muted: #6C757D;      
+            --border-light: #DEE2E6;
+            --shadow-card: 0 4px 6px rgba(0,0,0,0.04);
         }
         
         html { scroll-behavior: smooth; }
@@ -44,7 +43,7 @@
             margin-top: 0;
         }
 
-        h4, h5, h6 {
+        h4, h5 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: var(--text-dark);
@@ -52,9 +51,9 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), 
+            background-image: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.95)), 
                               url('background.png'); 
-            height: 90vh;
+            height: 85vh;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -64,7 +63,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: white;
             position: relative;
             padding: 0 20px;
         }
@@ -75,19 +74,21 @@
             border-radius: 50%;
             border: 4px solid var(--accent-main);
             padding: 5px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.1);
             object-fit: cover;
             margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
         }
         .profile-img:hover { transform: scale(1.05); }
 
         .hero h1 {
             font-size: 3.8rem;
-            color: var(--white);
+            color: white;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Sombra para resaltar */
+            /* Sombra fuerte para garantizar legibilidad sobre cualquier fondo */
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
+            letter-spacing: 1px;
         }
 
         .hero .subtitle {
@@ -98,12 +99,13 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
         /* --- STATS BAR --- */
         .stats-bar {
-            background: var(--white);
-            box-shadow: var(--shadow-light);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             padding: 2rem 0;
             display: flex;
             justify-content: center;
@@ -111,12 +113,11 @@
             gap: 4rem;
             position: relative;
             z-index: 10;
-            margin-top: -60px; /* Overlap hero */
+            margin-top: -60px;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             border-radius: 8px;
-            border: 1px solid var(--border-light);
         }
 
         .stat-item { text-align: center; }
@@ -135,16 +136,16 @@
             font-weight: 600;
         }
 
-        /* --- NAV --- */
+        /* --- NAVIGATION --- */
         nav {
-            background: var(--white);
+            background: white;
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 1rem 0;
             text-align: center;
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         nav a {
@@ -157,23 +158,10 @@
             letter-spacing: 0.5px;
             transition: color 0.3s;
             font-family: 'Montserrat', sans-serif;
-            position: relative;
         }
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            background-color: var(--accent-main);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease-in-out;
-        }
-        nav a:hover::after { width: 100%; }
         nav a:hover { color: var(--accent-main); }
 
-
-        /* --- CONTENT LAYOUT --- */
+        /* --- LAYOUT --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -188,7 +176,6 @@
 
         .section-header {
             margin-bottom: 3rem;
-            text-align: left;
             border-left: 5px solid var(--accent-main);
             padding-left: 20px;
         }
@@ -210,8 +197,7 @@
         .about-text {
             text-align: justify;
             font-size: 1.05rem;
-            color: #495057;
-            line-height: 1.8;
+            color: #444;
         }
 
         /* --- TELESCOPE GRID --- */
@@ -222,18 +208,17 @@
         }
 
         .telescope-card {
-            background: var(--white);
+            background: white;
             border: 1px solid var(--border-light);
             border-radius: 8px;
             padding: 1.5rem;
             transition: all 0.3s;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow-card);
         }
-
         .telescope-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-main);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .tele-header {
@@ -241,37 +226,36 @@
             align-items: center;
             margin-bottom: 1rem;
             padding-bottom: 0.8rem;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid #f0f0f0;
         }
-        .tele-header i { font-size: 1.6rem; color: var(--accent-main); margin-right: 12px; }
-        .tele-header h3 { font-size: 1.15rem; margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .tele-header i { font-size: 1.4rem; color: var(--accent-main); margin-right: 12px; }
+        .tele-header h3 { font-size: 1.1rem; margin: 0; font-family: 'Montserrat', sans-serif; }
 
-        .prop-list { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
+        .prop-list { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
         .prop-list li {
             display: flex; justify-content: space-between;
             margin-bottom: 0.6rem;
-            color: #495057;
+            color: #555;
             align-items: center;
         }
+        
         .tag {
-            font-weight: 700; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px;
-            background: #EAECEF; color: #5B6670; min-width: 50px; text-align: center;
+            font-weight: 700; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;
+            background: #eee; color: #555; min-width: 45px; text-align: center;
         }
         .tag.pi { background: rgba(231, 123, 63, 0.15); color: var(--accent-main); }
-        .tag.co-pi { background: rgba(108, 117, 125, 0.15); color: var(--text-muted); }
-
 
         /* --- PUBLICATIONS --- */
         #research { background-color: var(--secondary-bg); }
 
-        .pub-category-title {
+        .pub-cat-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.3rem;
             color: var(--accent-main);
             margin: 3rem 0 1.5rem 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--border-light);
+            border-bottom: 2px solid #e0e0e0;
             padding-bottom: 5px;
             font-weight: 700;
         }
@@ -285,157 +269,62 @@
         .pub-item:hover { border-left-color: var(--accent-main); }
 
         .pub-title {
-            display: block;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 3px;
+            display: block; font-weight: 700; font-size: 1.1rem;
+            color: var(--text-dark); margin-bottom: 4px;
         }
         .pub-authors {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            display: block;
-            line-height: 1.4;
-            margin-bottom: 3px;
+            font-size: 0.95rem; color: var(--text-muted);
+            display: block; line-height: 1.4; margin-bottom: 4px;
         }
         .pub-authors b { color: var(--accent-main); font-weight: 700; }
         .pub-journal {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #343a40;
-        }
-        .pub-year {
-            font-weight: 600;
-            margin-left: 5px;
-            color: #495057;
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 0.95rem; color: #333;
         }
 
         /* --- CONFERENCES --- */
-        #conferences { background-color: var(--white); }
-
-        .conf-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-            color: #495057;
-        }
-        .conf-list li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-        }
+        .conf-list { list-style: none; padding: 0; color: #555; }
+        .conf-list li { margin-bottom: 0.8rem; display: flex; align-items: flex-start; }
         .conf-list li i {
-            color: var(--accent-main);
-            margin-right: 15px;
-            font-size: 1.1rem;
-            width: 20px; /* Alineación de íconos */
-            text-align: center;
+            color: var(--accent-main); margin-right: 12px; margin-top: 5px; font-size: 1rem;
+            width: 20px; text-align: center;
         }
 
         /* --- TEACHING --- */
         #teaching { background-color: var(--secondary-bg); }
-
-        .teaching-intro {
-            font-size: 1.05rem;
-            color: #495057;
-            margin-bottom: 2.5rem;
+        .teaching-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem;
         }
-
-        .teaching-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 1.5rem;
+        .course-tag {
+            background: white; border: 1px solid var(--border-light);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;
+            display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
-        .course-badge {
-            background: var(--white);
-            border: 1px solid var(--border-light);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            box-shadow: var(--shadow-light);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-        .course-badge i { color: var(--accent-main); margin-right: 10px; font-size: 1.1rem; }
+        .course-tag i { color: var(--accent-main); margin-right: 8px; }
 
         /* --- CONTACT --- */
-        #contact { background-color: var(--white); text-align: center; }
-
-        .contact-email {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
+        .social-area { margin-top: 2rem; }
+        .social-area a {
+            color: var(--text-dark); font-size: 2rem; margin: 0 15px;
+            transition: 0.3s;
         }
-        .contact-email i { color: var(--accent-main); margin-right: 10px; }
+        .social-area a:hover { color: var(--accent-main); }
 
-        .contact-address {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-        
-        .social-links { margin-top: 3rem; }
-        .social-links a {
-            color: var(--text-dark);
-            font-size: 2.2rem;
-            margin: 0 15px;
-            transition: color 0.3s, transform 0.3s;
-        }
-        .social-links a:hover { color: var(--accent-main); transform: translateY(-3px); }
-
-        /* --- FOOTER --- */
         footer {
-            background: var(--text-dark);
-            color: #B0BEC5;
-            text-align: center;
-            padding: 3rem 0;
-            font-size: 0.9rem;
+            background: var(--text-dark); color: #aaa;
+            text-align: center; padding: 3rem 0;
         }
 
-        /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero .subtitle { font-size: 1rem; }
-            .profile-img { width: 150px; height: 150px; }
-
-            .stats-bar { 
-                flex-direction: column; 
-                gap: 1rem; 
-                padding: 1.5rem; 
-                margin-top: -30px;
-            }
-            .stat-item { padding: 10px 0; border-bottom: 1px dashed var(--border-light); }
-            .stat-item:last-child { border-bottom: none; }
-
-            nav a { margin: 0 8px; font-size: 0.75rem; }
-
-            .section-header h2 { font-size: 1.8rem; }
-            .section-header span { font-size: 0.8rem; }
-
-            .about-text { font-size: 1rem; }
-
-            .telescope-card { padding: 1rem; }
-            .tele-header h3 { font-size: 1.05rem; }
-            .prop-list li { font-size: 0.9rem; }
-
-            .pub-title { font-size: 1rem; }
-            .pub-authors, .pub-journal { font-size: 0.85rem; }
-
-            .contact-email { font-size: 1.2rem; }
-            .social-links a { font-size: 1.8rem; margin: 0 10px; }
+            .hero h1 { font-size: 2.5rem; }
+            .stats-bar { flex-direction: column; gap: 1rem; padding: 1.5rem; width: 85%; }
         }
-
     </style>
 </head>
 <body>
 
 <header class="hero">
-    <img src="profile2.png" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/180/2C3E50/E77B3F?text=ES'">
+    <img src="profile2.png" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/180'">
     <h1>Enzo A. Saavedra</h1>
     <div class="subtitle">PhD Candidate in Astrophysics | IAC</div>
 </header>
@@ -490,13 +379,8 @@
             <div class="telescope-card">
                 <div class="tele-header"><i class="fas fa-satellite"></i> <h3>NuSTAR</h3></div>
                 <ul class="prop-list">
-                    <li>
-                        <span>NGC 628 ULX1 (Cycle 11)</span>
-                        <span class="tag pi">PI</span>
-                    </li>
-                    <li style="display:block; font-size:0.85rem; margin-top:5px; color:#666;">
-                        110 ks (NuSTAR) + 60 ks (XMM-Newton Coord.)
-                    </li>
+                    <li><span>NGC 628 ULX1 (Cycle 11)</span> <span class="tag pi">PI</span></li>
+                    <li style="font-size:0.8rem; margin-top:5px; color:#777;">110 ks NuSTAR + 60 ks XMM-Newton</li>
                 </ul>
             </div>
             
@@ -512,9 +396,9 @@
             <div class="telescope-card">
                 <div class="tele-header"><i class="fas fa-sun"></i> <h3>GTC (10.4m)</h3></div>
                 <ul class="prop-list">
-                    <li><span>4U 1822-00 (HiPERCAM 7h)</span> <span class="tag co-pi">Co-PI</span></li>
-                    <li><span>ToO 2025A (OSIRIS 10h)</span> <span class="tag co-pi">Co-PI</span></li>
-                    <li><span>ToO 2024B (OSIRIS 10h)</span> <span class="tag co-pi">Co-PI</span></li>
+                    <li><span>4U 1822-00 (HiPERCAM 7h)</span> <span class="tag">Co-PI</span></li>
+                    <li><span>ToO 2025A (OSIRIS 10h)</span> <span class="tag">Co-PI</span></li>
+                    <li><span>ToO 2024B (OSIRIS 10h)</span> <span class="tag">Co-PI</span></li>
                 </ul>
             </div>
 
@@ -531,7 +415,7 @@
                 <div class="tele-header"><i class="fas fa-moon"></i> <h3>NTT & VLT (ESO)</h3></div>
                 <ul class="prop-list">
                     <li><span>NTT (ULTRACAM 3 Nights)</span> <span class="tag pi">PI</span></li>
-                    <li><span>VLT (X-SHOOTER 3.2h)</span> <span class="tag co-pi">Co-PI</span></li>
+                    <li><span>VLT (X-SHOOTER 3.2h)</span> <span class="tag">Co-PI</span></li>
                 </ul>
             </div>
 
@@ -539,8 +423,8 @@
                 <div class="tele-header"><i class="fas fa-binoculars"></i> <h3>Gemini & Others</h3></div>
                 <ul class="prop-list">
                     <li><span>Gemini (Flamingos2 4.3h)</span> <span class="tag">dPI</span></li>
-                    <li><span>NOT (SOFIN+FIES 6h)</span> <span class="tag co-pi">Co-PI</span></li>
-                    <li><span>CASLEO (22 Nights '24-'25)</span> <span class="tag co-pi">Co-PI</span></li>
+                    <li><span>NOT (SOFIN+FIES 6h)</span> <span class="tag">Co-PI</span></li>
+                    <li><span>CASLEO (22 Nights '24-'25)</span> <span class="tag">Co-PI</span></li>
                 </ul>
             </div>
         </div>
@@ -552,12 +436,12 @@
             <span>Refereed Journal Articles</span>
         </div>
 
-        <h4 class="pub-category-title">2025 & Accepted</h4>
+        <h4 class="pub-cat-title">2025 & Accepted</h4>
 
         <div class="pub-item">
             <span class="pub-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</span>
             <span class="pub-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span>
-            <span class="pub-journal">Astronomy & Astrophysics, 702, A103 <span class="pub-year">2025</span>.</span>
+            <span class="pub-journal">Astronomy & Astrophysics, 702, A103, 2025.</span>
         </div>
 
         <div class="pub-item">
@@ -569,59 +453,144 @@
         <div class="pub-item">
             <span class="pub-title">The hard ultraluminous state of NGC 5055 ULX X-1</span>
             <span class="pub-authors">Nelson Cruz-Sanchez, <b>Enzo A. Saavedra</b>, Federico A. Fogantini, Federico García, Jorge A. Combi.</span>
-            <span class="pub-journal">Accepted in Astronomy & Astrophysics <span class="pub-year">2025</span>.</span>
+            <span class="pub-journal">Accepted in Astronomy & Astrophysics, 2025.</span>
         </div>
 
         <div class="pub-item">
             <span class="pub-title">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</span>
             <span class="pub-authors">Nelson Cruz-Sanchez, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Leandro Abaroa, Federico García, Jorge A. Combi, Gustavo E. Romero.</span>
-            <span class="pub-journal">Astronomy & Astrophysics, 693, A122 <span class="pub-year">2025</span>.</span>
+            <span class="pub-journal">Astronomy & Astrophysics, 693, A122, 2025.</span>
         </div>
 
-        <h4 class="pub-category-title">2024</h4>
+        <h4 class="pub-cat-title">2024</h4>
 
         <div class="pub-item">
             <span class="pub-title">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</span>
             <span class="pub-authors">Jorge A. Combi, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Gustavo E. Romero, Leandro Abaroa, Federico García, Pedro Luque Escamilla, Josep Martí, Nelson Cruz-Sanchez.</span>
-            <span class="pub-journal">Astronomy & Astrophysics, 686, A121 <span class="pub-year">2024</span>.</span>
+            <span class="pub-journal">Astronomy & Astrophysics, 686, A121, 2024.</span>
         </div>
 
-        <h4 class="pub-category-title">2023</h4>
+        <h4 class="pub-cat-title">2023</h4>
 
         <div class="pub-item">
             <span class="pub-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119. A Gamma-ray emitting microquasar?</span>
             <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, Gustavo E. Romero, Jorge A. Combi, Estefania Marcel.</span>
-            <span class="pub-journal">Astronomy & Astrophysics, 680, A88 <span class="pub-year">2023</span>.</span>
+            <span class="pub-journal">Astronomy & Astrophysics, 680, A88, 2023.</span>
         </div>
 
         <div class="pub-item">
             <span class="pub-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span>
             <span class="pub-authors"><b>Enzo A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala.</span>
-            <span class="pub-journal">Monthly Notices of the Royal Astronomical Society, Vol 525, 2 <span class="pub-year">2023</span>.</span>
+            <span class="pub-journal">Monthly Notices of the Royal Astronomical Society, Volume 525, 2, 2023.</span>
         </div>
 
         <div class="pub-item">
             <span class="pub-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span>
             <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, Mariano Mendez, Jorge A. Combi, Josep Martí, Pedro Luque Escamilla.</span>
-            <span class="pub-journal">Monthly Notices of the Royal Astronomical Society, Vol 522, 3, 3367-3377 <span class="pub-year">2023</span>.</span>
+            <span class="pub-journal">Monthly Notices of the Royal Astronomical Society, Vol 522, 3, 3367-3377, 2023.</span>
         </div>
 
-        <h4 class="pub-category-title">2022</h4>
+        <h4 class="pub-cat-title">2022</h4>
 
         <div class="pub-item">
             <span class="pub-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span>
             <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Sylvain Chaty.</span>
-            <span class="pub-journal">Astronomy & Astrophysics, 659, A48 <span class="pub-year">2022</span>.</span>
+            <span class="pub-journal">Astronomy & Astrophysics, 659, A48, 2022.</span>
         </div>
     </section>
 
     <section id="conferences">
         <div class="section-header">
             <h2>Conferences</h2>
-            <span>Proceedings, Posters & Talks</span>
+            <span>Proceedings & Presentations</span>
         </div>
 
-        <h4 class="pub-category-title">Proceedings Articles</h4>
-        <ul class="conf-list">
+        <h4 style="color:var(--text-dark); margin-bottom:1rem;">Proceedings Articles</h4>
+        <ul class="pub-list" style="list-style:none; padding:0; margin-bottom:3rem;">
             <li class="pub-item">
-                <span class="pub-title">An X-ray study of the binary system IGR J
+                <span class="pub-title">An X-ray study of the binary system IGR J17503-2636</span>
+                <span class="pub-authors">West Ocampo L., Fogantini F. A., Combi J. A., <b>Saavedra E. A.</b>, García, F.</span>
+                <span class="pub-journal">BAAA, Vol. 66, p. 381-384.</span>
+            </li>
+            <li class="pub-item">
+                <span class="pub-title">First polarization measurements with the new digital receiver of the E. Bajaja radio telescope</span>
+                <span class="pub-authors">Guillermo Gancio, Gustavo E. Romero, Julián Astudillo, <b>Enzo A. Saavedra</b>, Jorge A. Combi.</span>
+                <span class="pub-journal">RevMexAA, Vol. 56, pp. 131-133 (2024).</span>
+            </li>
+            <li class="pub-item">
+                <span class="pub-title">Hard X-ray view of the γ-ray binary LS I +61°303</span>
+                <span class="pub-authors"><b>Enzo A. Saavedra</b>, Gustavo E. Romero.</span>
+                <span class="pub-journal">BAAA, Vol. 64, p. 280-282.</span>
+            </li>
+            <li class="pub-item">
+                <span class="pub-title">Ion tori around f(R)-Kerr black holes</span>
+                <span class="pub-authors"><b>Enzo A. Saavedra</b>, Florencia L. Vieyro, Daniela Peréz.</span>
+                <span class="pub-journal">BAAA, Vol. 64, p. 271-273.</span>
+            </li>
+            <li class="pub-item">
+                <span class="pub-title">X-ray spectral analysis of the microquasar 1E 1740.7-2942</span>
+                <span class="pub-authors"><b>Enzo A. Saavedra</b>, Pablo Sotomayor Checa, Florencia L. Vieyro, Gustavo E. Romero.</span>
+                <span class="pub-journal">BAAA, vol. 63, p.274-276, 2022.</span>
+            </li>
+            <li class="pub-item">
+                <span class="pub-title">Análisis espectro/temporal en rayos X de la binaria XTE J1739-285 observada por NuSTAR</span>
+                <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Giulio Mancuso.</span>
+                <span class="pub-journal">BAAA, vol. 62, p.277-279, 2021.</span>
+            </li>
+        </ul>
+
+        <h4 style="color:var(--text-dark); margin-bottom:1rem;">Talks & Posters</h4>
+        <ul class="conf-list">
+            <li><i class="fas fa-microphone-alt"></i> <span><strong>Talk:</strong> Relativistic X-Ray Reflection in GX 13+1 (65° Reunión Anual AAA).</span></li>
+            <li><i class="fas fa-microphone-alt"></i> <span><strong>Talk:</strong> Ion tori around f(R)-Kerr black holes (64° Reunión Anual AAA).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> The hunting of the Ultracompact X-ray Binaries (Vasto Accretion Meeting).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> A NuSTAR view of SS433 (7th Heidelberg Symposium).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> NuSTAR and NICER observations of 4U 0114+65 (7th Heidelberg Symposium).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> Is a 4U 0114+65 a wind-accreting magnetar? (XI Friends of Friends).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> LS I +61°303 in high-energy X-rays (64° AAA).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> ¿Es la estrella de neutrones en 4U 0114+65 un magnetar? (64° AAA).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> Detección con NuSTAR de OAO 1657-415 (63° AAA).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> Análisis espectral de 1E1740.7-2942 (63° AAA).</span></li>
+            <li><i class="fas fa-file-image"></i> <span><strong>Poster:</strong> Análisis espectro/temporal de XTE J1739-285 (62° AAA).</span></li>
+        </ul>
+    </section>
+
+    <section id="teaching">
+        <div class="section-header">
+            <h2>Teaching Experience</h2>
+            <span>National University of La Plata (UNLP)</span>
+        </div>
+        <p class="about-text">I enjoy teaching, trying to transmit knowledge as clearly as possible. I have served as Teaching Assistant in the following courses (2022-2023):</p>
+        <div class="teaching-tags">
+            <div class="course-tag"><i class="fas fa-star"></i> General Astronomy</div>
+            <div class="course-tag"><i class="fas fa-atom"></i> Physics 1 & 2</div>
+            <div class="course-tag"><i class="fas fa-square-root-alt"></i> Calculus 1 & 2</div>
+            <div class="course-tag"><i class="fas fa-wave-square"></i> Differential Equations</div>
+            <div class="course-tag"><i class="fas fa-user-graduate"></i> Admission Course</div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <div class="section-header" style="border:none; padding:0; text-align:center;">
+            <h2>Get in Touch</h2>
+        </div>
+        <div class="contact-email">
+            <i class="fas fa-envelope"></i> saavedra [at] iac.es
+        </div>
+        <p class="contact-address">Instituto de Astrofísica de Canarias (IAC)<br>Tenerife, Spain</p>
+        
+        <div class="social-area">
+             <a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank"><i class="fas fa-book"></i></a>
+             <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Enzo A. Saavedra. Astrophysics Research.</p>
+</footer>
+
+</body>
+</html>
