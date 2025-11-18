@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzo A. Saavedra | Astrofísico</title>
+    <meta name="description" content="Página personal de Enzo A. Saavedra, estudiante de doctorado en el IAC.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #003366; /* Azul IAC/Académico */
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --accent-color: #e63946;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header limpio y centrado */
+        header {
+            background-color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Navegación simple */
+        nav {
+            background: var(--primary-color);
+            padding: 0.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        /* Secciones */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .research-tags span {
+            background: #e1e8ed;
+            color: #003366;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background-color: #002244;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        /* Ajustes para móvil */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            nav a { display: block; padding: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="profile.jpg" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/160?text=ES'">
+    <h1>Enzo A. Saavedra</h1>
+    <div class="subtitle">PhD Candidate in Astrophysics @ IAC</div>
+    <div class="subtitle">Compact Objects & X-Ray Binaries</div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Soy estudiante de doctorado en el <strong>Instituto de Astrofísica de Canarias (IAC)</strong> en Tenerife, España. 
+            Anteriormente, completé mis estudios en la Universidad Nacional de La Plata.
+        </p>
+        <p>
+            Mi trabajo se centra en la astrofísica de altas energías, analizando los fenómenos físicos extremos 
+            que ocurren alrededor de objetos compactos. Utilizo técnicas de análisis espectral y temporal 
+            en rayos X para entender la acreción en estos sistemas.
+        </p>
+    </section>
+
+    <section id="research">
+        <h2>Research Interests</h2>
+        <p>Mi investigación actual explora la física de acreción en binarias de rayos X de baja masa (LMXBs).</p>
+        <div class="research-tags">
+            <span>High Energy Astrophysics</span>
+            <span>Black Holes</span>
+            <span>Neutron Stars</span>
+            <span>X-ray Timing & Spectroscopy</span>
+            <span>Ultra-compact Binaries</span>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <p>Puedes encontrar mi lista completa de publicaciones actualizada en los siguientes repositorios:</p>
+        <a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ&hl=es" target="_blank" class="btn">
+            <i class="fab fa-google"></i> Google Scholar
+        </a>
+        <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" class="btn" style="background-color: #D14900;">
+            <i class="fas fa-book"></i> NASA ADS
+        </a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> saavedra [at] iac.es</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong><br>
+        Instituto de Astrofísica de Canarias<br>
+        C/ Vía Láctea, s/n<br>
+        38205 - San Cristóbal de La Laguna<br>
+        Tenerife, Spain</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Enzo A. Saavedra. Built with GitHub Pages.</p>
+</footer>
+
+</body>
+</html>
