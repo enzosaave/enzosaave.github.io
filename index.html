@@ -8,17 +8,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --primary-dark: #0B1021; /* Deep Space Blue */
-            --accent-gold: #D4AF37;   /* Star Gold */
-            --text-light: #F0F2F5;
+            --accent-gold: #D4AF37;   /* Gold for accents */
             --text-dark: #333;
-            --section-bg: #ffffff;
             --secondary-bg: #f8f9fa;
         }
         
@@ -40,59 +38,72 @@
             color: var(--primary-dark);
         }
 
-        /* --- HERO SECTION WITH PARALLAX --- */
+        /* --- HERO SECTION --- */
         .hero {
-            /* Background image of Roque de los Muchachos / GTC area */
-            background-image: linear-gradient(rgba(11, 16, 33, 0.6), rgba(11, 16, 33, 0.8)), 
-                              url('https://upload.wikimedia.org/wikipedia/commons/e/e6/Gran_Telescopio_Canarias_inside.jpg');
-            height: 100vh;
-            background-attachment: fixed;
+            /* Aquí busca tu foto llamada background.jpg */
+            background-image: linear-gradient(rgba(11, 16, 33, 0.7), rgba(11, 16, 33, 0.8)), 
+                              url('background.jpg');
+            height: 100vh; /* Full screen height */
+            background-attachment: fixed; /* Parallax effect */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 0 20px;
+            position: relative;
         }
 
         .hero-content {
             max-width: 800px;
-            animation: fadeIn 2s ease-in;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-size: 3.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: white;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            letter-spacing: -1px;
+            margin: 1rem 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero-content .subtitle {
-            font-size: 1.5rem;
+        .hero .subtitle {
+            font-size: 1.4rem;
             font-weight: 300;
-            margin-bottom: 2rem;
             color: var(--accent-gold);
+            margin-bottom: 2rem;
         }
 
         .profile-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--accent-gold);
+            border: 3px solid var(--accent-gold);
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.8;
         }
 
         /* --- NAVIGATION --- */
         nav {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -103,89 +114,67 @@
         nav a {
             text-decoration: none;
             color: var(--primary-dark);
-            font-weight: 600;
+            font-weight: 500;
             margin: 0 15px;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            font-size: 0.85rem;
             letter-spacing: 1px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
             color: var(--accent-gold);
         }
 
-        /* --- MAIN CONTAINER --- */
+        /* --- MAIN LAYOUT --- */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 1.5rem;
+            padding: 0 1.5rem;
         }
 
+        /* Sections Config */
         section {
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
             background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 3rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            /* This creates space above the section when clicking menu links so the nav bar doesn't cover the title */
+            scroll-margin-top: 80px; 
         }
 
         section h2 {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--accent-gold);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-gold);
             display: inline-block;
             padding-bottom: 0.5rem;
         }
 
-        /* --- ABOUT & BIO --- */
-        .bio-text {
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-
-        .highlight-box {
-            background: rgba(11, 16, 33, 0.03);
-            border-left: 4px solid var(--primary-dark);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-        }
-
-        /* --- PUBLICATIONS LIST --- */
-        .pub-category {
-            margin-top: 3rem;
-        }
-        
-        .pub-category h3 {
-            font-size: 1.4rem;
-            color: #444;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        ul.pub-list {
-            list-style-type: none;
+        /* --- PUBLICATIONS STYLES --- */
+        .pub-list {
+            list-style: none;
             padding: 0;
         }
 
-        ul.pub-list li {
-            margin-bottom: 1.2rem;
+        .pub-list li {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #444;
             padding-left: 1.5rem;
             position: relative;
-            font-size: 0.95rem;
         }
 
-        ul.pub-list li::before {
+        .pub-list li::before {
             content: "•";
             color: var(--accent-gold);
-            font-weight: bold;
             position: absolute;
             left: 0;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
         }
 
-        /* Highlight the author name automatically if wrapped in <b> */
         .pub-list b {
             color: var(--primary-dark);
             font-weight: 700;
@@ -193,60 +182,65 @@
 
         .journal-name {
             font-style: italic;
-            color: #555;
+            color: #666;
         }
 
         .status-tag {
-            background-color: #e3f2fd;
-            color: #0d47a1;
-            padding: 2px 6px;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-left: 5px;
+            margin-left: 8px;
         }
 
-        /* --- GRID FOR CONFERENCES --- */
+        /* --- CONFERENCE GRID --- */
         .conf-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1rem;
         }
 
         .conf-item {
-            background: #f9f9f9;
-            padding: 1rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border-left: 3px solid #ddd;
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-left: 3px solid var(--primary-dark);
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+        
+        .conf-item:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* --- FOOTER --- */
-        footer {
-            background: var(--primary-dark);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
+        /* --- CONTACT --- */
+        .contact-btn {
+            display: inline-block;
             margin: 0 10px;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
             transition: color 0.3s;
         }
+        .contact-btn:hover { color: var(--accent-gold); }
 
-        .social-links a:hover {
-            color: var(--accent-gold);
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero { padding-top: 4rem; }
-            nav a { display: block; margin: 10px 0; }
+            .hero h1 { font-size: 2rem; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; }
+            nav a { margin: 5px 10px; }
+            section { padding: 1.5rem; }
         }
 
         /* Animations */
@@ -254,19 +248,29 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
     </style>
 </head>
 <body>
 
 <header class="hero">
     <div class="hero-content">
-        <img src="profile.jpg" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/180?text=ES'">
+        <img src="profile.jpg" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/180?text=Foto'">
+        
         <h1>Enzo A. Saavedra</h1>
         <div class="subtitle">PhD Candidate in Astrophysics | IAC</div>
         
-        <div style="margin-top: 2rem;">
-            <a href="#contact" style="background: var(--accent-gold); color: #000; padding: 10px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Get in Touch</a>
+        <div style="margin-top: 1.5rem;">
+            <a href="#contact" style="border: 2px solid var(--accent-gold); color: white; padding: 10px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;">CONTACT ME</a>
         </div>
+    </div>
+    
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
     </div>
 </header>
 
@@ -282,162 +286,110 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <div class="bio-text">
-            <p>
-                My journey in astrophysics began in Argentina with the <strong>GARX group</strong> led by Jorge Combi, where I studied high-mass X-ray binaries. This experience ignited my fascination with compact objects and their enigmatic behaviour. Now based in Tenerife, Spain, I am pursuing my doctorate at the <strong>Instituto de Astrofísica de Canarias (IAC)</strong> under the supervision of Montserrat Armas Padilla and Teo Muñoz Darias.
-            </p>
-            <br>
-            <p>
-                My research employs a distinctive multi-wavelength approach—combining X-ray, optical, and infrared observations—to reveal the hidden physics of <strong>low-mass X-ray binaries (LMXBs)</strong>. I specifically investigate accretion phenomena in low-luminosity states, including <strong>ultracompact X-ray binaries</strong>, a subtype characterised by orbital periods shorter than 80 minutes composed of a neutron star and a degenerate companion.
-            </p>
-        </div>
+        <p>
+            My journey in astrophysics began in Argentina with the <strong>GARX group</strong>, where I studied high-mass X-ray binaries. This experience ignited my fascination with compact objects and their enigmatic behaviour. 
+        </p>
+        <p>
+            Now based in Tenerife, Spain, I am pursuing my doctorate at the <strong>Instituto de Astrofísica de Canarias (IAC)</strong> under the supervision of Montserrat Armas Padilla and Teo Muñoz Darias. My focus lies on understanding accretion physics in the most extreme environments in the universe.
+        </p>
+    </section>
+
+    <section id="research">
+        <h2>Research Interests</h2>
+        <p>
+            My research employs a distinctive <strong>multi-wavelength approach</strong>—combining X-ray, optical, and infrared observations—to reveal the hidden physics of low-mass X-ray binaries (LMXBs). 
+        </p>
+        <p>
+            I specifically investigate accretion phenomena in low-luminosity states, with a special interest in <strong>ultracompact X-ray binaries</strong>. These rare systems, composed of a neutron star and a degenerate companion, exhibit orbital periods shorter than 80 minutes, offering a unique laboratory for testing accretion theory.
+        </p>
     </section>
 
     <section id="publications">
         <h2>Publications</h2>
-        <p><em>Note: <b>Bold names</b> denote my authorship.</em></p>
+        <p style="margin-bottom: 2rem;"><em>Selected refereed journal articles. (<b>Bold</b> denotes authorship).</em></p>
 
-        <div class="pub-category">
-            <h3><i class="fas fa-book-open"></i> Refereed Journal Articles</h3>
-            <ul class="pub-list">
-                <li>
-                    The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132. 
-                    <b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, et al. 
-                    <span class="journal-name">Astronomy & Astrophysics, 702, A103</span>, 2025.
-                </li>
-                <li>
-                    GX 340+0: In and Out of Focus. 
-                    S. Li, R. M. Ludlam, ..., <b>E. A. Saavedra</b>, A. Di Marco. 
-                    <span class="journal-name">Accepted in The Astrophysical Journal</span> <span class="status-tag">Accepted</span>
-                </li>
-                <li>
-                    The hard ultraluminous state of NGC 5055 ULX X-1. 
-                    Nelson Cruz-Sanchez, <b>Enzo A. Saavedra</b>, Federico A. Fogantini, et al. 
-                    <span class="journal-name">Accepted in Astronomy & Astrophysics</span>, 2025. <span class="status-tag">Accepted</span>
-                </li>
-                <li>
-                    A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052. 
-                    Nelson Cruz-Sanchez, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, et al. 
-                    <span class="journal-name">Astronomy & Astrophysics, 693, A122</span>, 2025.
-                </li>
-                
-                <li>
-                    Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1. 
-                    Jorge A. Combi, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, et al. 
-                    <span class="journal-name">Astronomy & Astrophysics, 686, A121</span>, 2024.
-                </li>
-
-                <li>
-                    NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119. A Gamma-ray emitting microquasar? 
-                    <b>Enzo A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, et al. 
-                    <span class="journal-name">Astronomy & Astrophysics, 680, A88</span>, 2023.
-                </li>
-                <li>
-                    Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303. 
-                    <b>Enzo A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala. 
-                    <span class="journal-name">MNRAS, 525, 2</span>, 2023.
-                </li>
-                <li>
-                    Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1. 
-                    <b>Enzo A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, et al. 
-                    <span class="journal-name">MNRAS, 522, 3, 3367-3377</span>, 2023.
-                </li>
-
-                <li>
-                    A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line. 
-                    <b>Enzo A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, et al. 
-                    <span class="journal-name">Astronomy & Astrophysics, 659, A48</span>, 2022.
-                </li>
-            </ul>
-        </div>
-
-        <div class="pub-category">
-            <h3><i class="fas fa-file-alt"></i> Proceedings Articles</h3>
-            <ul class="pub-list">
-                <li>
-                    An X-ray study of the binary system IGR J17503-2636. 
-                    West Ocampo L., Fogantini F. A., Combi J. A., <b>Saavedra E. A.</b>, García, F. 
-                    <span class="journal-name">BAAA, Vol. 66, p. 381-384</span>.
-                </li>
-                <li>
-                    First polarization measurements with the new digital receiver of the E. Bajaja radio telescope at the IAR. 
-                    Guillermo Gancio, ..., <b>Enzo A. Saavedra</b>, Jorge A. Combi. 
-                    <span class="journal-name">RevMexAA, Vol. 56, pp. 131-133</span>, 2024.
-                </li>
-                <li>
-                    Hard X-ray view of the γ-ray binary LS I +61°303. 
-                    <b>Enzo A. Saavedra</b>, Gustavo E. Romero. 
-                    <span class="journal-name">BAAA, Vol. 64, p. 280-282</span>.
-                </li>
-                <li>
-                    Ion tori around f(R)-Kerr black holes. 
-                    <b>Enzo A. Saavedra</b>, Florencia L. Vieyro, Daniela Peréz. 
-                    <span class="journal-name">BAAA, Vol. 64, p. 271-273</span>.
-                </li>
-                <li>
-                    X-ray spectral analysis of the microquasar 1E 1740.7-2942. 
-                    <b>Enzo A. Saavedra</b>, et al. 
-                    <span class="journal-name">BAAA, vol. 63, p.274-276</span>, 2022.
-                </li>
-                <li>
-                    Análisis espectro/temporal en rayos X de la binaria XTE J1739-285 observada por NuSTAR. 
-                    <b>Enzo A. Saavedra</b>, et al. 
-                    <span class="journal-name">BAAA, vol. 62, p.277-279</span>, 2021.
-                </li>
-            </ul>
-        </div>
-
-        <div class="pub-category">
-            <h3><i class="fas fa-chalkboard-teacher"></i> Selected Talks & Posters</h3>
-            <p>Presented at various international meetings including the <em>European Vasto Accretion Meeting</em>, <em>Heidelberg International Symposium</em>, and <em>AAA Annual Meetings</em>.</p>
-            <ul class="pub-list">
-                <li><strong>Talk:</strong> Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1 (65° BAAA).</li>
-                <li><strong>Talk:</strong> Ion tori around f(R)-Kerr black holes (64° BAAA).</li>
-                <li><strong>Poster:</strong> The hunting of the Ultracompact X-ray Binaries (Vasto Accretion Meeting).</li>
-                <li><strong>Poster:</strong> LS I +61°303 in high-energy X-rays (64° BAAA).</li>
-                <li><strong>Poster:</strong> A NuSTAR view of SS433 (7th Heidelberg Symposium).</li>
-                <li><strong>Poster:</strong> NuSTAR and NICER observations of 4U 0114+65 (7th Heidelberg Symposium).</li>
-            </ul>
+        <ul class="pub-list">
+            <li>
+                The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132. 
+                <b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, et al. 
+                <span class="journal-name">Astronomy & Astrophysics, 702, A103</span>, 2025.
+            </li>
+            <li>
+                GX 340+0: In and Out of Focus. 
+                S. Li, R. M. Ludlam, ..., <b>E. A. Saavedra</b>, et al. 
+                <span class="journal-name">Accepted in The Astrophysical Journal</span> <span class="status-tag">Accepted</span>
+            </li>
+            <li>
+                The hard ultraluminous state of NGC 5055 ULX X-1. 
+                Nelson Cruz-Sanchez, <b>Enzo A. Saavedra</b>, et al. 
+                <span class="journal-name">Accepted in Astronomy & Astrophysics</span>, 2025. <span class="status-tag">Accepted</span>
+            </li>
+            
+            <li>
+                Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1. 
+                Jorge A. Combi, ..., <b>Enzo A. Saavedra</b>, et al. 
+                <span class="journal-name">Astronomy & Astrophysics, 686, A121</span>, 2024.
+            </li>
+            <li>
+                Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303. 
+                <b>Enzo A. Saavedra</b>, Gustavo E. Romero, et al. 
+                <span class="journal-name">MNRAS, 525, 2</span>, 2023.
+            </li>
+            <li>
+                Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1. 
+                <b>Enzo A. Saavedra</b>, Federico Garcia, et al. 
+                <span class="journal-name">MNRAS, 522, 3</span>, 2023.
+            </li>
+            <li>
+                A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line. 
+                <b>Enzo A. Saavedra</b>, et al. 
+                <span class="journal-name">Astronomy & Astrophysics, 659, A48</span>, 2022.
+            </li>
+        </ul>
+        
+        <div style="margin-top: 2rem;">
+            <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" style="color: #1565c0; font-weight: bold; text-decoration: none;">
+                <i class="fas fa-external-link-alt"></i> See full list on NASA ADS
+            </a>
         </div>
     </section>
 
     <section id="conferences">
-        <h2>Congresses & Schools Attended</h2>
+        <h2>Congresses & Schools</h2>
         <div class="conf-grid">
-            <div class="conf-item">3rd XRISM Community Workshop (2025)</div>
-            <div class="conf-item">Joint NICER/IXPE Workshop (2024)</div>
-            <div class="conf-item">65° Reunión Anual AAA (UNSJ, 2023)</div>
-            <div class="conf-item">64° Reunión Anual AAA (UBA, 2022)</div>
-            <div class="conf-item">1° Escuela Latinoamericana de GAIA (Colombia, 2022)</div>
-            <div class="conf-item">XI Reunión anual Friends of Friends (OAC, 2022)</div>
-            <div class="conf-item">63° Reunión Anual AAA (UNC, 2021)</div>
-            <div class="conf-item">IX LAPIS: S PLUS (UNLP, 2020)</div>
-            <div class="conf-item">II Encuentro Mecánica Geométrica (UNLP, 2019)</div>
+            <div class="conf-item"><strong>2025</strong> 3rd XRISM Community Workshop</div>
+            <div class="conf-item"><strong>2024</strong> Joint NICER/IXPE Workshop</div>
+            <div class="conf-item"><strong>2023</strong> 65° Reunión Anual AAA (San Juan, Arg)</div>
+            <div class="conf-item"><strong>2022</strong> 1° Escuela Latinoamericana GAIA (Colombia)</div>
+            <div class="conf-item"><strong>2022</strong> 7th Heidelberg Symposium (Barcelona)</div>
+            <div class="conf-item"><strong>2022</strong> XI Friends of Friends (Córdoba, Arg)</div>
+            <div class="conf-item"><strong>2021</strong> 63° Reunión Anual AAA</div>
+            <div class="conf-item"><strong>2019</strong> II Encuentro Mecánica Geométrica</div>
         </div>
     </section>
 
     <section id="contact" style="text-align: center;">
-        <h2>Contact</h2>
-        <p>I am always open to discussing new collaborations and scientific ideas.</p>
-        <br>
-        <p style="font-size: 1.2rem;">
-            <i class="fas fa-envelope"></i> <strong>saavedra [at] iac.es</strong>
+        <h2>Get In Touch</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+            I am available for collaborations and scientific discussions.
         </p>
-        <p>
-            <i class="fas fa-map-marker-alt"></i> Instituto de Astrofísica de Canarias<br>
-            San Cristóbal de La Laguna, Tenerife, Spain.
-        </p>
-        <div class="social-links" style="margin-top: 2rem;">
-             <a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank"><i class="fas fa-book"></i></a>
-             <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        
+        <div style="margin-bottom: 2rem;">
+            <p><i class="fas fa-envelope"></i> <strong>saavedra [at] iac.es</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> IAC, Tenerife, Spain</p>
+        </div>
+
+        <div>
+            <a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" class="contact-btn" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" class="contact-btn" title="NASA ADS"><i class="fas fa-book"></i></a>
+            <a href="#" class="contact-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
     </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2025 Enzo A. Saavedra. Astrophysics PhD Candidate.</p>
+    <p>&copy; 2025 Enzo A. Saavedra. Built for Science.</p>
 </footer>
 
 </body>
