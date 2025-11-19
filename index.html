@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            /* PALETA: SOLAR FADE */
+            /* PALETA: SOLAR GLIMMER */
             --bg-main: #ffffff; /* Fondo blanco sólido para el body */
             --bg-card: #ffffff;
             --text-main: #1f2937;
@@ -81,8 +81,8 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            /* IMAGEN DE FONDO EN EL HERO CON ALPHA Y SCROLL */
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0.25)), 
+            /* IMAGEN DE FONDO EN EL HERO CON MENOS ALPHA Y SCROLL */
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
                               url('background.png'); 
             background-size: cover;
             background-position: center;
@@ -106,14 +106,16 @@
             background: -webkit-linear-gradient(45deg, #1f2937, #ea580c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Sombra para el nombre */
         }
 
         .hero .subtitle {
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: #374151; /* Color un poco más oscuro para contraste */
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8); /* Sombra para el subtítulo */
         }
         .hero .subtitle span { color: var(--accent); font-weight: 700; }
 
@@ -323,7 +325,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">Accepted in Astronomy & Astrophysics</span>
                     <span class="pub-title">The hard ultraluminous state of NGC 5055 ULX X-1</span>
-                    <span class="pub-authors">Nelson Cruz-Sanchez, <b>Enzo A. Saavedra</b>, Federico A. Fogantini, Federico García, Jorge A. Combi.</span>
+                    <span class="pub-authors">Nelson Cruz-Sanchez, <b>E. A. Saavedra</b>, Federico A. Fogantini, Federico García, Jorge A. Combi.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -333,7 +335,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">Astronomy & Astrophysics, 693, A122</span>
                     <span class="pub-title">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</span>
-                    <span class="pub-authors">Nelson Cruz-Sanchez, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Leandro Abaroa, Federico García, Jorge A. Combi, Gustavo E. Romero.</span>
+                    <span class="pub-authors">Nelson Cruz-Sanchez, Federico A. Fogantini, <b>E. A. Saavedra</b>, Leandro Abaroa, Federico García, Jorge A. Combi, Gustavo E. Romero.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -343,7 +345,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">Astronomy & Astrophysics, 686, A121</span>
                     <span class="pub-title">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</span>
-                    <span class="pub-authors">Jorge A. Combi, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Gustavo E. Romero, Leandro Abaroa, Federico García, Pedro Luque Escamilla, Josep Martí, Nelson Cruz-Sanchez.</span>
+                    <span class="pub-authors">Jorge A. Combi, Federico A. Fogantini, <b>E. A. Saavedra</b>, Gustavo E. Romero, Leandro Abaroa, Federico García, Pedro Luque Escamilla, Josep Martí, Nelson Cruz-Sanchez.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -353,7 +355,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">Astronomy & Astrophysics, 680, A88</span>
                     <span class="pub-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</span>
-                    <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, Gustavo E. Romero, Jorge A. Combi, Estefania Marcel.</span>
+                    <span class="pub-authors"><b>E. A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, Gustavo E. Romero, Jorge A. Combi, Estefania Marcel.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -363,7 +365,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">MNRAS, Vol 525, 2</span>
                     <span class="pub-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span>
-                    <span class="pub-authors"><b>Enzo A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala.</span>
+                    <span class="pub-authors"><b>E. A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -373,7 +375,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">MNRAS, Vol 522, 3</span>
                     <span class="pub-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span>
-                    <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, Mariano Mendez, Jorge A. Combi, Josep Martí, Pedro Luque Escamilla.</span>
+                    <span class="pub-authors"><b>E. A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, Mariano Mendez, Jorge A. Combi, Josep Martí, Pedro Luque Escamilla.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -383,7 +385,7 @@
                 <div class="pub-content">
                     <span class="pub-journal">Astronomy & Astrophysics, 659, A48</span>
                     <span class="pub-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span>
-                    <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Sylvain Chaty.</span>
+                    <span class="pub-authors"><b>E. A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Sylvain Chaty.</span>
                     <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
@@ -520,4 +522,3 @@
 
 </body>
 </html>
-```http://googleusercontent.com/image_generation_content/0
