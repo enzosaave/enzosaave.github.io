@@ -13,15 +13,17 @@
 
     <style>
         :root {
-            /* PALETA: SOLAR GLIMMER */
-            --bg-main: #f9fafb;
+            /* PALETA: Inspirada en la imagen de portada y tus colores */
+            --bg-main: #eef2f6; /* Un gris azulado muy claro */
             --bg-card: #ffffff;
             --text-main: #1f2937;
             --text-muted: #6b7280;
             
-            /* Naranja Solar */
-            --accent: #ea580c;        
-            --accent-bg: #fff7ed;
+            /* Colores de acento combinados: Azul frío y Naranja cálido */
+            --accent-blue: #2563eb; /* Un azul vibrante */
+            --accent-orange: #ea580c; /* Naranja original */
+            --accent-bg-blue: #eff6ff; /* Fondo muy claro para el azul */
+            --accent-bg-orange: #fff7ed; /* Fondo muy claro para el naranja */
             
             --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
             --radius: 16px;
@@ -34,10 +36,9 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            /* Fondo con patrón de puntos sutil */
-            background-color: var(--bg-main);
-            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
+            /* Nuevo fondo: Gradiente lineal suave */
+            background: linear-gradient(135deg, var(--bg-main) 0%, #ffffff 100%);
+            min-height: 100vh; /* Asegura que el gradiente cubra toda la altura */
         }
 
         h1, h2, h3, h4 {
@@ -73,7 +74,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        nav a:hover { color: var(--accent); background: var(--accent-bg); }
+        /* Color de acento para la navegación ahora usa el azul */
+        nav a:hover { color: var(--accent-blue); background: var(--accent-bg-blue); }
 
         /* --- HERO --- */
         .hero {
@@ -84,7 +86,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            /* Gradiente original ajustado para el fondo de puntos */
+            /* La imagen de fondo se mantiene sin cambios */
             background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.4), var(--bg-main)), 
                               url('background.png'); 
             background-size: cover;
@@ -99,21 +101,21 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.25);
+            /* Sombra con color de acento azul */
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25); 
             margin-bottom: 1.5rem;
         }
 
-        /* --- ESTILO DEL NOMBRE --- */
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 0.2rem;
-            background: -webkit-linear-gradient(45deg, #1f2937, #ea580c);
+            /* Gradiente de texto con azul y naranja */
+            background: -webkit-linear-gradient(45deg, var(--accent-blue), var(--accent-orange));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2); 
         }
 
-        /* --- ESTILO DEL SUBTITULO --- */
         .hero .subtitle {
             font-size: 1.1rem;
             color: #374151;
@@ -122,7 +124,11 @@
             letter-spacing: 2px;
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8); 
         }
-        .hero .subtitle span { color: var(--accent); font-weight: 700; }
+        .hero .subtitle span { 
+            /* El color de acento del subtítulo ahora es el naranja */
+            color: var(--accent-orange); 
+            font-weight: 700; 
+        }
 
         /* --- SECTIONS --- */
         .container { max-width: 950px; margin: 0 auto; padding: 4rem 20px; }
@@ -142,16 +148,19 @@
         }
         .section-title::before {
             content: ''; width: 6px; height: 40px; 
-            background: var(--accent); border-radius: 4px;
+            /* La barra del título usa el azul */
+            background: var(--accent-blue); 
+            border-radius: 4px;
         }
 
         /* --- BIO --- */
         .bio-text { font-size: 1.1rem; text-align: justify; color: #374151; margin-bottom: 2rem; }
         .research-tags { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #e5e7eb; }
         .tag-pill {
-            background: var(--accent-bg); 
+            /* Los tags usan el naranja */
+            background: var(--accent-bg-orange); 
             padding: 8px 16px; border-radius: 50px;
-            font-size: 0.85rem; font-weight: 600; color: var(--accent);
+            font-size: 0.85rem; font-weight: 600; color: var(--accent-orange);
             transition: 0.3s;
         }
         .tag-pill:hover { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -168,8 +177,9 @@
         }
 
         .year-badge {
+            /* El badge del año usa el azul */
             display: inline-block;
-            background: var(--accent);
+            background: var(--accent-blue);
             color: white;
             padding: 4px 16px;
             border-radius: 20px;
@@ -177,7 +187,8 @@
             font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.2);
+            /* Sombra del badge con el color azul */
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
         }
 
         .pub-item {
@@ -202,10 +213,16 @@
             font-size: 0.95rem; color: var(--text-muted); 
             margin-bottom: 10px; display: block; 
         }
-        .pub-authors b { color: var(--text-main); font-weight: 600; border-bottom: 2px solid var(--accent-bg); }
+        .pub-authors b { 
+            color: var(--text-main); font-weight: 600; 
+            /* Subrayado de autores con el fondo azul claro */
+            border-bottom: 2px solid var(--accent-bg-blue); 
+        }
 
         .pub-journal {
-            font-family: 'Space Grotesk'; font-size: 0.8rem; color: var(--accent);
+            font-family: 'Space Grotesk'; font-size: 0.8rem; 
+            /* El journal usa el color azul */
+            color: var(--accent-blue);
             text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;
             display: block; margin-bottom: 4px;
         }
@@ -217,7 +234,8 @@
             background: white; border: 1px solid #e5e7eb;
             padding: 5px 12px; border-radius: 6px; transition: 0.2s;
         }
-        .btn-ads:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        /* Hover del botón ADS usa el azul */
+        .btn-ads:hover { background: var(--accent-blue); color: white; border-color: var(--accent-blue); }
 
         /* --- OBSERVING --- */
         .grid-cards {
@@ -230,11 +248,16 @@
             transition: all 0.3s ease;
         }
         .telescope-item:hover {
-            border-color: var(--accent); transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(234, 88, 12, 0.1);
+            /* Hover del item usa el azul */
+            border-color: var(--accent-blue); transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
         }
         .tele-head { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
-        .tele-head i { color: var(--accent); font-size: 1.2rem; }
+        .tele-head i { 
+            /* Iconos de telescopios usan el azul */
+            color: var(--accent-blue); 
+            font-size: 1.2rem; 
+        }
         .tele-head h3 { font-size: 1.1rem; margin: 0; }
         .tele-data { 
             display: flex; justify-content: space-between; align-items: center;
@@ -245,7 +268,11 @@
             font-size: 0.7rem; font-weight: 700; padding: 2px 8px; 
             border-radius: 4px; background: #f3f4f6; color: var(--text-muted); 
         }
-        .role-badge.pi { background: var(--accent-bg); color: var(--accent); }
+        .role-badge.pi { 
+            /* Badge PI usa el naranja */
+            background: var(--accent-bg-orange); 
+            color: var(--accent-orange); 
+        }
 
         /* --- MISC --- */
         .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -254,21 +281,29 @@
             margin-bottom: 15px; font-size: 0.95rem; color: var(--text-muted);
             display: flex; align-items: baseline; gap: 12px;
         }
-        .list-icon li i { color: var(--accent); font-size: 0.8rem; }
+        .list-icon li i { 
+            /* Iconos de listas usan el azul */
+            color: var(--accent-blue); 
+            font-size: 0.8rem; 
+        }
 
         /* --- CONTACT --- */
         .contact-box { text-align: center; padding: 2rem 0; }
         .email-link {
             font-family: 'Space Grotesk'; font-size: 2rem; font-weight: 700;
-            color: var(--text-main); border-bottom: 3px solid var(--accent-bg);
+            color: var(--text-main); 
+            /* Subrayado de email con fondo azul claro */
+            border-bottom: 3px solid var(--accent-bg-blue);
             transition: 0.3s;
         }
-        .email-link:hover { color: var(--accent); border-color: var(--accent); }
+        /* Hover del email link usa el azul */
+        .email-link:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
         .social-row { margin-top: 2rem; display: flex; justify-content: center; gap: 20px; }
         .social-row a {
             font-size: 1.8rem; color: var(--text-muted); transition: 0.3s;
         }
-        .social-row a:hover { color: var(--accent); transform: translateY(-3px); }
+        /* Hover de iconos sociales usa el azul */
+        .social-row a:hover { color: var(--accent-blue); transform: translateY(-3px); }
 
         footer { 
             text-align: center; padding: 2rem; 
@@ -302,7 +337,7 @@
     <h1>Enzo A. Saavedra</h1>
     <div class="subtitle">PhD Candidate in Astrophysics | <span>IAC</span></div>
     <div style="margin-top: 1.5rem;">
-         <a href="#contact" style="display:inline-block; font-weight:600; padding: 10px 25px; background:var(--accent); color:white; border-radius:30px;">Get in Touch</a>
+         <a href="#contact" style="display:inline-block; font-weight:600; padding: 10px 25px; background:var(--accent-orange); color:white; border-radius:30px;">Get in Touch</a>
     </div>
 </header>
 
@@ -414,7 +449,7 @@
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
-             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" style="font-weight:600; color:var(--accent); border-bottom:1px solid var(--accent);">View All Records on ADS <i class="fas fa-arrow-right"></i></a>
+             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" style="font-weight:600; color:var(--accent-blue); border-bottom:1px solid var(--accent-blue);">View All Records on ADS <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -499,7 +534,7 @@
                     <li><i class="fas fa-microphone-alt"></i> <strong>Talk:</strong> Ion tori around f(R)-Kerr black holes (64° AAA)</li>
                     <li><i class="fas fa-image"></i> <strong>Poster:</strong> The hunting of Ultracompact X-ray Binaries (Vasto Accretion Meeting)</li>
                     <li><i class="fas fa-image"></i> <strong>Poster:</strong> A NuSTAR view of SS433 (Heidelberg)</li>
-                    <li><i class="fas fa-image"></i> <strong>Poster:</strong> NuSTAR/NICER view of 4U 0114+65 (Heidelberg)</li>
+                    <li><i class="fas fa-image"></i> <strong>Poster:</b> NuSTAR/NICER view of 4U 0114+65 (Heidelberg)</li>
                     <li><i class="fas fa-image"></i> <strong>Poster:</strong> LS I +61°303 in high-energy X-rays (64° AAA)</li>
                 </ul>
             </div>
@@ -507,38 +542,3 @@
             <div>
                 <h3 style="margin-bottom: 1.5rem;">Teaching Experience</h3>
                 <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1rem;">Teaching Assistant at UNLP (2022-2023):</p>
-                <ul class="list-icon">
-                    <li><i class="fas fa-check-circle"></i> General Astronomy</li>
-                    <li><i class="fas fa-check-circle"></i> Physics I & II</li>
-                    <li><i class="fas fa-check-circle"></i> Calculus I & II</li>
-                    <li><i class="fas fa-check-circle"></i> Differential Equations</li>
-                    <li><i class="fas fa-check-circle"></i> Admission Course</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-card" style="margin-bottom: 0;">
-        <div class="contact-box">
-            <h2 style="color:var(--text-muted); font-size: 1.5rem;">Get in Touch</h2>
-            <a href="mailto:saavedra@iac.es" class="email-link">saavedra@iac.es</a>
-            
-            <div class="social-row">
-                <a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0003-4841-8302&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank"><i class="fas fa-book"></i></a>
-                <a href="https://x.com/enzosaave" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
-                Instituto de Astrofísica de Canarias (IAC)<br>Tenerife, Spain
-            </p>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    &copy; 2025 Enzo A. Saavedra. Astrophysics Research.
-</footer>
-
-</body>
-</html>
