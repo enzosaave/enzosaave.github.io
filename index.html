@@ -14,7 +14,7 @@
     <style>
         :root {
             /* PALETA: SOLAR GLIMMER */
-            --bg-main: #f9fafb; /* Un gris casi blanco para soporte del patrón */
+            --bg-main: #f9fafb;
             --bg-card: #ffffff;
             --text-main: #1f2937;
             --text-muted: #6b7280;
@@ -34,7 +34,7 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            /* MEJORA DEL FONDO: Patrón de puntos sutil para dar textura */
+            /* Fondo con patrón de puntos sutil */
             background-color: var(--bg-main);
             background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
             background-size: 24px 24px;
@@ -84,8 +84,8 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            /* Gradiente sobre la imagen para integrarla mejor con el nuevo fondo */
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.1), var(--bg-main)), 
+            /* Gradiente original ajustado para el fondo de puntos */
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.4), var(--bg-main)), 
                               url('background.png'); 
             background-size: cover;
             background-position: center;
@@ -103,25 +103,24 @@
             margin-bottom: 1.5rem;
         }
 
+        /* --- ESTILO DEL NOMBRE --- */
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 0.2rem;
             background: -webkit-linear-gradient(45deg, #1f2937, #ea580c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2); 
         }
 
+        /* --- ESTILO DEL SUBTITULO --- */
         .hero .subtitle {
             font-size: 1.1rem;
             color: #374151;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 2px;
-            background: rgba(255,255,255,0.6); /* Legibilidad extra */
-            padding: 5px 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8); 
         }
         .hero .subtitle span { color: var(--accent); font-weight: 700; }
 
@@ -134,7 +133,7 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow-card);
             margin-bottom: 3rem;
-            border: 1px solid rgba(255,255,255,0.5); /* Borde sutil */
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
         .section-title {
@@ -157,19 +156,17 @@
         }
         .tag-pill:hover { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-        /* --- PUBLICATIONS (NUEVO ESTILO BLOQUES) --- */
+        /* --- PUBLICATIONS (BLOQUES POR AÑO) --- */
         .pub-list { display: flex; flex-direction: column; gap: 2rem; }
         
-        /* El contenedor visual para cada año */
         .year-group {
-            background: #fafafa; /* Fondo gris muy claro dentro de la tarjeta */
+            background: #fafafa;
             border: 1px solid #f3f4f6;
             border-radius: 12px;
             padding: 2rem;
             position: relative;
         }
 
-        /* La etiqueta del año flotante o destacada */
         .year-badge {
             display: inline-block;
             background: var(--accent);
@@ -190,7 +187,6 @@
             margin-bottom: 1.5rem;
             border-bottom: 1px dashed #e5e7eb;
         }
-        /* Quitar borde y margen al último item de cada grupo */
         .pub-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
@@ -276,7 +272,6 @@
 
         footer { 
             text-align: center; padding: 2rem; 
-            /* Fondo transparente para que se vea el patrón también abajo */
             background-color: transparent; 
             color: var(--text-muted); font-size: 0.85rem; 
         }
@@ -344,28 +339,28 @@
                     <span class="pub-journal">Accepted in Astronomy & Astrophysics</span>
                     <span class="pub-title">The hard ultraluminous state of NGC 5055 ULX X-1</span>
                     <span class="pub-authors">Nelson Cruz-Sanchez, <b>E. A. Saavedra</b>, Federico A. Fogantini, Federico García, Jorge A. Combi.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251113686C/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
 
                 <div class="pub-item">
                     <span class="pub-journal">Accepted in The Astrophysical Journal</span>
                     <span class="pub-title">GX 340+0: In and Out of Focus</span>
                     <span class="pub-authors">S. Li, R. M. Ludlam, D. J. K. Buisson, M. Sudha, S. Rossland, G. Mastroserio, M. C. Brumback, J. A. García, B. W. Grefenstette, F. La Monaca, <b>E. A. Saavedra</b>, A. Di Marco.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250320050L/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>            
                 
                 <div class="pub-item">
                     <span class="pub-journal">Astronomy & Astrophysics, 702, A103</span>
                     <span class="pub-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
 
                  <div class="pub-item">
                     <span class="pub-journal">Astronomy & Astrophysics, 693, A122</span>
                     <span class="pub-title">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</span>
                     <span class="pub-authors">Nelson Cruz-Sanchez, Federico A. Fogantini, <b>E. A. Saavedra</b>, Leandro Abaroa, Federico García, Jorge A. Combi, Gustavo E. Romero.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.122C/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -376,7 +371,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 686, A121</span>
                     <span class="pub-title">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</span>
                     <span class="pub-authors">Jorge A. Combi, Federico A. Fogantini, <b>E. A. Saavedra</b>, Gustavo E. Romero, Leandro Abaroa, Federico García, Pedro Luque Escamilla, Josep Martí, Nelson Cruz-Sanchez.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A.121C/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -387,21 +382,21 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 680, A88</span>
                     <span class="pub-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, Gustavo E. Romero, Jorge A. Combi, Estefania Marcel.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
 
                 <div class="pub-item">
                     <span class="pub-journal">MNRAS, Vol 525, 2</span>
                     <span class="pub-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
 
                 <div class="pub-item">
                     <span class="pub-journal">MNRAS, Vol 522, 3</span>
                     <span class="pub-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, Mariano Mendez, Jorge A. Combi, Josep Martí, Pedro Luque Escamilla.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -412,7 +407,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 659, A48</span>
                     <span class="pub-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Sylvain Chaty.</span>
-                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
