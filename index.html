@@ -22,11 +22,11 @@
             --text-muted: #64748b; /* Un gris con un toque azulado */
             
             /* ACENTOS */
-            /* Naranja Pastel (pero marcado): Nuevo color de acento principal */
-            --accent-orange-pastel: #fca5a5; /* Un tono salmón suave pero visible */
-            --accent-bg-orange-pastel: #fff0f0; /* Fondo muy tenue para el naranja pastel */
+            /* Naranja Principal (pastel pero marcado): Un naranja más claro y cálido */
+            --accent-orange-main: #FF966F; /* ¡Nuevo naranja! Más vivo y definitivamente naranja. */
+            --accent-bg-orange-light: #fff8f5; /* Fondo muy tenue para el naranja principal */
             
-            /* Naranja Oscuro (para contraste cuando sea necesario, como el botón de contacto) */
+            /* Naranja Oscuro (para contraste cuando sea necesario) */
             --accent-orange-dark: #ea580c; 
             
             --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
@@ -79,8 +79,8 @@
             letter-spacing: 0.5px;
         }
         nav a:hover { 
-            color: var(--accent-orange-pastel); 
-            background: var(--accent-bg-orange-pastel); 
+            color: var(--accent-orange-main); 
+            background: var(--accent-bg-orange-light); 
         }
 
         /* --- HERO --- */
@@ -107,8 +107,8 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid white;
-            /* Sombra suave usando el naranja pastel */
-            box-shadow: 0 10px 25px rgba(252, 165, 165, 0.2); 
+            /* Sombra suave usando el naranja principal */
+            box-shadow: 0 10px 25px rgba(255, 150, 111, 0.2); 
             margin-bottom: 1.5rem;
         }
 
@@ -131,7 +131,7 @@
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8); 
         }
         .hero .subtitle span { 
-            color: var(--accent-orange-pastel); 
+            color: var(--accent-orange-main); 
             font-weight: 700; 
         }
 
@@ -154,7 +154,7 @@
         }
         .section-title::before {
             content: ''; width: 6px; height: 40px; 
-            background: var(--accent-orange-pastel); 
+            background: var(--accent-orange-main); 
             border-radius: 4px;
         }
 
@@ -164,17 +164,17 @@
         .research-tags { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #e5e7eb; }
         
         .tag-pill {
-            background: var(--accent-bg-orange-pastel); 
+            background: var(--accent-bg-orange-light); 
             padding: 8px 18px; border-radius: 50px;
             font-size: 0.85rem; font-weight: 600; 
-            color: var(--accent-orange-pastel); /* Color del texto del tag es el naranja pastel */
+            color: var(--accent-orange-main); /* Color del texto del tag es el naranja principal */
             transition: 0.3s;
             border: 1px solid transparent;
         }
         .tag-pill:hover { 
             background: white; 
-            border-color: var(--accent-orange-pastel);
-            box-shadow: 0 4px 12px rgba(252, 165, 165, 0.2); 
+            border-color: var(--accent-orange-main);
+            box-shadow: 0 4px 12px rgba(255, 150, 111, 0.2); 
         }
 
         /* --- PUBLICATIONS (BLOQUES) --- */
@@ -190,15 +190,15 @@
 
         .year-badge {
             display: inline-block;
-            background: var(--accent-orange-pastel);
-            color: white; /* Texto en blanco para contraste con el naranja pastel */
+            background: var(--accent-orange-main);
+            color: white; /* Texto en blanco para contraste con el naranja */
             padding: 5px 18px;
             border-radius: 20px;
             font-family: 'Space Grotesk';
             font-weight: 700;
             font-size: 0.95rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 10px rgba(252, 165, 165, 0.25);
+            box-shadow: 0 4px 10px rgba(255, 150, 111, 0.25);
         }
 
         .pub-item {
@@ -225,7 +225,7 @@
         }
         .pub-authors b { 
             color: var(--text-main); font-weight: 600; 
-            border-bottom: 2px solid var(--accent-bg-orange-pastel); 
+            border-bottom: 2px solid var(--accent-bg-orange-light); 
         }
 
         .pub-journal {
@@ -243,9 +243,9 @@
             padding: 6px 14px; border-radius: 8px; transition: 0.2s;
         }
         .btn-ads:hover { 
-            background: var(--accent-orange-pastel); 
+            background: var(--accent-orange-main); 
             color: white; 
-            border-color: var(--accent-orange-pastel); 
+            border-color: var(--accent-orange-main); 
         }
 
         /* --- OBSERVING --- */
@@ -259,13 +259,13 @@
             transition: all 0.3s ease;
         }
         .telescope-item:hover {
-            border-color: var(--accent-orange-pastel); 
+            border-color: var(--accent-orange-main); 
             transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(252, 165, 165, 0.2);
+            box-shadow: 0 12px 25px rgba(255, 150, 111, 0.2);
         }
         .tele-head { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
         .tele-head i { 
-            color: var(--accent-orange-pastel); 
+            color: var(--accent-orange-main); 
             font-size: 1.2rem; 
         }
         .tele-head h3 { font-size: 1.1rem; margin: 0; }
@@ -280,8 +280,8 @@
             border-radius: 6px; background: #f1f5f9; color: var(--text-muted); 
         }
         .role-badge.pi { 
-            background: var(--accent-bg-orange-pastel); 
-            color: var(--accent-orange-pastel); 
+            background: var(--accent-bg-orange-light); 
+            color: var(--accent-orange-main); 
         }
 
         /* --- MISC --- */
@@ -292,7 +292,7 @@
             display: flex; align-items: baseline; gap: 12px;
         }
         .list-icon li i { 
-            color: var(--accent-orange-pastel); 
+            color: var(--accent-orange-main); 
             font-size: 0.9rem; 
         }
 
@@ -301,7 +301,7 @@
         .email-link {
             font-family: 'Space Grotesk'; font-size: 2rem; font-weight: 700;
             color: var(--text-main); 
-            border-bottom: 3px solid var(--accent-bg-orange-pastel);
+            border-bottom: 3px solid var(--accent-bg-orange-light);
             transition: 0.3s;
         }
         .email-link:hover { 
@@ -462,7 +462,7 @@
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
-             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" style="font-weight:600; color:var(--accent-orange-pastel); border-bottom:1px solid var(--accent-orange-pastel);">View All Records on ADS <i class="fas fa-arrow-right"></i></a>
+             <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22" target="_blank" style="font-weight:600; color:var(--accent-orange-main); border-bottom:1px solid var(--accent-orange-main);">View All Records on ADS <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -540,12 +540,3 @@
 
     <section id="conferences" class="section-card">
         <div class="split-layout">
-            <div>
-                <h3 style="margin-bottom: 1.5rem;">Selected Conferences</h3>
-                <ul class="list-icon">
-                    <li><i class="fas fa-microphone-alt"></i> <strong>Talk:</strong> Relativistic X-Ray Reflection in GX 13+1 (65° AAA)</li>
-                    <li><i class="fas fa-microphone-alt"></i> <strong>Talk:</strong> Ion tori around f(R)-Kerr black holes (64° AAA)</li>
-                    <li><i class="fas fa-image"></i> <strong>Poster:</strong> The hunting of Ultracompact X-ray Binaries (Vasto Accretion Meeting)</li>
-                    <li><i class="fas fa-image"></i> <strong>Poster:</strong> A NuSTAR view of SS433 (Heidelberg)</li>
-                    <li><i class="fas fa-image"></i> <strong>Poster:</strong> NuSTAR/NICER view of 4U 0114+65 (Heidelberg)</li>
-                    <li><i class="fas fa-image"></i> <strong>
