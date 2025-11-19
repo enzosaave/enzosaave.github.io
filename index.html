@@ -13,7 +13,8 @@
 
     <style>
         :root {
-            /* PALETA: SOLAR GLASS */
+            /* PALETA: SOLAR FADE */
+            --bg-main: #ffffff; /* Fondo blanco sólido para el body */
             --bg-card: #ffffff;
             --text-main: #1f2937;
             --text-muted: #6b7280;
@@ -33,12 +34,7 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            /* FOTO DE FONDO FIJA Y CLARA */
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #f3f4f6;
+            background-color: var(--bg-main); /* Fondo blanco sólido */
         }
 
         h1, h2, h3, h4 {
@@ -85,17 +81,13 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-        }
-
-        .hero-glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            padding: 3rem 4rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            max-width: 600px;
-            animation: fadeIn 1s ease-out;
+            /* IMAGEN DE FONDO EN EL HERO CON ALPHA Y SCROLL */
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                              url('background.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll; /* Se mueve con el scroll */
+            animation: fadeIn 1s ease-out; /* Animación de entrada */
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -247,7 +239,7 @@
         }
         .social-row a:hover { color: var(--accent); transform: translateY(-3px); }
 
-        footer { text-align: center; padding: 2rem; color: rgba(255,255,255,0.8); font-size: 0.85rem; position: relative; z-index: 10; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        footer { text-align: center; padding: 2rem; background-color: var(--bg-main); color: var(--text-muted); font-size: 0.85rem; }
 
         @media(max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
@@ -272,13 +264,11 @@
 </div>
 
 <header class="hero">
-    <div class="hero-glass">
-        <img src="profile2.png" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/160'">
-        <h1>Enzo A. Saavedra</h1>
-        <div class="subtitle">PhD Candidate in Astrophysics | <span>IAC</span></div>
-        <div style="margin-top: 1.5rem;">
-             <a href="#contact" style="display:inline-block; font-weight:600; padding: 10px 25px; background:var(--accent); color:white; border-radius:30px;">Get in Touch</a>
-        </div>
+    <img src="profile2.png" alt="Enzo Saavedra" class="profile-img" onerror="this.src='https://via.placeholder.com/160'">
+    <h1>Enzo A. Saavedra</h1>
+    <div class="subtitle">PhD Candidate in Astrophysics | <span>IAC</span></div>
+    <div style="margin-top: 1.5rem;">
+         <a href="#contact" style="display:inline-block; font-weight:600; padding: 10px 25px; background:var(--accent); color:white; border-radius:30px;">Get in Touch</a>
     </div>
 </header>
 
@@ -314,7 +304,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 702, A103</span>
                     <span class="pub-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</span>
                     <span class="pub-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -324,7 +314,7 @@
                     <span class="pub-journal">Accepted in The Astrophysical Journal</span>
                     <span class="pub-title">GX 340+0: In and Out of Focus</span>
                     <span class="pub-authors">S. Li, R. M. Ludlam, D. J. K. Buisson, M. Sudha, S. Rossland, G. Mastroserio, M. C. Brumback, J. A. García, B. W. Grefenstette, F. La Monaca, <b>E. A. Saavedra</b>, A. Di Marco.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -334,7 +324,7 @@
                     <span class="pub-journal">Accepted in Astronomy & Astrophysics</span>
                     <span class="pub-title">The hard ultraluminous state of NGC 5055 ULX X-1</span>
                     <span class="pub-authors">Nelson Cruz-Sanchez, <b>Enzo A. Saavedra</b>, Federico A. Fogantini, Federico García, Jorge A. Combi.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -344,7 +334,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 693, A122</span>
                     <span class="pub-title">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</span>
                     <span class="pub-authors">Nelson Cruz-Sanchez, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Leandro Abaroa, Federico García, Jorge A. Combi, Gustavo E. Romero.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -354,7 +344,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 686, A121</span>
                     <span class="pub-title">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</span>
                     <span class="pub-authors">Jorge A. Combi, Federico A. Fogantini, <b>Enzo A. Saavedra</b>, Gustavo E. Romero, Leandro Abaroa, Federico García, Pedro Luque Escamilla, Josep Martí, Nelson Cruz-Sanchez.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -364,7 +354,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 680, A88</span>
                     <span class="pub-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</span>
                     <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Gaston Escobar, Gustavo E. Romero, Jorge A. Combi, Estefania Marcel.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -374,7 +364,7 @@
                     <span class="pub-journal">MNRAS, Vol 525, 2</span>
                     <span class="pub-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span>
                     <span class="pub-authors"><b>Enzo A. Saavedra</b>, Gustavo E. Romero, Valentí Bosch-Ramon, Elina Kefala.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -384,7 +374,7 @@
                     <span class="pub-journal">MNRAS, Vol 522, 3</span>
                     <span class="pub-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span>
                     <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico Garcia, Federico A. Fogantini, Mariano Mendez, Jorge A. Combi, Josep Martí, Pedro Luque Escamilla.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -394,7 +384,7 @@
                     <span class="pub-journal">Astronomy & Astrophysics, 659, A48</span>
                     <span class="pub-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span>
                     <span class="pub-authors"><b>Enzo A. Saavedra</b>, Federico A. Fogantini, Jorge A. Combi, Federico García, Sylvain Chaty.</span>
-                    <a href="#" class="btn-ads"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
+                    <a href="#" class="btn-ads" target="_blank"><i class="fas fa-external-link-alt"></i> ADS Abstract</a>
                 </div>
             </div>
 
@@ -530,3 +520,4 @@
 
 </body>
 </html>
+```http://googleusercontent.com/image_generation_content/0
