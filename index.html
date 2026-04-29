@@ -22,8 +22,8 @@
       --ink-soft: #2d3138;
       --muted: #69707c;
       --faint: #9aa1ad;
-      --line: rgba(17, 19, 24, .11);
-      --line-strong: rgba(17, 19, 24, .20);
+      --line: rgba(17, 19, 24, .12);
+      --line-strong: rgba(17, 19, 24, .22);
       --orange: #f97316;
       --orange-dark: #c2410c;
       --orange-soft: rgba(249, 115, 22, .12);
@@ -31,8 +31,8 @@
       --night-2: #171b22;
       --max: 1180px;
       --edge: clamp(18px, 4vw, 46px);
-      --radius: 24px;
-      --shadow: 0 24px 70px rgba(17, 19, 24, .08);
+      --radius: 18px;
+      --shadow: 0 18px 52px rgba(17, 19, 24, .07);
       --serif: "Newsreader", Georgia, serif;
       --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -47,16 +47,16 @@
     }
 
     body {
-      min-height: 150vh;
+      min-height: 155vh;
       margin: 0;
       color: var(--ink);
       font-family: var(--sans);
       line-height: 1.55;
       background:
-        radial-gradient(circle at 8% 2%, rgba(249, 115, 22, .13), transparent 31rem),
-        radial-gradient(circle at 98% 4%, rgba(17, 19, 24, .07), transparent 26rem),
-        linear-gradient(90deg, rgba(17, 19, 24, .032) 1px, transparent 1px),
-        linear-gradient(rgba(17, 19, 24, .026) 1px, transparent 1px),
+        radial-gradient(circle at 8% 2%, rgba(249, 115, 22, .12), transparent 31rem),
+        radial-gradient(circle at 98% 4%, rgba(17, 19, 24, .06), transparent 26rem),
+        linear-gradient(90deg, rgba(17, 19, 24, .026) 1px, transparent 1px),
+        linear-gradient(rgba(17, 19, 24, .022) 1px, transparent 1px),
         var(--bg);
       background-size: auto, auto, 72px 72px, 72px 72px, auto;
       text-rendering: geometricPrecision;
@@ -68,12 +68,12 @@
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(rgba(251, 250, 247, .86), rgba(251, 250, 247, .78)),
+        linear-gradient(rgba(251, 250, 247, .88), rgba(251, 250, 247, .80)),
         url("background.png");
       background-size: cover;
       background-position: center top;
-      opacity: .28;
-      filter: grayscale(.22) contrast(1.08) saturate(.92);
+      opacity: .24;
+      filter: grayscale(.25) contrast(1.05) saturate(.90);
       pointer-events: none;
     }
 
@@ -81,10 +81,7 @@
     p, h1, h2, h3, h4, ul { margin: 0; }
     ul { padding: 0; list-style: none; }
 
-    ::selection {
-      color: #fff;
-      background: var(--orange);
-    }
+    ::selection { color: #fff; background: var(--orange); }
 
     .frame {
       width: min(var(--max), calc(100% - var(--edge) * 2));
@@ -117,11 +114,11 @@
       grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 20px;
-      padding: 9px 10px 9px 14px;
-      border: 1px solid rgba(255,255,255,.72);
+      padding: 8px 10px 8px 12px;
+      border: 1px solid rgba(255,255,255,.76);
       border-radius: 999px;
-      background: rgba(255, 255, 255, .78);
-      box-shadow: 0 18px 48px rgba(17, 19, 24, .08);
+      background: rgba(255, 255, 255, .80);
+      box-shadow: 0 14px 38px rgba(17, 19, 24, .07);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
@@ -141,8 +138,8 @@
     .brand-mark {
       display: grid;
       place-items: center;
-      width: 32px;
-      height: 32px;
+      width: 31px;
+      height: 31px;
       border-radius: 50%;
       color: #fff;
       background: var(--orange);
@@ -151,15 +148,15 @@
     .nav-links {
       display: flex;
       justify-content: center;
-      gap: 3px;
+      gap: 2px;
     }
 
     .nav-links a {
-      padding: 9px 13px;
+      padding: 8px 11px;
       border-radius: 999px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .05em;
       text-transform: uppercase;
@@ -180,7 +177,7 @@
       color: var(--orange-dark);
       background: var(--panel-warm);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -197,13 +194,13 @@
       min-height: 100vh;
       display: grid;
       align-items: center;
-      padding: 128px 0 72px;
+      padding: 126px 0 56px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .78fr);
-      gap: clamp(34px, 6vw, 82px);
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .78fr);
+      gap: clamp(36px, 6vw, 78px);
       align-items: center;
     }
 
@@ -212,12 +209,12 @@
       align-items: center;
       gap: 10px;
       width: fit-content;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       padding: 8px 11px;
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--orange-dark);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       font-family: var(--mono);
       font-size: 11px;
       font-weight: 700;
@@ -235,10 +232,10 @@
     h1 {
       max-width: 840px;
       font-family: var(--serif);
-      font-size: clamp(4.6rem, 11vw, 10.8rem);
+      font-size: clamp(4.4rem, 10.2vw, 10.2rem);
       font-weight: 600;
-      line-height: .80;
-      letter-spacing: -.075em;
+      line-height: .82;
+      letter-spacing: -.072em;
     }
 
     h1 span {
@@ -250,10 +247,10 @@
 
     .hero-subtitle {
       max-width: 760px;
-      margin-top: 28px;
+      margin-top: 26px;
       color: var(--ink-soft);
       font-family: var(--serif);
-      font-size: clamp(1.65rem, 3vw, 2.9rem);
+      font-size: clamp(1.65rem, 2.9vw, 2.75rem);
       line-height: 1.04;
       letter-spacing: -.04em;
     }
@@ -267,8 +264,8 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
+      gap: 10px;
+      margin-top: 30px;
     }
 
     .btn {
@@ -276,14 +273,14 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
+      min-height: 46px;
+      padding: 0 17px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.72);
       color: var(--ink);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -299,15 +296,47 @@
       color: #fff;
       border-color: var(--orange);
       background: var(--orange);
-      box-shadow: 0 16px 34px rgba(249, 115, 22, .26);
+      box-shadow: 0 14px 28px rgba(249, 115, 22, .22);
+    }
+
+    .authority-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.66);
+      overflow: hidden;
+    }
+
+    .authority-strip span {
+      min-height: 78px;
+      padding: 15px 16px;
+      border-right: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .authority-strip span:last-child { border-right: 0; }
+
+    .authority-strip b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--orange-dark);
+      font-size: 11px;
     }
 
     .visual-panel {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.78);
-      border-radius: 34px;
-      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(255,255,255,.82);
+      border-radius: 26px;
+      background: rgba(255,255,255,.76);
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -315,49 +344,41 @@
 
     .portrait-block {
       position: relative;
-      min-height: 390px;
+      min-height: 356px;
       display: grid;
       place-items: center;
-      padding: 36px;
+      padding: 34px;
       background:
-        radial-gradient(circle at 52% 48%, rgba(249,115,22,.16), transparent 12rem),
-        linear-gradient(135deg, rgba(255,247,237,.96), rgba(255,255,255,.84));
+        radial-gradient(circle at 52% 48%, rgba(249,115,22,.15), transparent 12rem),
+        linear-gradient(135deg, rgba(255,247,237,.94), rgba(255,255,255,.84));
     }
 
     .portrait-block::before,
     .portrait-block::after {
       content: "";
       position: absolute;
-      border: 1px solid rgba(17,19,24,.12);
+      border: 1px solid rgba(17,19,24,.11);
       border-radius: 50%;
     }
 
-    .portrait-block::before {
-      width: 310px;
-      height: 310px;
-    }
-
-    .portrait-block::after {
-      width: 220px;
-      height: 220px;
-      border-style: dashed;
-    }
+    .portrait-block::before { width: 300px; height: 300px; }
+    .portrait-block::after { width: 214px; height: 214px; border-style: dashed; }
 
     .profile-img {
       position: relative;
       z-index: 2;
-      width: min(72%, 260px);
+      width: min(70%, 246px);
       aspect-ratio: 1;
       object-fit: cover;
       border-radius: 50%;
       border: 8px solid #fff;
-      box-shadow: 0 28px 60px rgba(17,19,24,.16);
+      box-shadow: 0 24px 52px rgba(17,19,24,.15);
       background: #fff;
     }
 
     .band-panel {
       border-top: 1px solid var(--line);
-      padding: 22px;
+      padding: 20px;
     }
 
     .band-title {
@@ -365,29 +386,27 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
-    .band-title span:last-child {
-      color: var(--orange-dark);
-    }
+    .band-title span:last-child { color: var(--orange-dark); }
 
     .band-chart {
       width: 100%;
-      height: 118px;
+      height: 136px;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 14px;
       background:
-        linear-gradient(90deg, rgba(17,19,24,.045) 1px, transparent 1px),
-        linear-gradient(rgba(17,19,24,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,19,24,.042) 1px, transparent 1px),
+        linear-gradient(rgba(17,19,24,.042) 1px, transparent 1px),
         #fff;
-      background-size: 38px 38px;
+      background-size: 38px 34px;
       overflow: hidden;
     }
 
@@ -418,32 +437,30 @@
       text-transform: uppercase;
     }
 
-    main {
-      padding-bottom: 90px;
-    }
+    main { padding-bottom: 90px; }
 
     .section {
-      scroll-margin-top: 104px;
-      padding: clamp(68px, 8vw, 112px) 0;
+      scroll-margin-top: 102px;
+      padding: clamp(62px, 8vw, 104px) 0;
       border-top: 1px solid var(--line);
     }
 
     .section-header {
       display: grid;
-      grid-template-columns: minmax(0, .85fr) minmax(280px, .48fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, .86fr) minmax(280px, .46fr);
+      gap: 32px;
       align-items: end;
-      margin-bottom: 38px;
+      margin-bottom: 36px;
     }
 
     .section-kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 13px;
       color: var(--orange-dark);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .09em;
       text-transform: uppercase;
@@ -459,10 +476,10 @@
     .section-title {
       max-width: 840px;
       font-family: var(--serif);
-      font-size: clamp(2.8rem, 6vw, 6.3rem);
+      font-size: clamp(2.8rem, 5.8vw, 6rem);
       font-weight: 600;
-      line-height: .88;
-      letter-spacing: -.058em;
+      line-height: .90;
+      letter-spacing: -.056em;
     }
 
     .section-title em {
@@ -472,10 +489,11 @@
 
     .section-note {
       color: var(--muted);
-      font-size: 1rem;
+      font-size: .98rem;
     }
 
-    .about-grid {
+    .about-grid,
+    .research-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
       gap: clamp(28px, 5vw, 62px);
@@ -487,9 +505,9 @@
       gap: 20px;
       color: var(--ink-soft);
       font-family: var(--serif);
-      font-size: clamp(1.35rem, 2.25vw, 2rem);
-      line-height: 1.15;
-      letter-spacing: -.035em;
+      font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+      line-height: 1.16;
+      letter-spacing: -.034em;
     }
 
     .bio-copy strong {
@@ -498,32 +516,37 @@
       background: linear-gradient(to top, var(--orange-soft) 40%, transparent 41%);
     }
 
-    .research-card {
+    .research-card,
+    .research-axis {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255,255,255,.68);
       overflow: hidden;
-      box-shadow: 0 14px 44px rgba(17,19,24,.05);
+      box-shadow: 0 10px 34px rgba(17,19,24,.045);
     }
 
-    .research-item {
-      padding: 20px;
+    .research-item,
+    .axis-item {
+      padding: 19px;
       border-bottom: 1px solid var(--line);
     }
 
-    .research-item:last-child { border-bottom: 0; }
+    .research-item:last-child,
+    .axis-item:last-child { border-bottom: 0; }
 
-    .research-item h3 {
+    .research-item h3,
+    .axis-item h3 {
       margin-bottom: 8px;
       color: var(--orange-dark);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .09em;
       text-transform: uppercase;
     }
 
-    .research-item p {
+    .research-item p,
+    .axis-item p {
       color: var(--muted);
       font-size: .95rem;
     }
@@ -532,7 +555,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .tag-row span {
@@ -559,41 +582,60 @@
       background: var(--orange);
     }
 
+    .research-statement {
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 2.55vw, 2.35rem);
+      line-height: 1.10;
+      letter-spacing: -.038em;
+    }
+
+    .research-statement strong {
+      color: var(--ink);
+      font-weight: 650;
+      background: linear-gradient(to top, var(--orange-soft) 40%, transparent 41%);
+    }
+
     .dark-section {
       width: 100vw;
       margin-left: calc(50% - 50vw);
       padding-inline: max(var(--edge), calc((100vw - var(--max)) / 2));
       color: #fff;
       background:
-        radial-gradient(circle at 13% 6%, rgba(249,115,22,.24), transparent 30rem),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(circle at 13% 6%, rgba(249,115,22,.22), transparent 30rem),
+        linear-gradient(90deg, rgba(255,255,255,.042) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px),
         linear-gradient(135deg, var(--night), var(--night-2));
       background-size: auto, 72px 72px, 72px 72px, auto;
       border-top: 0;
     }
 
     .dark-section .section-kicker,
-    .dark-section .section-title em {
-      color: var(--orange-3);
-    }
-
-    .dark-section .section-kicker::before { background: var(--orange-3); }
+    .dark-section .section-title em { color: #ffb46f; }
+    .dark-section .section-kicker::before { background: #ffb46f; }
     .dark-section .section-title { color: #fff; }
     .dark-section .section-note { color: rgba(255,255,255,.62); }
 
-    .publication-group {
-      margin-top: 34px;
-    }
+    .publication-group { margin-top: 34px; }
 
     .group-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
       margin-bottom: 15px;
-      color: var(--orange-3);
+      color: #ffb46f;
       font-family: var(--mono);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .10em;
       text-transform: uppercase;
+    }
+
+    .group-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,.16);
     }
 
     .paper-list {
@@ -606,12 +648,16 @@
       grid-template-columns: 72px minmax(0, 1fr) auto;
       gap: 24px;
       align-items: start;
-      padding: 24px 0;
+      padding: 22px 0;
       border-bottom: 1px solid rgba(255,255,255,.16);
     }
 
+    .paper.first-author {
+      padding: 26px 0;
+    }
+
     .paper-year {
-      color: var(--orange-3);
+      color: #ffb46f;
       font-family: var(--mono);
       font-size: 12px;
       font-weight: 700;
@@ -623,10 +669,14 @@
       margin-bottom: 9px;
       color: #fff;
       font-family: var(--serif);
-      font-size: clamp(1.35rem, 2.15vw, 2.2rem);
+      font-size: clamp(1.30rem, 2.05vw, 2.06rem);
       font-weight: 550;
       line-height: 1.02;
-      letter-spacing: -.035em;
+      letter-spacing: -.034em;
+    }
+
+    .first-author .paper-title {
+      font-size: clamp(1.45rem, 2.35vw, 2.38rem);
     }
 
     .paper-authors {
@@ -644,12 +694,28 @@
     }
 
     .paper-journal {
+      display: inline-flex;
       color: rgba(255,255,255,.76);
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: .07em;
       text-transform: uppercase;
+    }
+
+    .author-label {
+      display: inline-flex;
+      margin-left: 8px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--orange);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      vertical-align: middle;
     }
 
     .paper-actions {
@@ -665,7 +731,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      min-height: 37px;
+      min-height: 36px;
       padding: 0 11px;
       border: 1px solid rgba(255,255,255,.18);
       border-radius: 999px;
@@ -690,43 +756,63 @@
       margin-top: 24px;
     }
 
-    .observing-table {
-      overflow: hidden;
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .facility-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255,255,255,.72);
-      box-shadow: 0 14px 44px rgba(17,19,24,.05);
+      box-shadow: 0 10px 34px rgba(17,19,24,.045);
+      overflow: hidden;
     }
 
-    .obs-row {
-      display: grid;
-      grid-template-columns: 170px minmax(0, 1fr) 140px 86px;
+    .facility-card header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 18px 16px;
       border-bottom: 1px solid var(--line);
+      background: rgba(244,241,236,.62);
     }
 
-    .obs-row:last-child { border-bottom: 0; }
+    .facility-card h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 2.6vw, 2.55rem);
+      font-weight: 600;
+      line-height: .94;
+      letter-spacing: -.045em;
+    }
 
-    .obs-row.header {
+    .facility-card header i { color: var(--orange-dark); }
+
+    .programme-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: .94rem;
+      line-height: 1.35;
+    }
+
+    .programme-list li:last-child { border-bottom: 0; }
+
+    .programme-meta {
+      display: block;
+      margin-top: 4px;
       color: var(--muted);
-      background: var(--bg-soft);
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .05em;
       text-transform: uppercase;
-    }
-
-    .obs-row > span {
-      padding: 15px 16px;
-      border-right: 1px solid var(--line);
-      color: var(--ink-soft);
-    }
-
-    .obs-row.header > span { color: var(--muted); }
-    .obs-row > span:last-child { border-right: 0; }
-
-    .facility-name {
-      font-weight: 800;
     }
 
     .role {
@@ -761,15 +847,15 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255,255,255,.72);
-      box-shadow: 0 14px 44px rgba(17,19,24,.05);
+      box-shadow: 0 10px 34px rgba(17,19,24,.045);
       overflow: hidden;
     }
 
     .activity-card h3 {
-      padding: 20px 22px;
+      padding: 19px 20px;
       border-bottom: 1px solid var(--line);
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-size: clamp(1.75rem, 2.8vw, 2.8rem);
       font-weight: 600;
       line-height: .95;
       letter-spacing: -.045em;
@@ -779,7 +865,7 @@
       display: grid;
       grid-template-columns: 78px minmax(0, 1fr);
       gap: 15px;
-      padding: 14px 22px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--line);
       color: var(--ink-soft);
       font-size: .95rem;
@@ -803,11 +889,11 @@
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
       gap: clamp(28px, 5vw, 62px);
       align-items: end;
-      padding: clamp(32px, 6vw, 68px);
+      padding: clamp(32px, 6vw, 64px);
       border: 1px solid var(--line);
-      border-radius: 34px;
+      border-radius: 26px;
       background:
-        radial-gradient(circle at 82% 20%, rgba(249,115,22,.17), transparent 18rem),
+        radial-gradient(circle at 82% 20%, rgba(249,115,22,.15), transparent 18rem),
         rgba(255,255,255,.74);
       box-shadow: var(--shadow);
     }
@@ -816,10 +902,10 @@
       max-width: 680px;
       margin-bottom: 22px;
       font-family: var(--serif);
-      font-size: clamp(3.6rem, 8vw, 8.2rem);
+      font-size: clamp(3.4rem, 7.6vw, 7.8rem);
       font-weight: 600;
-      line-height: .78;
-      letter-spacing: -.07em;
+      line-height: .80;
+      letter-spacing: -.068em;
     }
 
     .contact-title em {
@@ -848,7 +934,7 @@
 
     .contact-links {
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: var(--radius);
       background: rgba(255,255,255,.76);
       overflow: hidden;
     }
@@ -905,38 +991,22 @@
       border-top: 1px solid var(--line);
     }
 
-    @media (max-width: 1000px) {
-      .site-nav {
-        grid-template-columns: auto 1fr;
-      }
-
+    @media (max-width: 1040px) {
+      .site-nav { grid-template-columns: auto 1fr; }
       .nav-meta { display: none; }
-
       .hero-grid,
       .about-grid,
+      .research-grid,
       .section-header,
       .activity-grid,
-      .contact-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .visual-panel {
-        max-width: 560px;
-      }
-
-      .paper {
-        grid-template-columns: 62px minmax(0, 1fr);
-      }
-
-      .paper-actions {
-        grid-column: 2;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .obs-row {
-        grid-template-columns: 140px minmax(0, 1fr) 110px 76px;
-      }
+      .contact-panel { grid-template-columns: 1fr; }
+      .visual-panel { max-width: 560px; }
+      .authority-strip { grid-template-columns: repeat(2, 1fr); }
+      .authority-strip span:nth-child(2) { border-right: 0; }
+      .authority-strip span:nth-child(1), .authority-strip span:nth-child(2) { border-bottom: 1px solid var(--line); }
+      .paper { grid-template-columns: 62px minmax(0, 1fr); }
+      .paper-actions { grid-column: 2; flex-direction: row; flex-wrap: wrap; }
+      .facility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 760px) {
@@ -945,111 +1015,38 @@
         bottom: 14px;
         display: block;
         overflow-x: auto;
-        border-radius: 22px;
+        border-radius: 18px;
         padding: 8px;
       }
-
       .brand { display: none; }
-
-      .nav-links {
-        justify-content: flex-start;
-        min-width: 560px;
-      }
-
-      .hero {
-        padding-top: 64px;
-      }
-
-      h1 {
-        font-size: clamp(4.2rem, 19vw, 7rem);
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .section {
-        scroll-margin-top: 24px;
-        padding: 62px 0;
-      }
-
-      .section-title {
-        font-size: clamp(2.8rem, 13vw, 5rem);
-      }
-
-      .obs-row,
-      .obs-row.header {
-        grid-template-columns: 1fr;
-      }
-
-      .obs-row.header { display: none; }
-
-      .obs-row > span {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .obs-row > span:last-child { border-bottom: 0; }
-
-      .obs-row > span::before {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-      }
-
-      .obs-row > span:nth-child(1)::before { content: "Facility"; }
-      .obs-row > span:nth-child(2)::before { content: "Programme"; }
-      .obs-row > span:nth-child(3)::before { content: "Time"; }
-      .obs-row > span:nth-child(4)::before { content: "Role"; }
-
+      .nav-links { justify-content: flex-start; min-width: 650px; }
+      .hero { padding-top: 62px; }
+      h1 { font-size: clamp(4.1rem, 18.2vw, 6.8rem); }
+      .hero-actions .btn { width: 100%; }
+      .section { scroll-margin-top: 24px; padding: 60px 0; }
+      .section-title { font-size: clamp(2.7rem, 12vw, 4.8rem); }
+      .authority-strip { grid-template-columns: 1fr; }
+      .authority-strip span { border-right: 0; border-bottom: 1px solid var(--line); }
+      .authority-strip span:last-child { border-bottom: 0; }
+      .facility-grid { grid-template-columns: 1fr; }
       footer { padding-bottom: 96px; }
-
-      .footer-grid {
-        flex-direction: column;
-      }
+      .footer-grid { flex-direction: column; }
     }
 
     @media (max-width: 540px) {
-      .portrait-block {
-        min-height: 310px;
-        padding: 26px;
-      }
-
-      .profile-img { width: 220px; }
-
+      .portrait-block { min-height: 300px; padding: 26px; }
+      .profile-img { width: 218px; }
       .band-labels,
-      .contact-row {
-        grid-template-columns: 1fr;
-      }
-
-      .paper {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
+      .contact-row { grid-template-columns: 1fr; }
+      .paper { grid-template-columns: 1fr; gap: 10px; }
       .paper-actions { grid-column: auto; }
-
-      .activity-list li {
-        grid-template-columns: 1fr;
-        gap: 5px;
-      }
-
-      .contact-row span:first-child {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
+      .programme-list li { grid-template-columns: 1fr; }
+      .activity-list li { grid-template-columns: 1fr; gap: 5px; }
+      .contact-row span:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
 </head>
@@ -1061,6 +1058,7 @@
     <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark">EA</span><span>Saavedra</span></a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#observing">Observing</a>
       <a href="#activity">Activity</a>
@@ -1074,11 +1072,18 @@
       <section>
         <div class="eyebrow">PhD Candidate in Astrophysics</div>
         <h1>Enzo A.<span>Saavedra</span></h1>
-        <p class="hero-subtitle">Research on <strong>accretion processes in X-ray binaries</strong> using infrared, optical and X-ray observations.</p>
+        <p class="hero-subtitle">I study <strong>low-luminosity accretion in low-mass X-ray binaries</strong> through infrared, optical and X-ray observations.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#publications"><i class="fas fa-book-open"></i> Publications</a>
           <a class="btn" href="#observing"><i class="fas fa-satellite-dish"></i> Observing</a>
           <a class="btn" href="mailto:saavedra@iac.es"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+
+        <div class="authority-strip" aria-label="Academic summary">
+          <span><b>Institute</b>Instituto de Astrofísica de Canarias</span>
+          <span><b>Research</b>Low-mass X-ray binaries</span>
+          <span><b>Method</b>Infrared · Optical · X-ray</span>
+          <span><b>Proposals</b>PI & Co-PI observing programmes</span>
         </div>
       </section>
 
@@ -1089,9 +1094,16 @@
         <div class="band-panel">
           <div class="band-title"><span>Observing bands</span><span>IR / Optical / X-ray</span></div>
           <div class="band-chart" aria-hidden="true">
-            <svg viewBox="0 0 520 118" preserveAspectRatio="none">
-              <path d="M0 82 C42 80 50 50 83 53 C112 56 116 88 148 84 C181 80 180 38 216 39 C252 40 252 75 287 75 C326 75 322 28 361 31 C397 34 395 68 432 65 C468 62 480 42 520 44" fill="none" stroke="#f97316" stroke-width="3.2" stroke-linecap="round" />
-              <path d="M0 82 C42 80 50 50 83 53 C112 56 116 88 148 84 C181 80 180 38 216 39 C252 40 252 75 287 75 C326 75 322 28 361 31 C397 34 395 68 432 65 C468 62 480 42 520 44 L520 118 L0 118 Z" fill="rgba(249,115,22,.10)" />
+            <svg viewBox="0 0 520 136" preserveAspectRatio="none">
+              <line x1="0" y1="34" x2="520" y2="34" stroke="rgba(17,19,24,.10)" stroke-width="1" />
+              <line x1="0" y1="68" x2="520" y2="68" stroke="rgba(17,19,24,.10)" stroke-width="1" />
+              <line x1="0" y1="102" x2="520" y2="102" stroke="rgba(17,19,24,.10)" stroke-width="1" />
+              <path d="M0 88 C28 86 42 78 61 82 C86 88 91 100 120 96 C154 91 154 72 186 73 C215 74 220 90 250 88 C282 86 286 66 318 67 C349 68 355 83 386 79 C424 74 443 58 520 60" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" />
+              <path d="M0 64 C35 62 48 48 73 52 C99 56 105 70 135 68 C167 66 178 42 210 45 C242 48 248 63 278 61 C310 59 319 38 352 40 C386 42 392 57 420 54 C456 50 474 36 520 38" fill="none" stroke="rgba(17,19,24,.56)" stroke-width="2.2" stroke-linecap="round" />
+              <path d="M0 111 C30 107 45 114 70 108 C97 101 111 89 141 94 C168 99 179 112 207 108 C240 103 250 82 281 85 C313 88 319 104 350 100 C384 96 396 76 428 78 C466 81 480 94 520 89" fill="none" stroke="rgba(194,65,12,.55)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 7" />
+              <text x="14" y="25" fill="rgba(17,19,24,.58)" font-family="IBM Plex Mono" font-size="10" font-weight="700">X-ray</text>
+              <text x="14" y="55" fill="rgba(17,19,24,.58)" font-family="IBM Plex Mono" font-size="10" font-weight="700">Optical</text>
+              <text x="14" y="119" fill="rgba(17,19,24,.58)" font-family="IBM Plex Mono" font-size="10" font-weight="700">IR</text>
             </svg>
           </div>
           <div class="band-labels"><span>Infrared</span><span>Optical</span><span>X-ray</span></div>
@@ -1105,9 +1117,9 @@
       <div class="section-header">
         <div>
           <div class="section-kicker">Biography</div>
-          <h2 class="section-title">Biography & <em>research interests</em></h2>
+          <h2 class="section-title">Biography & <em>academic profile</em></h2>
         </div>
-        <p class="section-note">Instituto de Astrofísica de Canarias. Ph.D. research on accretion processes in X-ray binaries.</p>
+        <p class="section-note">Ph.D. candidate at the Instituto de Astrofísica de Canarias.</p>
       </div>
 
       <div class="about-grid">
@@ -1116,6 +1128,28 @@
             <p>I am currently pursuing my Ph.D. under the supervision of Montserrat Armas Padilla and Teo Muñoz-Darias at the <strong>Instituto de Astrofísica de Canarias (IAC)</strong>. My research focuses on understanding accretion processes in X-ray Binaries.</p>
             <p>The primary objective of my thesis is to investigate low-luminosity accretion phenomena in <strong>low-mass X-ray binaries</strong>. To achieve this, I employ a multiwavelength approach, combining infrared, optical, and X-ray observations.</p>
           </div>
+        </div>
+
+        <aside class="research-card" aria-label="Academic summary">
+          <article class="research-item"><h3>Institute</h3><p>Instituto de Astrofísica de Canarias (IAC).</p></article>
+          <article class="research-item"><h3>Supervisors</h3><p>Montserrat Armas Padilla and Teo Muñoz-Darias.</p></article>
+          <article class="research-item"><h3>Field</h3><p>Astrophysics of X-ray binaries.</p></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section frame" id="research">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Research</div>
+          <h2 class="section-title">Research <em>interests</em></h2>
+        </div>
+        <p class="section-note">A compact summary of the scientific focus and observational approach.</p>
+      </div>
+
+      <div class="research-grid">
+        <div>
+          <p class="research-statement">My research focuses on <strong>accretion processes in X-ray binaries</strong>, with a thesis objective centred on low-luminosity accretion phenomena in low-mass X-ray binaries.</p>
           <div class="tag-row" aria-label="Research topics">
             <span>Neutron Stars</span>
             <span>Black Holes</span>
@@ -1125,10 +1159,10 @@
           </div>
         </div>
 
-        <aside class="research-card" aria-label="Research summary">
-          <article class="research-item"><h3>Research focus</h3><p>Accretion processes in X-ray binaries.</p></article>
-          <article class="research-item"><h3>Thesis objective</h3><p>Low-luminosity accretion phenomena in low-mass X-ray binaries.</p></article>
-          <article class="research-item"><h3>Approach</h3><p>Infrared, optical and X-ray observations.</p></article>
+        <aside class="research-axis" aria-label="Research axis">
+          <article class="axis-item"><h3>Systems</h3><p>Low-mass X-ray binaries.</p></article>
+          <article class="axis-item"><h3>Phenomenology</h3><p>Low-luminosity accretion phenomena.</p></article>
+          <article class="axis-item"><h3>Observations</h3><p>Infrared, optical and X-ray observations.</p></article>
         </aside>
       </div>
     </section>
@@ -1139,17 +1173,17 @@
           <div class="section-kicker">Publications</div>
           <h2 class="section-title">Selected <em>publications</em></h2>
         </div>
-        <p class="section-note">Peer-reviewed papers and accepted work, grouped by authorship role for faster academic reading.</p>
+        <p class="section-note">Peer-reviewed papers and accepted work, grouped by authorship role.</p>
       </div>
 
       <div class="publication-group">
         <h3 class="group-title">First-author publications</h3>
         <div class="paper-list">
-          <article class="paper"><div class="paper-year">2025</div><div><span class="paper-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</span><span class="paper-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span><span class="paper-journal">Astronomy & Astrophysics, 702, A103</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
-          <article class="paper"><div class="paper-year">2023</div><div><span class="paper-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</span><span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, G. Escobar, G. E. Romero, J. A. Combi, E. Marcel.</span><span class="paper-journal">Astronomy & Astrophysics, 680, A88</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
-          <article class="paper"><div class="paper-year">2023</div><div><span class="paper-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span><span class="paper-authors"><b>E. A. Saavedra</b>, G. E. Romero, V. Bosch-Ramon, E. Kefala.</span><span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 525, 2</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
-          <article class="paper"><div class="paper-year">2023</div><div><span class="paper-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span><span class="paper-authors"><b>E. A. Saavedra</b>, F. Garcia, F. A. Fogantini, M. Mendez, J. A. Combi, J. Martí, P. Luque Escamilla.</span><span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 522, 3</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
-          <article class="paper"><div class="paper-year">2022</div><div><span class="paper-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span><span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, J. A. Combi, F. García, S. Chaty.</span><span class="paper-journal">Astronomy & Astrophysics, 659, A48</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
+          <article class="paper first-author"><div class="paper-year">2025</div><div><span class="paper-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132 <span class="author-label">First author</span></span><span class="paper-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span><span class="paper-journal">Astronomy & Astrophysics, 702, A103</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
+          <article class="paper first-author"><div class="paper-year">2023</div><div><span class="paper-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119 <span class="author-label">First author</span></span><span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, G. Escobar, G. E. Romero, J. A. Combi, E. Marcel.</span><span class="paper-journal">Astronomy & Astrophysics, 680, A88</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
+          <article class="paper first-author"><div class="paper-year">2023</div><div><span class="paper-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303 <span class="author-label">First author</span></span><span class="paper-authors"><b>E. A. Saavedra</b>, G. E. Romero, V. Bosch-Ramon, E. Kefala.</span><span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 525, 2</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
+          <article class="paper first-author"><div class="paper-year">2023</div><div><span class="paper-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1 <span class="author-label">First author</span></span><span class="paper-authors"><b>E. A. Saavedra</b>, F. Garcia, F. A. Fogantini, M. Mendez, J. A. Combi, J. Martí, P. Luque Escamilla.</span><span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 522, 3</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
+          <article class="paper first-author"><div class="paper-year">2022</div><div><span class="paper-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line <span class="author-label">First author</span></span><span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, J. A. Combi, F. García, S. Chaty.</span><span class="paper-journal">Astronomy & Astrophysics, 659, A48</span></div><div class="paper-actions"><a href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a></div></article>
         </div>
       </div>
 
@@ -1174,28 +1208,16 @@
           <div class="section-kicker">Observing</div>
           <h2 class="section-title">Observing <em>proposals</em></h2>
         </div>
-        <p class="section-note">Facilities, programmes, allocated time and proposal role.</p>
+        <p class="section-note">Facilities, programmes, allocated time and proposal role, grouped to reduce repetition.</p>
       </div>
 
-      <div class="observing-table">
-        <div class="obs-row header"><span>Facility</span><span>Programme</span><span>Time</span><span>Role</span></div>
-        <div class="obs-row"><span class="facility-name">NuSTAR</span><span>NGC 628 ULX1 — Cycle 11 + XMM-Newton</span><span>110 ks + 60 ks</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">NuSTAR</span><span>IRAS 18293-0941 — Cycle 11</span><span>180 ks</span><span><span class="role">Co-PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Las Cumbres</span><span>ToO 2026A</span><span>90h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Las Cumbres</span><span>ToO 2025B</span><span>40h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Las Cumbres</span><span>ToO 2025A</span><span>66h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Las Cumbres</span><span>ToO 2024B</span><span>50h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">GTC</span><span>4U 1822-00 — HiPERCAM</span><span>7h</span><span><span class="role">Co-PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">GTC</span><span>ToO — OSIRIS</span><span>—</span><span><span class="role">Co-PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Liverpool Telescope</span><span>ToO 2026A</span><span>10h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Liverpool Telescope</span><span>ToO 2025A/B</span><span>10h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Liverpool Telescope</span><span>ToO 2024A/B</span><span>10h</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">ESO</span><span>NTT — ULTRACAM</span><span>3 nights</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">ESO</span><span>VLT — ToO X-SHOOTER</span><span>—</span><span><span class="role">Co-PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Gemini</span><span>Flamingos2</span><span>—</span><span><span class="role pi">dPI</span></span></div>
-        <div class="obs-row"><span class="facility-name">Gemini</span><span>GHOST</span><span>—</span><span><span class="role pi">dPI</span></span></div>
-        <div class="obs-row"><span class="facility-name">CASLEO</span><span>Observing nights</span><span>&gt;30 nights</span><span><span class="role pi">PI</span></span></div>
-        <div class="obs-row"><span class="facility-name">NOT</span><span>SOFIN</span><span>6h</span><span><span class="role">Co-PI</span></span></div>
+      <div class="facility-grid">
+        <article class="facility-card"><header><h3>NuSTAR</h3><i class="fas fa-satellite"></i></header><ul class="programme-list"><li><span>NGC 628 ULX1 — Cycle 11<span class="programme-meta">110 ks + 60 ks XMM-Newton</span></span><span class="role pi">PI</span></li><li><span>IRAS 18293-0941 — Cycle 11<span class="programme-meta">180 ks</span></span><span class="role">Co-PI</span></li></ul></article>
+        <article class="facility-card"><header><h3>Las Cumbres</h3><i class="fas fa-globe"></i></header><ul class="programme-list"><li><span>ToO 2026A<span class="programme-meta">90h</span></span><span class="role pi">PI</span></li><li><span>ToO 2025B<span class="programme-meta">40h</span></span><span class="role pi">PI</span></li><li><span>ToO 2025A<span class="programme-meta">66h</span></span><span class="role pi">PI</span></li><li><span>ToO 2024B<span class="programme-meta">50h</span></span><span class="role pi">PI</span></li></ul></article>
+        <article class="facility-card"><header><h3>GTC</h3><i class="fas fa-sun"></i></header><ul class="programme-list"><li><span>4U 1822-00 — HiPERCAM<span class="programme-meta">7h</span></span><span class="role">Co-PI</span></li><li><span>ToO — OSIRIS</span><span class="role">Co-PI</span></li></ul></article>
+        <article class="facility-card"><header><h3>Liverpool Telescope</h3><i class="fas fa-star"></i></header><ul class="programme-list"><li><span>ToO 2026A<span class="programme-meta">10h</span></span><span class="role pi">PI</span></li><li><span>ToO 2025A/B<span class="programme-meta">10h</span></span><span class="role pi">PI</span></li><li><span>ToO 2024A/B<span class="programme-meta">10h</span></span><span class="role pi">PI</span></li></ul></article>
+        <article class="facility-card"><header><h3>ESO</h3><i class="fas fa-moon"></i></header><ul class="programme-list"><li><span>NTT — ULTRACAM<span class="programme-meta">3 nights</span></span><span class="role pi">PI</span></li><li><span>VLT — ToO X-SHOOTER</span><span class="role">Co-PI</span></li></ul></article>
+        <article class="facility-card"><header><h3>Gemini & Others</h3><i class="fas fa-binoculars"></i></header><ul class="programme-list"><li><span>Gemini — Flamingos2</span><span class="role pi">dPI</span></li><li><span>Gemini — GHOST</span><span class="role pi">dPI</span></li><li><span>CASLEO<span class="programme-meta">&gt;30 nights</span></span><span class="role pi">PI</span></li><li><span>NOT — SOFIN<span class="programme-meta">6h</span></span><span class="role">Co-PI</span></li></ul></article>
       </div>
     </section>
 
