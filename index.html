@@ -500,6 +500,12 @@
       -webkit-background-clip: text;
               background-clip: text;
       -webkit-text-fill-color: transparent;
+      /* tight line-height (<1) makes the paint box shorter than the italic
+         cap of the "S"; without this, the part of the glyph above the box has
+         no gradient behind it and reads as clipped. Extend the paint box up
+         and pull it back with an equal negative margin -> zero layout shift. */
+      padding-top: .16em;
+      margin-top: -.16em;
     }
 
     .lede {
@@ -1493,8 +1499,8 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes lineUp {
-      from { transform: translateY(165%); }
-      to   { transform: translateY(0); }
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .reveal { opacity: 0; animation: rise .85s var(--ease-out) both; }
     .d1 { animation-delay: .06s; }
@@ -1504,14 +1510,9 @@
     .d5 { animation-delay: .54s; }
     .d6 { animation-delay: .66s; }
 
-    /* hero name: each line rises from behind a mask */
-    h1 .line {
-      display: block;
-      overflow: hidden;
-      padding: .16em .08em .4em;
-      margin: -.16em -.08em -.4em;
-    }
-    h1 .line > span { display: block; animation: lineUp 1s var(--ease-out) both; }
+    /* hero name: each line fades and rises — no clipping mask */
+    h1 .line { display: block; }
+    h1 .line > span { display: block; animation: lineUp .9s var(--ease-out) both; }
     h1 .line.l1 > span { animation-delay: .14s; }
     h1 .line.l2 > span { animation-delay: .27s; }
 
@@ -2160,8 +2161,8 @@
     /* ---- portrait lens parallax (fine pointer + hover only) ---- */
     var plate = document.querySelector('.plate');
     var frame = plate && plate.querySelector('.plate-frame');
-    var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (frame && finePointer && !reduce) {
+    var hoverFine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (frame && hoverFine && !reduce) {
       var pRaf = null, ptx = 0, pty = 0;
       function applyTilt() {
         pRaf = null;
