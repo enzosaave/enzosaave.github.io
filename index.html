@@ -61,6 +61,17 @@
   }
   </script>
 
+  <script>
+    /* set theme before first paint to avoid a flash */
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
     :root {
       /* neutral, faintly cool paper so the brand orange reads as a true signal */
@@ -119,6 +130,54 @@
       --shadow-brand:
         0 1px 2px rgba(154,52,18,.20),
         0 10px 24px -6px rgba(249,115,22,.32);
+    }
+
+    /* ---------- dark theme: the whole observatory at night ---------- */
+    :root[data-theme="dark"] {
+      --paper:      #0b0f18;
+      --paper-2:    #141b29;
+      --paper-3:    #0f1521;
+      --ink:        #e9edf3;
+      --ink-2:      #c3cad5;
+      --muted:      #9aa2ae;
+      --faint:      #79808d;
+
+      --line:       rgba(255, 255, 255, .11);
+      --line-soft:  rgba(255, 255, 255, .06);
+      --line-strong:rgba(255, 255, 255, .22);
+
+      --brand:      #f97316;
+      --brand-deep: #d65d0c;
+      --brand-ink:  #fdba74;
+      --brand-pale: rgba(249, 115, 22, .16);
+      --brand-glow: rgba(249, 115, 22, .22);
+
+      --steel:      #7a8698;
+      --steel-deep: #a7b2c2;
+
+      --shadow-sm:
+        0 1px 2px rgba(0,0,0,.40),
+        0 4px 14px rgba(0,0,0,.34);
+      --shadow-md:
+        0 1px 2px rgba(0,0,0,.40),
+        0 10px 26px -6px rgba(0,0,0,.48),
+        0 24px 54px -14px rgba(0,0,0,.52);
+      --shadow-lg:
+        0 1px 3px rgba(0,0,0,.45),
+        0 16px 36px -10px rgba(0,0,0,.52),
+        0 40px 80px -20px rgba(0,0,0,.58);
+      --shadow-brand:
+        0 1px 2px rgba(0,0,0,.40),
+        0 12px 28px -6px rgba(249,115,22,.40);
+    }
+    :root[data-theme="dark"] body::before {
+      background:
+        radial-gradient(120% 80% at var(--gx, 78%) var(--gy, -8%), var(--brand-glow), transparent 60%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 92px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 92px);
+    }
+    :root[data-theme="dark"] .plate-frame {
+      background: radial-gradient(120% 120% at 50% 0%, #1a2231, #0f1521);
     }
 
     * { box-sizing: border-box; }
@@ -373,6 +432,31 @@
       background: var(--brand);
       box-shadow: 0 0 0 3px var(--brand-glow);
     }
+
+    .theme-toggle {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      margin-left: 4px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color .2s var(--ease), border-color .2s var(--ease),
+                  background .2s var(--ease), transform .2s var(--ease);
+    }
+    .theme-toggle:hover {
+      color: var(--brand);
+      border-color: var(--brand);
+      background: var(--brand-glow);
+      transform: translateY(-1px);
+    }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .theme-toggle i { font-size: 14px; line-height: 1; }
 
     /* ---------- hero ---------- */
     .hero { padding: 132px 0 28px; }
@@ -1445,9 +1529,12 @@
     }
 
     @media (max-width: 760px) {
-      .topbar-inner { height: 56px; }
-      .nav { gap: 0; }
-      .nav a { padding: 6px 8px; font-size: 10px; }
+      .topbar-inner { height: 56px; gap: 8px; }
+      .brand { flex-shrink: 0; }
+      .nav { gap: 0; flex: 1 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav a { padding: 6px 8px; font-size: 10px; white-space: nowrap; }
+      .theme-toggle { width: 34px; height: 34px; margin-left: 2px; }
       .brand .dim { display: none; }
       .hero { padding-top: 104px; }
       .meta { grid-template-columns: 1fr; }
@@ -1528,6 +1615,9 @@
         <a href="#contact">Contact</a>
       </nav>
       <span class="nav-tag">IAC · Tenerife</span>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
 
@@ -2364,6 +2454,33 @@
       });
       if (reduce) { drawStatic(); return; }
       start();
+    })();
+
+    /* ---- theme toggle: light <-> dark, persisted ---- */
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      function apply(theme) {
+        if (theme === 'dark') root.setAttribute('data-theme', 'dark');
+        else root.removeAttribute('data-theme');
+        if (btn) {
+          var dark = theme === 'dark';
+          var icon = btn.querySelector('i');
+          if (icon) icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+          btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f18' : '#f97316');
+      }
+      var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      apply(current);
+      if (btn) {
+        btn.addEventListener('click', function () {
+          current = current === 'dark' ? 'light' : 'dark';
+          apply(current);
+          try { localStorage.setItem('theme', current); } catch (e) {}
+        });
+      }
     })();
 
     /* ---- guiño: a message for anyone who opens the console ---- */
