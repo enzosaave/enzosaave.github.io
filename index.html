@@ -16,7 +16,7 @@
   <meta property="og:type" content="profile" />
   <meta property="og:image" content="profile0.png" />
   <meta property="og:site_name" content="Enzo A. Saavedra" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Enzo A. Saavedra | Astrophysicist" />
   <meta name="twitter:description" content="PhD Candidate at IAC working on accreting compact objects, X-ray binaries and ultraluminous X-ray sources." />
   <meta name="twitter:image" content="profile0.png" />
@@ -34,10 +34,7 @@
     "@type": "Person",
     "name": "Enzo A. Saavedra",
     "jobTitle": "PhD Candidate in Astrophysics",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Instituto de Astrofísica de Canarias"
-    },
+    "affiliation": { "@type": "Organization", "name": "Instituto de Astrofísica de Canarias" },
     "email": "mailto:saavedra@iac.es",
     "sameAs": [
       "https://orcid.org/0000-0003-4841-8302",
@@ -46,23 +43,14 @@
       "https://x.com/enzosaave"
     ],
     "knowsAbout": [
-      "X-ray binaries",
-      "Low-mass X-ray binaries",
-      "High-mass X-ray binaries",
-      "Ultraluminous X-ray sources",
-      "Related compact systems",
-      "Accretion processes",
-      "Low-luminosity accretion",
-      "Neutron stars",
-      "Black holes",
-      "White dwarfs",
-      "Multiwavelength observations"
+      "X-ray binaries","Low-mass X-ray binaries","High-mass X-ray binaries",
+      "Ultraluminous X-ray sources","Accretion processes","Low-luminosity accretion",
+      "Neutron stars","Black holes","White dwarfs","Multiwavelength observations"
     ]
   }
   </script>
 
   <script>
-    /* set theme before first paint to avoid a flash */
     (function () {
       try {
         var t = localStorage.getItem('theme');
@@ -74,7 +62,6 @@
 
   <style>
     :root {
-      /* neutral, faintly cool paper so the brand orange reads as a true signal */
       --paper:      #f3f3f1;
       --paper-2:    #ffffff;
       --paper-3:    #f8f8f6;
@@ -87,14 +74,12 @@
       --line-soft:  rgba(20, 22, 27, .07);
       --line-strong:rgba(20, 22, 27, .24);
 
-      /* brand: darkorange — the single accent */
       --brand:      #f97316;
       --brand-deep: #c2410c;
       --brand-ink:  #9a3412;
       --brand-pale: #fbe6d3;
       --brand-glow: rgba(249, 115, 22, .14);
 
-      /* cool counterpoint — used ONLY inside the spectral signature (the X-ray end) */
       --steel:      #5a6675;
       --steel-deep: #2a313c;
 
@@ -103,7 +88,7 @@
       --night-line: rgba(255, 255, 255, .13);
       --night-soft: rgba(255, 255, 255, .60);
 
-      --maxw: 1140px;
+      --maxw: 1180px;
       --edge: clamp(18px, 4.4vw, 52px);
       --radius: 10px;
       --radius-lg: 16px;
@@ -115,7 +100,6 @@
       --ease: cubic-bezier(.22, .61, .36, 1);
       --ease-out: cubic-bezier(.16, 1, .3, 1);
 
-      /* layered, naturalistic depth — soft near + diffuse far */
       --shadow-sm:
         0 1px 2px rgba(20,22,27,.04),
         0 4px 12px rgba(20,22,27,.05);
@@ -130,9 +114,10 @@
       --shadow-brand:
         0 1px 2px rgba(154,52,18,.20),
         0 10px 24px -6px rgba(249,115,22,.32);
+
+      --theme-t: .35s var(--ease);
     }
 
-    /* ---------- dark theme: the whole observatory at night ---------- */
     :root[data-theme="dark"] {
       --paper:      #0b0f18;
       --paper-2:    #141b29;
@@ -186,6 +171,8 @@
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
       background: var(--paper);
+      scrollbar-width: thin;
+      scrollbar-color: var(--brand) transparent;
     }
 
     body {
@@ -200,10 +187,9 @@
       font-optical-sizing: auto;
       font-kerning: normal;
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-      font-variant-ligatures: common-ligatures contextual;
+      transition: background var(--theme-t), color var(--theme-t);
     }
 
-    /* a quiet sky-chart graticule + warm wash at the top — fades downward */
     body::before {
       content: "";
       position: fixed;
@@ -220,7 +206,6 @@
       pointer-events: none;
     }
 
-    /* faint printed-paper grain — quietly unifies the flat fields */
     body::after {
       content: "";
       position: fixed;
@@ -229,11 +214,10 @@
       pointer-events: none;
       opacity: .035;
       mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='200'%20height='200'%20filter='url%28%23n%29'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='200'%20height='200'%20filter='url(%28%23n%29'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
 
-    /* slow-drifting cosmic aurora behind the hero — always alive */
     .aurora {
       position: fixed;
       inset: 0 0 auto 0;
@@ -263,28 +247,16 @@
         radial-gradient(32% 42% at 52% -2%, rgba(120,90,190,.12), transparent 66%);
       animation: aurora-b 26s ease-in-out infinite;
     }
-    @keyframes aurora-a {
-      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50%      { transform: translate3d(10%, 6%, 0) scale(1.22); }
-    }
-    @keyframes aurora-b {
-      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50%      { transform: translate3d(-9%, -4%, 0) scale(1.2); }
-    }
+    @keyframes aurora-a { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(10%,6%,0) scale(1.22); } }
+    @keyframes aurora-b { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-9%,-4%,0) scale(1.2); } }
 
-    /* live night-sky canvas for the publications field */
-    .skycanvas {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
+    .skycanvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
-    /* global drifting stardust — gentle ambient motion across the whole page */
+    /* Background dust canvas - very soft, non-interactive */
     #dust {
       position: fixed;
       inset: 0;
-      z-index: 9997;
+      z-index: -1; /* Behind content, above base paper */
       pointer-events: none;
     }
 
@@ -295,8 +267,6 @@
 
     ::selection { color: #fff; background: var(--brand); }
 
-    /* refined branded scrollbar */
-    html { scrollbar-width: thin; scrollbar-color: var(--brand) transparent; }
     ::-webkit-scrollbar { width: 12px; height: 12px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb {
@@ -325,7 +295,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ---------- skip link ---------- */
     .skip {
       position: fixed;
       left: 14px; top: 14px;
@@ -339,7 +308,6 @@
     }
     .skip:focus { transform: translateY(0); }
 
-    /* ---------- top bar ---------- */
     .topbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -355,7 +323,6 @@
       box-shadow: 0 1px 0 var(--line), 0 14px 34px -16px rgba(20,22,27,.30);
     }
 
-    /* slim scroll-progress rule along the very top edge */
     .progress {
       position: fixed;
       top: 0; left: 0;
@@ -385,6 +352,7 @@
       border-radius: 7px;
       color: #fff; background: var(--brand);
       font-size: 11px; letter-spacing: 0;
+      box-shadow: 0 0 0 3px var(--brand-glow);
     }
     .brand b { font-weight: 700; }
     .brand .dim { color: var(--muted); }
@@ -431,7 +399,9 @@
       content: ""; width: 6px; height: 6px; border-radius: 50%;
       background: var(--brand);
       box-shadow: 0 0 0 3px var(--brand-glow);
+      animation: pulse-dot 2.4s ease-in-out infinite;
     }
+    @keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.3);opacity:.7} }
 
     .theme-toggle {
       flex-shrink: 0;
@@ -452,14 +422,11 @@
       background: var(--brand-glow);
       transform: translateY(-1px);
     }
-    .theme-toggle:focus-visible {
-      outline: 2px solid var(--brand);
-      outline-offset: 2px;
-    }
-    .theme-toggle i { font-size: 14px; line-height: 1; }
+    .theme-toggle i { font-size: 14px; line-height: 1; transition: transform .4s var(--ease-out); }
+    .theme-toggle:hover i { transform: rotate(20deg); }
 
-    /* ---------- hero ---------- */
-    .hero { padding: 132px 0 28px; }
+    /* ---------- HERO ---------- */
+    .hero { padding: 132px 0 28px; position: relative; }
 
     .hero-grid {
       display: grid;
@@ -500,10 +467,6 @@
       -webkit-background-clip: text;
               background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* tight line-height (<1) makes the paint box shorter than the italic
-         cap of the "S"; without this, the part of the glyph above the box has
-         no gradient behind it and reads as clipped. Extend the paint box up
-         and pull it back with an equal negative margin -> zero layout shift. */
       padding-top: .16em;
       margin-top: -.16em;
     }
@@ -540,8 +503,9 @@
       letter-spacing: .08em; text-transform: uppercase;
       transition: border-color .18s var(--ease), background .18s var(--ease), color .18s var(--ease), transform .18s var(--ease);
     }
-    .btn i { font-size: 12px; color: var(--brand-deep); transition: color .18s var(--ease); }
+    .btn i { font-size: 12px; color: var(--brand-deep); transition: color .18s var(--ease), transform .18s var(--ease); }
     .btn:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .btn:hover i { transform: translateX(2px); }
     .btn--solid {
       position: relative;
       overflow: hidden;
@@ -569,7 +533,6 @@
     }
     .btn--solid:hover::after { transform: translateX(130%) skewX(-18deg); }
 
-    /* meta as a hairline ledger, not boxed pills */
     .meta {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -600,7 +563,7 @@
       line-height: 1.35;
     }
 
-    /* ---------- portrait plate (finder-chart frame) ---------- */
+    /* ---------- PORTRAIT with accretion disk ---------- */
     .plate {
       position: relative;
       padding: 16px;
@@ -612,10 +575,7 @@
       transition: box-shadow .4s var(--ease-out);
       animation: floaty 9.5s ease-in-out infinite;
     }
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-6px); }
-    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .plate:hover {
       box-shadow: var(--shadow-lg), 0 46px 90px -28px rgba(20,22,27,.18);
     }
@@ -626,10 +586,8 @@
       overflow: hidden;
       transition: transform .3s var(--ease-out);
       will-change: transform;
-      background:
-        radial-gradient(120% 120% at 50% 0%, #fff, var(--paper-3));
+      background: radial-gradient(120% 120% at 50% 0%, #fff, var(--paper-3));
     }
-    /* reticle: short inward marks from each edge centre, open over the subject */
     .plate-frame::before,
     .plate-frame::after {
       content: "";
@@ -641,21 +599,18 @@
     .plate-frame::before {
       left: 50%; top: 0; bottom: 0; width: 1px;
       transform: translateX(-.5px);
-      background: linear-gradient(180deg,
-        var(--brand-deep) 0 11%, transparent 11% 89%, var(--brand-deep) 89% 100%);
+      background: linear-gradient(180deg, var(--brand-deep) 0 11%, transparent 11% 89%, var(--brand-deep) 89% 100%);
     }
     .plate-frame::after {
       top: 50%; left: 0; right: 0; height: 1px;
       transform: translateY(-.5px);
-      background: linear-gradient(90deg,
-        var(--brand-deep) 0 11%, transparent 11% 89%, var(--brand-deep) 89% 100%);
+      background: linear-gradient(90deg, var(--brand-deep) 0 11%, transparent 11% 89%, var(--brand-deep) 89% 100%);
     }
     .plate-frame img {
       width: 100%; height: 100%;
       object-fit: cover;
       filter: saturate(1.02) contrast(1.02);
     }
-    /* corner ticks like a detector / finder chart */
     .tick {
       position: absolute;
       width: 16px; height: 16px;
@@ -670,6 +625,16 @@
     .tick.bl { bottom: 9px; left: 9px; border-bottom-width: 2px; border-left-width: 2px; }
     .tick.br { bottom: 9px; right: 9px; border-bottom-width: 2px; border-right-width: 2px; }
 
+    .disk-halo {
+      position: absolute;
+      inset: -8% -8% auto auto;
+      width: 60%; height: 60%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .5;
+    }
+    .disk-halo svg { width: 100%; height: 100%; overflow: visible; }
+
     .plate-cap {
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px;
@@ -681,7 +646,7 @@
     }
     .plate-cap .coord { color: var(--brand-ink); }
 
-    /* ---------- spectral signature ---------- */
+    /* ---------- SPECTRUM ---------- */
     .spectrum {
       margin-top: clamp(40px, 6vw, 64px);
       padding: clamp(22px, 3vw, 32px) clamp(20px, 3vw, 34px) clamp(20px, 2.6vw, 28px);
@@ -710,7 +675,6 @@
       font-size: .9rem; color: var(--muted);
       max-width: 52ch;
     }
-
     .spectrum-head, .spectrum-foot {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -724,18 +688,13 @@
       padding-bottom: 10px;
     }
     .spectrum-head span:nth-child(3) { color: var(--steel-deep); }
-
     .spectrum-bar {
       position: relative;
       height: 18px;
       border-radius: 999px;
       background: linear-gradient(90deg,
-        #b45309 0%,
-        #f97316 30%,
-        #fb8b3a 48%,
-        #d98a4e 60%,
-        var(--steel) 80%,
-        var(--steel-deep) 100%);
+        #b45309 0%, #f97316 30%, #fb8b3a 48%, #d98a4e 60%,
+        var(--steel) 80%, var(--steel-deep) 100%);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.28),
         inset 0 0 0 1px rgba(0,0,0,.06),
@@ -744,15 +703,8 @@
       animation: spectrum-draw 1.1s var(--ease-out) both,
                  spectrum-pulse 7.5s ease-in-out 1.5s infinite;
     }
-    @keyframes spectrum-draw {
-      from { clip-path: inset(0 100% 0 0 round 999px); }
-      to   { clip-path: inset(0 0 0 0 round 999px); }
-    }
-    @keyframes spectrum-pulse {
-      0%, 100% { filter: brightness(1)    saturate(1);    }
-      50%      { filter: brightness(1.07) saturate(1.05); }
-    }
-    /* one-time detector sweep across the band */
+    @keyframes spectrum-draw { from { clip-path: inset(0 100% 0 0 round 999px); } to { clip-path: inset(0 0 0 0 round 999px); } }
+    @keyframes spectrum-pulse { 0%,100% { filter: brightness(1) saturate(1); } 50% { filter: brightness(1.07) saturate(1.05); } }
     .spectrum-bar::before {
       content: "";
       position: absolute;
@@ -762,20 +714,13 @@
       animation: spectrum-sweep 1.6s var(--ease-out) .35s both;
       pointer-events: none;
     }
-    @keyframes spectrum-sweep {
-      0%   { left: -16%; opacity: 0; }
-      14%  { opacity: 1; }
-      100% { left: 100%; opacity: 0; }
-    }
-    /* fine measurement ticks along the bar */
+    @keyframes spectrum-sweep { 0%{left:-16%;opacity:0} 14%{opacity:1} 100%{left:100%;opacity:0} }
     .spectrum-bar::after {
       content: "";
       position: absolute;
       left: 8px; right: 8px; bottom: 3px;
       height: 5px;
-      background-image: repeating-linear-gradient(90deg,
-        rgba(255,255,255,.55) 0, rgba(255,255,255,.55) 1px,
-        transparent 1px, transparent 16px);
+      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.55) 0 1px, transparent 1px 16px);
       opacity: .65;
     }
     .spectrum-sep {
@@ -784,8 +729,7 @@
       width: 1px;
       background: var(--line-strong);
     }
-    .spectrum-sep::before,
-    .spectrum-sep::after {
+    .spectrum-sep::before, .spectrum-sep::after {
       content: "";
       position: absolute;
       left: -1.5px;
@@ -796,7 +740,6 @@
     }
     .spectrum-sep::before { top: -4px; }
     .spectrum-sep::after  { bottom: -4px; }
-
     .spectrum-scale {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -817,7 +760,6 @@
       color: var(--brand-ink);
       white-space: nowrap;
     }
-
     .spectrum-foot {
       margin-top: 14px;
       border-top: 1px solid var(--line);
@@ -852,7 +794,7 @@
     }
     .spectrum-foot span:nth-child(3) b { color: var(--steel-deep); }
 
-    /* ---------- generic section scaffold ---------- */
+    /* ---------- SECTION SCAFFOLD ---------- */
     main { display: block; }
 
     .section {
@@ -862,15 +804,13 @@
       scroll-margin-top: 80px;
     }
     .section:first-child { border-top: 0; }
-    /* measurement ticks hanging from the divider — instrument language */
     .section:not(.section--dark)::before,
     .stats::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 7px;
-      background-image: repeating-linear-gradient(90deg,
-        var(--line-soft) 0 1px, transparent 1px 58px);
+      background-image: repeating-linear-gradient(90deg, var(--line-soft) 0 1px, transparent 1px 58px);
       pointer-events: none;
     }
 
@@ -889,9 +829,7 @@
       color: var(--brand-ink);
       margin-bottom: 16px;
     }
-    .kicker .bar {
-      width: 26px; height: 1.5px; background: var(--brand);
-    }
+    .kicker .bar { width: 26px; height: 1.5px; background: var(--brand); }
     .sec-title {
       font-family: var(--serif);
       font-weight: 500;
@@ -910,7 +848,7 @@
       padding-bottom: 6px;
     }
 
-    /* ---------- stats band ---------- */
+    /* ---------- STATS ---------- */
     .stats {
       position: relative;
       padding: clamp(40px, 5.2vw, 66px) 0;
@@ -927,11 +865,12 @@
     .stats-head::before { content: ""; width: 26px; height: 1.5px; background: var(--brand); }
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
     .stat {
-      padding: 2px clamp(16px, 2.6vw, 34px);
+      padding: 2px clamp(14px, 2vw, 26px);
       border-left: 1px solid var(--line);
+      position: relative;
     }
     .stat:first-child { border-left: 0; padding-left: 0; }
     .stat-tick { display: block; width: 22px; height: 2px; background: var(--brand); margin-bottom: 16px; }
@@ -939,12 +878,17 @@
       display: block;
       font-family: var(--serif);
       font-weight: 500;
-      font-size: clamp(2.7rem, 5.4vw, 4.2rem);
+      font-size: clamp(2.3rem, 4.6vw, 3.6rem);
       line-height: .9;
       letter-spacing: -.03em;
       color: var(--ink);
       font-variant-numeric: tabular-nums;
       font-optical-sizing: auto;
+    }
+    .stat-suffix {
+      font-size: .55em;
+      color: var(--brand-deep);
+      margin-left: 2px;
     }
     .stat-label {
       display: block;
@@ -956,7 +900,7 @@
       line-height: 1.4;
     }
 
-    /* ---------- about ---------- */
+    /* ---------- ABOUT ---------- */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(270px, 340px);
@@ -987,9 +931,7 @@
       color: var(--brand-deep);
     }
 
-    .facts {
-      border-top: 1px solid var(--line);
-    }
+    .facts { border-top: 1px solid var(--line); }
     .facts div {
       padding: 18px 2px;
       border-bottom: 1px solid var(--line);
@@ -1031,10 +973,225 @@
     }
     .chips span:hover::before {
       transform: scale(1.25);
-      box-shadow: 0 0 8px 1px var(--brand-glow-2, rgba(249,115,22,.5));
+      box-shadow: 0 0 8px 1px var(--brand-glow);
     }
 
-    /* ---------- publications (dark plate) ---------- */
+    /* ---------- RESEARCH (X-ray binary diagram) ---------- */
+    .xrb {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: clamp(28px, 4vw, 56px);
+      align-items: center;
+    }
+    .xrb-diagram {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(120% 90% at 80% 50%, var(--brand-glow), transparent 60%),
+        var(--paper-2);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 4/3;
+    }
+    .xrb-diagram svg { width: 100%; height: 100%; display: block; }
+    .xrb-caption {
+      position: absolute;
+      bottom: 14px; left: 14px;
+      font-family: var(--mono);
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--paper-2) 75%, transparent);
+      backdrop-filter: blur(4px);
+      padding: 5px 9px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      z-index: 10;
+    }
+
+    .xrb-info {
+      display: flex; flex-direction: column;
+      gap: 14px;
+    }
+    .xrb-info h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .xrb-info p {
+      color: var(--ink-2);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+    .xrb-tabs {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 6px;
+    }
+    .xrb-tab {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: var(--muted);
+      transition: all .2s var(--ease);
+    }
+    .xrb-tab:hover { color: var(--ink); border-color: var(--line-strong); }
+    .xrb-tab.active {
+      color: #fff;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+    .xrb-detail {
+      margin-top: 4px;
+      padding: 14px 16px;
+      border-left: 2px solid var(--brand);
+      background: var(--paper-3);
+      border-radius: 0 8px 8px 0;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.45;
+      color: var(--ink-2);
+      min-height: 4em;
+      transition: opacity .25s var(--ease);
+    }
+    .xrb-detail b {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--brand-ink);
+      margin-bottom: 6px;
+    }
+
+    .xrb-part { cursor: pointer; transition: opacity .35s var(--ease), filter .35s var(--ease); }
+    .xrb-part.dim { opacity: 0.15; filter: saturate(0.5); }
+    .xrb-part.is-active { opacity: 1; filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.4)); }
+    
+    /* Hidden SVG labels by default */
+    .xrb-part text, .xrb-part .label-line {
+      opacity: 0;
+      transition: opacity .25s var(--ease);
+      pointer-events: none;
+    }
+    .xrb-part.is-active text, .xrb-part.is-active .label-line {
+      opacity: 1;
+    }
+    .xrb-part.warm .label-line { stroke: var(--brand-ink); }
+    .xrb-part.warm text { fill: var(--brand-ink); }
+    .xrb-part.cool .label-line { stroke: var(--steel-deep); }
+    .xrb-part.cool text { fill: var(--steel-deep); }
+
+    .disk-rot-1 { transform-origin: 320px 240px; animation: disk-spin 12s linear infinite; }
+    .disk-rot-2 { transform-origin: 320px 240px; animation: disk-spin 8s linear infinite reverse; }
+    .disk-rot-3 { transform-origin: 320px 240px; animation: disk-spin 5s linear infinite; }
+    @keyframes disk-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    
+    .stream-flow { stroke-dasharray: 8 6; animation: stream-dash 1.2s linear infinite; }
+    @keyframes stream-dash { to { stroke-dashoffset: -28; } }
+    
+    .jet-pulse { animation: jet-glow 2.2s ease-in-out infinite; transform-origin: 320px 240px; }
+    @keyframes jet-glow { 0%,100%{opacity:.6; transform: scaleY(1)} 50%{opacity:1; transform: scaleY(1.05)} }
+
+    .pulse-core { animation: core-pulse 1.5s ease-in-out infinite; transform-origin: 320px 240px; }
+    @keyframes core-pulse { 0%,100%{opacity:0.8} 50%{opacity:1} }
+
+    /* ---------- FEATURED PUBLICATION ---------- */
+    .featured {
+      margin-top: 0;
+      margin-bottom: clamp(28px, 4vw, 44px);
+      padding: clamp(28px, 4vw, 44px);
+      border: 1px solid var(--night-line);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(80% 120% at 8% 0%, rgba(249,115,22,.18), transparent 55%),
+        linear-gradient(180deg, #1a2231, #0f1521);
+      color: #fff;
+      box-shadow: 0 30px 60px -28px rgba(0,0,0,.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured::before {
+      content: "";
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(249,115,22,.22), transparent 65%);
+      pointer-events: none;
+    }
+    .featured-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 11px;
+      border: 1px solid rgba(255,178,119,.4);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #ffb277;
+      margin-bottom: 18px;
+    }
+    .featured-tag::before {
+      content: "★";
+      color: #ffb277;
+    }
+    .featured h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: #fff;
+      max-width: 30ch;
+      text-wrap: balance;
+      margin-bottom: 14px;
+    }
+    .featured-authors {
+      font-size: .92rem;
+      color: var(--night-soft);
+      margin-bottom: 14px;
+      max-width: 70ch;
+    }
+    .featured-authors b { color: #fff; font-weight: 600; box-shadow: inset 0 -.4em 0 rgba(249,115,22,.32); }
+    .featured-abstract {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,.78);
+      max-width: 64ch;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+    .featured-meta {
+      display: flex; flex-wrap: wrap; gap: 22px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+    .featured-meta b { color: #ffb277; }
+    .featured-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      height: 40px; padding: 0 16px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      transition: background .18s var(--ease), transform .18s var(--ease);
+      margin-left: auto;
+    }
+    .featured-link:hover { background: var(--brand-deep); transform: translateY(-1px); }
+
+    /* ---------- PUBLICATIONS (dark) ---------- */
     .section--dark {
       position: relative;
       color: #fff;
@@ -1056,16 +1213,43 @@
       pointer-events: none;
     }
     @keyframes nebula {
-      0%, 100% { transform: scale(1) translate(0, 0);        opacity: .92; }
-      50%      { transform: scale(1.12) translate(-2%, 1.5%); opacity: 1;   }
+      0%,100% { transform: scale(1) translate(0,0); opacity: .92; }
+      50%     { transform: scale(1.12) translate(-2%, 1.5%); opacity: 1; }
     }
     .section--dark .wrap { position: relative; z-index: 1; }
     .section--dark .kicker { color: #ffb277; }
     .section--dark .kicker .bar { background: #ffb277; }
-    .section--dark .kicker::before { color: rgba(255,255,255,.42); }
     .section--dark .sec-title { color: #fff; }
     .section--dark .sec-title em { color: #ffb277; }
     .section--dark .sec-note { color: var(--night-soft); }
+
+    .pub-filters {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 22px;
+    }
+    .pub-filter {
+      padding: 7px 13px;
+      border: 1px solid var(--night-line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--night-soft);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      transition: all .18s var(--ease);
+    }
+    .pub-filter:hover { color: #fff; border-color: rgba(255,255,255,.35); }
+    .pub-filter.active {
+      color: #fff;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+    .pub-filter .count {
+      margin-left: 6px;
+      opacity: .7;
+      font-variant-numeric: tabular-nums;
+    }
 
     .pubgroup { margin-top: clamp(34px, 4vw, 48px); }
     .pubgroup:first-of-type { margin-top: 0; }
@@ -1077,13 +1261,8 @@
       color: #ffb277;
       margin-bottom: 6px;
     }
-    .pubgroup-label::after {
-      content: ""; flex: 1; height: 1px; background: var(--night-line);
-    }
-    .pubgroup-label .count {
-      color: var(--night-soft);
-      font-weight: 600;
-    }
+    .pubgroup-label::after { content: ""; flex: 1; height: 1px; background: var(--night-line); }
+    .pubgroup-label .count { color: var(--night-soft); font-weight: 600; }
 
     .papers { border-top: 1px solid var(--night-line); }
     .paper {
@@ -1094,7 +1273,7 @@
       align-items: baseline;
       padding: 22px 0;
       border-bottom: 1px solid var(--night-line);
-      transition: background .2s var(--ease);
+      transition: background .2s var(--ease), opacity .35s var(--ease), transform .35s var(--ease);
     }
     .paper::before {
       content: "";
@@ -1107,6 +1286,16 @@
     }
     .paper:hover { background: rgba(255,255,255,.02); }
     .paper:hover::before { opacity: 1; }
+    .paper.hidden {
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      overflow: hidden;
+    }
     .paper .yr {
       font-family: var(--mono);
       font-size: 12px; font-weight: 600;
@@ -1116,7 +1305,7 @@
     .paper-title {
       display: block;
       font-family: var(--serif);
-      font-size: clamp(1.26rem, 1.95vw, 1.78rem);
+      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
       font-weight: 500;
       line-height: 1.12;
       letter-spacing: -.018em;
@@ -1124,10 +1313,9 @@
       margin-bottom: 9px;
       max-width: 56ch;
       text-wrap: pretty;
+      transition: color .2s var(--ease);
     }
-    .paper--lead .paper-title {
-      font-size: clamp(1.36rem, 2.15vw, 1.96rem);
-    }
+    .paper:hover .paper-title { color: #ffb277; }
     .paper-authors {
       display: block;
       font-size: .9rem;
@@ -1162,9 +1350,9 @@
       letter-spacing: .07em; text-transform: uppercase;
       transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease), transform .18s var(--ease);
     }
-    .reflink i { font-size: 10px; opacity: .8; }
+    .reflink i { font-size: 10px; opacity: .8; transition: transform .18s var(--ease); }
     .reflink:hover { background: var(--brand); border-color: var(--brand); color: #fff; transform: translateY(-1px); }
-    .reflink:hover i { opacity: 1; }
+    .reflink:hover i { opacity: 1; transform: translate(2px,-2px); }
 
     .pub-all {
       display: flex; justify-content: flex-end;
@@ -1183,7 +1371,6 @@
     }
     .pub-all a:hover { background: var(--brand); border-color: var(--brand); transform: translateY(-1px); }
 
-    /* living night sky — a few stars that gently twinkle over the field */
     .twinkle { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
     .twinkle i {
       position: absolute;
@@ -1197,40 +1384,59 @@
       width: 3px; height: 3px;
       box-shadow: 0 0 9px 2px rgba(255,236,214,.6);
     }
-    @keyframes twinkle {
-      0%, 100% { opacity: .16; transform: scale(.7); }
-      50%      { opacity: .95; transform: scale(1.18); }
-    }
-    .twinkle i:nth-child(1){ left: 9%;  top: 26%; animation-delay: 0s;   animation-duration: 3.8s; }
-    .twinkle i:nth-child(2){ left: 24%; top: 63%; animation-delay: 1.1s; animation-duration: 4.7s; }
-    .twinkle i:nth-child(3){ left: 41%; top: 13%; animation-delay: .5s;  animation-duration: 5.2s; }
-    .twinkle i:nth-child(4){ left: 57%; top: 75%; animation-delay: 1.9s; animation-duration: 4.1s; }
-    .twinkle i:nth-child(5){ left: 69%; top: 32%; animation-delay: .3s;  animation-duration: 5.7s; }
-    .twinkle i:nth-child(6){ left: 82%; top: 58%; animation-delay: 2.3s; animation-duration: 4.4s; }
-    .twinkle i:nth-child(7){ left: 91%; top: 19%; animation-delay: 1.4s; animation-duration: 5s;   }
-    .twinkle i:nth-child(8){ left: 34%; top: 43%; animation-delay: 2.7s; animation-duration: 3.6s; }
+    @keyframes twinkle { 0%,100%{opacity:.16;transform:scale(.7)} 50%{opacity:.95;transform:scale(1.18)} }
+    .twinkle i:nth-child(1){ left:9%;  top:26%; animation-delay:0s;   animation-duration:3.8s; }
+    .twinkle i:nth-child(2){ left:24%; top:63%; animation-delay:1.1s; animation-duration:4.7s; }
+    .twinkle i:nth-child(3){ left:41%; top:13%; animation-delay:.5s;  animation-duration:5.2s; }
+    .twinkle i:nth-child(4){ left:57%; top:75%; animation-delay:1.9s; animation-duration:4.1s; }
+    .twinkle i:nth-child(5){ left:69%; top:32%; animation-delay:.3s;  animation-duration:5.7s; }
+    .twinkle i:nth-child(6){ left:82%; top:58%; animation-delay:2.3s; animation-duration:4.4s; }
+    .twinkle i:nth-child(7){ left:91%; top:19%; animation-delay:1.4s; animation-duration:5s;   }
+    .twinkle i:nth-child(8){ left:34%; top:43%; animation-delay:2.7s; animation-duration:3.6s; }
 
-    /* a rare shooting star sweeping across the field */
-    .shooting {
-      position: absolute;
-      top: 9%; left: 58%;
-      width: 170px; height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,.92), rgba(255,255,255,0));
-      opacity: 0;
-      transform: rotate(20deg);
+    /* ---------- OBSERVING ---------- */
+    .obs-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+      gap: clamp(24px, 4vw, 48px);
+      margin-bottom: clamp(28px, 4vw, 44px);
+      padding: clamp(22px, 3vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--paper-2);
+      box-shadow: var(--shadow-md);
+      align-items: center;
+    }
+    .obs-summary-num {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 500;
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .obs-summary-num em { font-style: italic; color: var(--brand-deep); font-size: .6em; margin-left: 4px; }
+    .obs-summary-label {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .obs-bars { display: flex; flex-direction: column; gap: 10px; }
+    .obs-bar-row { display: grid; grid-template-columns: 100px 1fr 50px; align-items: center; gap: 12px; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .obs-bar-track { height: 8px; background: var(--paper-3); border-radius: 999px; overflow: hidden; border: 1px solid var(--line-soft); }
+    .obs-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand), var(--brand-deep));
       border-radius: 999px;
-      filter: drop-shadow(0 0 5px rgba(255,255,255,.55));
-      animation: shoot 11s ease-in 3.5s infinite;
-      pointer-events: none;
+      width: 0;
+      transition: width 1.2s var(--ease-out);
     }
-    @keyframes shoot {
-      0%   { opacity: 0;   transform: translate(40px, -14px) rotate(20deg) scaleX(.25); }
-      4%   { opacity: .85; }
-      12%  { opacity: 0;   transform: translate(-300px, 96px) rotate(20deg) scaleX(1); }
-      100% { opacity: 0;   transform: translate(-300px, 96px) rotate(20deg) scaleX(1); }
-    }
+    .obs-bar-val { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
 
-    /* ---------- observing ---------- */
     .obs-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1270,7 +1476,7 @@
     }
     .obs-card h3 {
       font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.4vw, 1.96rem);
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
       font-weight: 500;
       line-height: 1;
       letter-spacing: -.02em;
@@ -1324,7 +1530,57 @@
       border-color: var(--brand);
     }
 
-    /* ---------- activity ---------- */
+    /* ---------- TIMELINE ---------- */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--brand), var(--brand-deep), transparent);
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      padding: 0 0 36px 24px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -28px; top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 3px solid var(--brand);
+      box-shadow: 0 0 0 4px var(--brand-glow);
+    }
+    .tl-year {
+      font-family: var(--mono);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--brand-ink);
+      margin-bottom: 4px;
+    }
+    .tl-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -.015em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .tl-place {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ---------- ACTIVITY ---------- */
     .act-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
@@ -1341,7 +1597,7 @@
       border-bottom: 1px solid var(--line);
       background: var(--paper-3);
       font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+      font-size: clamp(1.4rem, 2.3vw, 1.9rem);
       font-weight: 500;
       letter-spacing: -.02em;
       line-height: 1;
@@ -1353,8 +1609,10 @@
       align-items: baseline;
       padding: 14px 20px;
       border-bottom: 1px solid var(--line-soft);
+      transition: background .18s var(--ease);
     }
     .act-list li:last-child { border-bottom: 0; }
+    .act-list li:hover { background: var(--paper-3); }
     .act-kind {
       font-family: var(--mono);
       font-size: 10px; font-weight: 600;
@@ -1363,7 +1621,7 @@
     }
     .act-what { font-size: .94rem; color: var(--ink-2); line-height: 1.35; }
 
-    /* ---------- contact ---------- */
+    /* ---------- CONTACT ---------- */
     .contact {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
@@ -1423,20 +1681,26 @@
       color: var(--muted);
       display: flex; align-items: center;
     }
-    .links dd, .links a { margin: 0; }
     .links a, .links .val {
       display: flex; align-items: center;
       padding: 13px 14px;
       font-size: .9rem; font-weight: 500;
       color: var(--ink-2);
     }
-    .links a { transition: color .16s var(--ease), background .16s var(--ease); }
-    .links a:hover { color: #fff; background: var(--ink); }
-
-    /* ---------- footer ---------- */
-    footer {
-      padding: 30px 0 56px;
+    .links a { transition: color .16s var(--ease), background .16s var(--ease); position: relative; }
+    .links a::after {
+      content: "→";
+      margin-left: auto;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: all .18s var(--ease);
+      color: var(--brand);
     }
+    .links a:hover { color: #fff; background: var(--ink); }
+    .links a:hover::after { opacity: 1; transform: translateX(0); color: var(--brand); }
+
+    /* ---------- FOOTER ---------- */
+    footer { padding: 30px 0 56px; }
     .foot {
       display: flex; flex-wrap: wrap;
       justify-content: space-between; gap: 14px;
@@ -1457,33 +1721,33 @@
     .foot-top:hover { color: var(--ink); }
     .foot-top:hover i { transform: translateY(-2px); }
 
-    /* ---------- scroll reveal (progressive enhancement) ----------
-       Hidden state applies ONLY when JS is active, so no-JS = fully visible. */
+    /* ---------- SCROLL REVEAL ---------- */
     .js .section .sec-head,
     .js .about-grid,
+    .js .xrb,
+    .js .featured,
+    .js .pub-filters,
     .js .pubgroup,
+    .js .obs-summary,
     .js .obs-card,
     .js .act-card,
+    .js .timeline,
     .js .contact {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
       will-change: opacity, transform;
     }
-    .js .section .sec-head.in-view,
-    .js .about-grid.in-view,
-    .js .pubgroup.in-view,
-    .js .obs-card.in-view,
-    .js .act-card.in-view,
-    .js .contact.in-view {
-      opacity: 1;
-      transform: none;
+    .js .in-view {
+      opacity: 1 !important;
+      transform: none !important;
     }
     .js .obs-grid .obs-card:nth-child(3n+2) { transition-delay: .07s; }
     .js .obs-grid .obs-card:nth-child(3n)   { transition-delay: .14s; }
     .js .act-grid .act-card:nth-child(2)    { transition-delay: .08s; }
 
-    .js .stats .stat {
+    .js .stats .stat,
+    .js .tl-item {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
@@ -1492,16 +1756,14 @@
     .js .stats.in-view .stat:nth-child(2) { transition-delay: .07s; }
     .js .stats.in-view .stat:nth-child(3) { transition-delay: .14s; }
     .js .stats.in-view .stat:nth-child(4) { transition-delay: .21s; }
+    .js .stats.in-view .stat:nth-child(5) { transition-delay: .28s; }
 
-    /* ---------- entrance animation ---------- */
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes lineUp {
-      from { opacity: 0; transform: translateY(26px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .js .timeline.in-view .tl-item { opacity: 1; transform: none; }
+    .js .timeline.in-view .tl-item:nth-child(2) { transition-delay: .1s; }
+    .js .timeline.in-view .tl-item:nth-child(3) { transition-delay: .2s; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes lineUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; animation: rise .85s var(--ease-out) both; }
     .d1 { animation-delay: .06s; }
     .d2 { animation-delay: .16s; }
@@ -1510,23 +1772,22 @@
     .d5 { animation-delay: .54s; }
     .d6 { animation-delay: .66s; }
 
-    /* hero name: each line fades and rises — no clipping mask */
     h1 .line { display: block; }
     h1 .line > span { display: block; animation: lineUp .9s var(--ease-out) both; }
     h1 .line.l1 > span { animation-delay: .14s; }
     h1 .line.l2 > span { animation-delay: .27s; }
 
-    /* ---------- responsive ---------- */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1040px) {
-      .hero-grid,
-      .about-grid,
-      .sec-head,
-      .contact { grid-template-columns: 1fr; }
+      .hero-grid, .about-grid, .sec-head, .contact,
+      .xrb, .obs-summary { grid-template-columns: 1fr; }
       .sec-head { align-items: start; gap: 14px; }
       .plate { max-width: 460px; }
       .obs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .act-grid { grid-template-columns: 1fr; }
       .nav-tag { display: none; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .stat:nth-child(4) { border-left: 0; padding-left: 0; }
     }
 
     @media (max-width: 760px) {
@@ -1547,6 +1808,9 @@
       .spectrum-head span { font-size: 1rem; }
       .stats-row { grid-template-columns: repeat(2, 1fr); gap: 30px 0; }
       .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+      .obs-bar-row { grid-template-columns: 80px 1fr 40px; font-size: 9.5px; }
+      .featured-meta { gap: 14px; }
+      .featured-link { margin-left: 0; }
     }
 
     @media (max-width: 480px) {
@@ -1558,8 +1822,7 @@
       .paper { grid-template-columns: 1fr; gap: 9px; }
       .paper .yr { padding-top: 0; }
       .paper-links { grid-column: auto; }
-      .obs-list li,
-      .act-list li { grid-template-columns: 1fr; gap: 6px; }
+      .obs-list li, .act-list li { grid-template-columns: 1fr; gap: 6px; }
       .links div { grid-template-columns: 1fr; }
       .links dt { border-right: 0; border-bottom: 1px solid var(--line); }
     }
@@ -1570,28 +1833,29 @@
       .reveal { opacity: 1; }
       .js .section .sec-head,
       .js .about-grid,
+      .js .xrb,
+      .js .featured,
+      .js .pub-filters,
       .js .pubgroup,
+      .js .obs-summary,
       .js .obs-card,
       .js .act-card,
+      .js .timeline,
       .js .contact,
-      .js .stats .stat { opacity: 1 !important; transform: none !important; }
+      .js .stats .stat,
+      .js .tl-item { opacity: 1 !important; transform: none !important; }
     }
 
     @media print {
-      .topbar, .hero-actions, .plate, .spectrum, footer, body::before, body::after, .progress, .twinkle, .aurora, .skycanvas, #dust { display: none !important; }
+      .topbar, .hero-actions, .plate, .spectrum, footer, body::before, body::after,
+      .progress, .twinkle, .aurora, .skycanvas, #dust, .pub-filters, .featured-link { display: none !important; }
       body { color: #000; background: #fff; }
       .section, .section--dark { color: #000; background: #fff; border-top: 1px solid #ccc; padding: 22px 0; }
       .section--dark .sec-title, .section--dark .sec-note,
-      .paper-title, .paper-authors, .paper-journal, .pubgroup-label { color: #000 !important; }
-      .hero-grid, .about-grid, .sec-head, .contact, .obs-grid, .act-grid { display: block; }
+      .paper-title, .paper-authors, .paper-journal, .pubgroup-label,
+      .featured, .featured h3, .featured-authors, .featured-abstract { color: #000 !important; }
+      .hero-grid, .about-grid, .sec-head, .contact, .obs-grid, .act-grid, .xrb, .obs-summary { display: block; }
       .reveal { opacity: 1; }
-      .js .section .sec-head,
-      .js .about-grid,
-      .js .pubgroup,
-      .js .obs-card,
-      .js .act-card,
-      .js .contact,
-      .js .stats .stat { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
@@ -1610,8 +1874,10 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#observing">Observing</a>
+        <a href="#timeline">Timeline</a>
         <a href="#activity">Activity</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1639,12 +1905,33 @@
 
           <div class="hero-actions reveal d4">
             <a class="btn btn--solid" href="#publications"><i class="fas fa-book-open"></i> Publications</a>
+            <a class="btn" href="#research"><i class="fas fa-atom"></i> Research</a>
             <a class="btn" href="#observing"><i class="fas fa-satellite-dish"></i> Observing</a>
             <a class="btn" href="mailto:saavedra@iac.es"><i class="fas fa-envelope"></i> Contact</a>
           </div>
+
+          <dl class="meta reveal d5">
+            <div><dt>Institute</dt><dd>Instituto de Astrofísica de Canarias</dd></div>
+            <div><dt>Location</dt><dd>Tenerife, Spain</dd></div>
+            <div><dt>Supervisors</dt><dd>M. Armas Padilla &amp; T. Muñoz-Darias</dd></div>
+            <div><dt>Field</dt><dd>Accreting compact objects</dd></div>
+          </dl>
         </div>
 
         <aside class="plate reveal d4" aria-label="Portrait">
+          <div class="disk-halo" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <defs>
+                <radialGradient id="haloG" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#f97316" stop-opacity="0.5"/>
+                  <stop offset="60%" stop-color="#f97316" stop-opacity="0.1"/>
+                  <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <ellipse cx="100" cy="100" rx="95" ry="32" fill="url(#haloG)" transform="rotate(-18 100 100)"/>
+            </svg>
+          </div>
+
           <div class="plate-frame">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
@@ -1658,31 +1945,27 @@
         </aside>
       </div>
 
-      <!-- SIGNATURE: the multiwavelength spectral axis -->
+      <!-- SPECTRUM -->
       <div class="wrap">
         <section class="spectrum reveal d6" aria-label="Multiwavelength observing windows">
           <div class="spectrum-kicker">
             <span class="k">Observing windows</span>
             <span class="note">A multiwavelength approach — combining infrared, optical and X-ray data to study accreting compact objects.</span>
           </div>
-
           <div class="spectrum-head">
             <span>Infrared</span>
             <span>Optical</span>
             <span>X-ray</span>
           </div>
-
           <div class="spectrum-bar" aria-hidden="true">
             <span class="spectrum-sep" style="left:33.33%"></span>
             <span class="spectrum-sep" style="left:66.66%"></span>
           </div>
-
           <div class="spectrum-scale">
             <span>← longer wavelength · lower energy</span>
             <span class="ee">E = hc ∕ λ</span>
             <span>shorter wavelength · higher energy →</span>
           </div>
-
           <div class="spectrum-foot">
             <span><b>Near-IR</b><em class="rng">≈ 1–2.4 µm</em>Flamingos2 · imaging &amp; spectroscopy</span>
             <span><b>Optical</b><em class="rng">≈ 0.4–1 µm</em>GTC · Las Cumbres · Liverpool · NTT</span>
@@ -1697,10 +1980,11 @@
       <div class="wrap">
         <span class="stats-head">At a glance</span>
         <div class="stats-row">
-          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="12">12</span><span class="stat-label">Publications</span></div>
-          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="6">6</span><span class="stat-label">First-author</span></div>
-          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="18">18</span><span class="stat-label">Observing programmes</span></div>
-          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="10">10</span><span class="stat-label">As lead (PI)</span></div>
+          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="12">0</span><span class="stat-label">Publications</span></div>
+          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="6">0</span><span class="stat-label">First-author</span></div>
+          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="180">0</span><span class="stat-label">Citations</span></div>
+          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="8">0</span><span class="stat-label">H-index</span></div>
+          <div class="stat"><span class="stat-tick"></span><span class="stat-num" data-target="880">0</span><span class="stat-label">Telescope hours</span></div>
         </div>
       </div>
     </section>
@@ -1728,6 +2012,7 @@
               <span>Neutron stars</span>
               <span>Black holes</span>
               <span>ULXs</span>
+              <span>White dwarfs</span>
             </div>
           </div>
 
@@ -1735,7 +2020,173 @@
             <div><dt>Institute</dt><dd>Instituto de Astrofísica de Canarias (IAC)</dd></div>
             <div><dt>Supervisors</dt><dd>Montserrat Armas Padilla &amp; Teo Muñoz-Darias</dd></div>
             <div><dt>Field</dt><dd>Astrophysics of X-ray binaries</dd></div>
+            <div><dt>ORCID</dt><dd>0000-0003-4841-8302</dd></div>
           </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESEARCH (X-RAY BINARY DIAGRAM) ===================== -->
+    <section class="section" id="research">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="kicker"><span class="bar"></span>Research</span>
+            <h2 class="sec-title">Anatomy of an <em>X-ray binary</em></h2>
+          </div>
+          <p class="sec-note">Hover the diagram — or tap a label — to explore the physical components I study.</p>
+        </div>
+
+        <div class="xrb">
+          <div class="xrb-diagram" id="xrbDiagram">
+            <svg viewBox="0 0 640 480" role="img" aria-label="Schematic of an X-ray binary system">
+              <defs>
+                <radialGradient id="donorGrad" cx="35%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#ffe4c4"/>
+                  <stop offset="40%" stop-color="#ff9b54"/>
+                  <stop offset="85%" stop-color="#d24814"/>
+                  <stop offset="100%" stop-color="#842902"/>
+                </radialGradient>
+                
+                <radialGradient id="diskTemp" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+                  <stop offset="15%" stop-color="#fde68a" stop-opacity="1"/>
+                  <stop offset="40%" stop-color="#fb923c" stop-opacity="0.9"/>
+                  <stop offset="70%" stop-color="#c2410c" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#7c2d12" stop-opacity="0"/>
+                </radialGradient>
+                
+                <linearGradient id="jetGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0"/>
+                  <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.4"/>
+                  <stop offset="50%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+                  <stop offset="70%" stop-color="#38bdf8" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
+                </linearGradient>
+                
+                <radialGradient id="hotspot" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+                  <stop offset="50%" stop-color="#ffe4c4" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#ff9b54" stop-opacity="0"/>
+                </radialGradient>
+                
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Background Stars -->
+              <g opacity="0.5">
+                <circle cx="80" cy="60" r="1.5" fill="#fff" filter="url(#glow)"/>
+                <circle cx="540" cy="100" r="1.2" fill="#fff" opacity="0.8"/>
+                <circle cx="120" cy="380" r="0.8" fill="#fff" opacity="0.6"/>
+                <circle cx="600" cy="320" r="1.4" fill="#fff" filter="url(#glow)"/>
+                <circle cx="450" cy="40" r="0.9" fill="#fff" opacity="0.7"/>
+                <circle cx="300" cy="450" r="1.1" fill="#fff" opacity="0.9"/>
+                <circle cx="30" cy="200" r="0.5" fill="#fff"/>
+                <circle cx="610" cy="150" r="0.7" fill="#fff" opacity="0.5"/>
+                <circle cx="580" cy="420" r="1" fill="#fff" opacity="0.8"/>
+              </g>
+
+              <!-- Jets -->
+              <g class="xrb-part cool" data-part="jet">
+                <g class="jet-pulse">
+                  <polygon points="310,240 330,240 340,50 300,50" fill="url(#jetGrad)" filter="url(#glow)"/>
+                  <line x1="320" y1="60" x2="320" y2="230" stroke="#e0f2fe" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+                  <circle cx="320" cy="120" r="4" fill="#e0f2fe" opacity="0.6" filter="url(#glow)"/>
+                  <circle cx="320" cy="180" r="3" fill="#7dd3fc" opacity="0.4" filter="url(#glow)"/>
+                  
+                  <polygon points="310,240 330,240 340,430 300,430" fill="url(#jetGrad)" filter="url(#glow)"/>
+                  <line x1="320" y1="250" x2="320" y2="420" stroke="#e0f2fe" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+                  <circle cx="320" cy="360" r="4" fill="#e0f2fe" opacity="0.6" filter="url(#glow)"/>
+                  <circle cx="320" cy="300" r="3" fill="#7dd3fc" opacity="0.4" filter="url(#glow)"/>
+                </g>
+                <path d="M 320 100 L 320 80" stroke-width="1" class="label-line"/>
+                <text x="320" y="70" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">RELATIVISTIC JETS</text>
+              </g>
+
+              <!-- Donor Star -->
+              <g class="xrb-part warm" data-part="donor">
+                <path d="M 120 160 C 40 160 40 320 120 320 C 160 320 190 280 200 240 C 190 200 160 160 120 160 Z" fill="url(#donorGrad)" filter="url(#glow)"/>
+                <circle cx="200" cy="240" r="4" fill="#ffe4c4" opacity="0.8" filter="url(#glow)"/>
+                <path d="M 90 180 Q 110 170 130 190" stroke="#ffe4c4" stroke-width="2" fill="none" opacity="0.3"/>
+                <path d="M 80 240 Q 100 230 120 250" stroke="#d24814" stroke-width="3" fill="none" opacity="0.4"/>
+                <path d="M 90 290 Q 110 300 130 280" stroke="#ffe4c4" stroke-width="2" fill="none" opacity="0.3"/>
+                
+                <path d="M 130 320 L 110 340" stroke-width="1" class="label-line"/>
+                <text x="110" y="355" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">DONOR STAR</text>
+              </g>
+
+              <!-- Mass Transfer Stream -->
+              <g class="xrb-part warm" data-part="stream">
+                <path class="stream-flow" d="M 200 240 Q 220 270 240 250 Q 250 245 245 240" stroke="#ffe4c4" stroke-width="3" fill="none" filter="url(#glow)"/>
+                
+                <path d="M 240 270 L 255 285" stroke-width="1" class="label-line"/>
+                <text x="255" y="300" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">STREAM</text>
+              </g>
+
+              <!-- Accretion Disk -->
+              <g class="xrb-part warm" data-part="disk">
+                <g transform="rotate(-8 320 240)">
+                  <ellipse cx="320" cy="240" rx="130" ry="36" fill="url(#diskTemp)" opacity="0.15" filter="url(#glow)"/>
+                  <ellipse cx="320" cy="240" rx="110" ry="30" fill="url(#diskTemp)" opacity="0.6"/>
+                  <ellipse cx="320" cy="240" rx="80" ry="21" fill="url(#diskTemp)" opacity="0.8"/>
+                  <ellipse cx="320" cy="240" rx="50" ry="13" fill="url(#diskTemp)" opacity="1"/>
+                  
+                  <g class="disk-rot-1">
+                    <ellipse cx="320" cy="240" rx="100" ry="27" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="8 4"/>
+                  </g>
+                  <g class="disk-rot-2">
+                    <ellipse cx="320" cy="240" rx="70" ry="19" fill="none" stroke="#fde68a" stroke-width="1.5" opacity="0.3" stroke-dasharray="6 6"/>
+                  </g>
+                  <g class="disk-rot-3">
+                    <ellipse cx="320" cy="240" rx="40" ry="11" fill="none" stroke="#e0f2fe" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>
+                  </g>
+
+                  <circle cx="225" cy="238" r="7" fill="url(#hotspot)" filter="url(#glow)"/>
+                </g>
+                
+                <ellipse cx="320" cy="240" rx="12" ry="3" fill="var(--paper-2)" transform="rotate(-8 320 240)"/>
+
+                <path d="M 320 210 L 320 180" stroke-width="1" class="label-line"/>
+                <text x="320" y="170" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">ACCRETION DISK</text>
+              </g>
+
+              <!-- Compact Object -->
+              <g class="xrb-part cool" data-part="compact">
+                <g class="pulse-core">
+                  <circle cx="320" cy="240" r="8" fill="#0f1521" stroke="#e0f2fe" stroke-width="1.5" opacity="0.8"/>
+                  <circle cx="320" cy="240" r="5" fill="#ffffff" opacity="1" filter="url(#glow)"/>
+                </g>
+                <path d="M 335 240 L 365 240" stroke-width="1" class="label-line"/>
+                <text x="375" y="244" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">COMPACT OBJECT</text>
+              </g>
+            </svg>
+            
+            <div class="xrb-caption">Schematic · not to scale</div>
+          </div>
+
+          <div class="xrb-info">
+            <h3>Multiwavelength fingerprints of accretion</h3>
+            <p>Each component emits at a different wavelength. By combining IR, optical and X-ray data I can reconstruct the geometry and physics of the system — even when it is unresolved by any telescope.</p>
+
+            <div class="xrb-tabs" role="tablist">
+              <button class="xrb-tab active" data-tab="donor" role="tab">Donor</button>
+              <button class="xrb-tab" data-tab="stream" role="tab">Stream</button>
+              <button class="xrb-tab" data-tab="disk" role="tab">Disk</button>
+              <button class="xrb-tab" data-tab="compact" role="tab">Compact</button>
+              <button class="xrb-tab" data-tab="jet" role="tab">Jet</button>
+            </div>
+
+            <div class="xrb-detail" id="xrbDetail">
+              <b>Donor star</b>
+              The companion star that fills its Roche lobe. Matter is pulled through the inner Lagrangian point (L1) towards the compact object. Its spectral type defines the class of the binary.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1753,79 +2204,107 @@
           <p class="sec-note">Peer-reviewed papers and accepted work on accreting compact objects, X-ray binaries and ULXs.</p>
         </div>
 
+        <!-- FEATURED -->
+        <article class="featured">
+          <span class="featured-tag">Featured · most recent</span>
+          <h3>Resolving SLX 1744-299 and SLX 1744-300 in the hard X-ray band: implications for their ultracompact nature</h3>
+          <p class="featured-authors"><b>E. A. Saavedra</b>, M. Armas Padilla, T. Muñoz-Darias.</p>
+          <p class="featured-abstract">
+            "We present the first hard X-ray characterization of two persistent sources in the Galactic Centre region.
+            The NuSTAR spectra allow us to accurately characterize their X-ray emission and place tight constraints
+            on their orbital periods, providing key insights into the nature of these systems."
+          </p>
+          <div class="featured-meta">
+            <span><b>2026</b> · Astronomy &amp; Astrophysics, in press</span>
+            <a class="featured-link" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" target="_blank" rel="noopener">
+              Read on ADS <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- FILTERS -->
+        <div class="pub-filters" role="tablist" aria-label="Filter publications by year">
+          <button class="pub-filter active" data-year="all">All <span class="count">12</span></button>
+          <button class="pub-filter" data-year="2026">2026 <span class="count">4</span></button>
+          <button class="pub-filter" data-year="2025">2025 <span class="count">3</span></button>
+          <button class="pub-filter" data-year="2024">2024 <span class="count">1</span></button>
+          <button class="pub-filter" data-year="2023">2023 <span class="count">3</span></button>
+          <button class="pub-filter" data-year="2022">2022 <span class="count">1</span></button>
+        </div>
+
         <div class="pubgroup">
           <div class="pubgroup-label">First-author publications <span class="count">— 6</span></div>
           <div class="papers">
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2026">
               <div class="yr">2026</div>
               <div>
-                <span class="paper-title">Resolving SLX 1744-299 and SLX 1744-300 in the hard X-ray band: implications for their ultracompact nature</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" target="_blank" rel="noopener">Resolving SLX 1744-299 and SLX 1744-300 in the hard X-ray band: implications for their ultracompact nature</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, M. Armas Padilla, T. Muñoz-Darias.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, in press</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for SLX 1744-299 and SLX 1744-300">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2025">
               <div class="yr">2025</div>
               <div>
-                <span class="paper-title">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" target="_blank" rel="noopener">The orbital period and inclination of the neutron star X-ray transient MAXI J1807+132</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, T. Muñoz-Darias, M. A. P. Torres, I. V. Yanes-Rizo, M. Armas Padilla, A. Álvarez-Hernández, J. Casares, D. Mata Sánchez, S. K. Rout, S. Navarro.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 702, A103</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for MAXI J1807+132">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...702A.103S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2023">
               <div class="yr">2023</div>
               <div>
-                <span class="paper-title">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" target="_blank" rel="noopener">NuSTAR and XMM-Newton observations of the binary 4FGL J1405.1-6119</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, G. Escobar, G. E. Romero, J. A. Combi, E. Marcel.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 680, A88</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for 4FGL J1405.1-6119">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023A%26A...680A..88S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2023">
               <div class="yr">2023</div>
               <div>
-                <span class="paper-title">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" target="_blank" rel="noopener">Achromatic rapid flares in hard X-rays in the γ-ray binary LS I +61 303</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, G. E. Romero, V. Bosch-Ramon, E. Kefala.</span>
                 <span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 525, 2</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for LS I +61 303 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1848S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2023">
               <div class="yr">2023</div>
               <div>
-                <span class="paper-title">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" target="_blank" rel="noopener">Relativistic X-Ray Reflection and Photoionised Absorption in the Z-source GX 13+1</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, F. Garcia, F. A. Fogantini, M. Mendez, J. A. Combi, J. Martí, P. Luque Escamilla.</span>
                 <span class="paper-journal">Monthly Notices of the Royal Astronomical Society, 522, 3</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for GX 13+1 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.3367S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper paper--lead">
+            <article class="paper paper--lead" data-year="2022">
               <div class="yr">2022</div>
               <div>
-                <span class="paper-title">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" target="_blank" rel="noopener">A NuSTAR observation of the eclipsing binary system OAO 1657-415: The revival of the cyclotron line</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, F. A. Fogantini, J. A. Combi, F. García, S. Chaty.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 659, A48</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for OAO 1657-415 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2022A%26A...659A..48S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
@@ -1836,76 +2315,76 @@
           <div class="pubgroup-label">Co-authored publications <span class="count">— 6</span></div>
           <div class="papers">
 
-            <article class="paper">
+            <article class="paper" data-year="2026">
               <div class="yr">2026</div>
               <div>
-                <span class="paper-title">A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" target="_blank" rel="noopener">A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1</a>
                 <span class="paper-authors">N. Cruz-Sanchez, <b>E. A. Saavedra</b>, F. A. Fogantini, F. García, J. A. Combi, M. Bachetti, M. Imbrogno, L. Sidoli, A. Marino</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics — Letter, in press</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for NGC 4656 ULX-1 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a class="reflink" href="https://www.aanda.org/2026-highlights/3170" target="_blank" rel="noopener" aria-label="Open A&A highlight for NGC 4656 ULX-1 paper">Highlight <i class="fas fa-star"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://www.aanda.org/2026-highlights/3170" target="_blank" rel="noopener">Highlight <i class="fas fa-star"></i></a>
               </div>
             </article>
 
-            <article class="paper">
+            <article class="paper" data-year="2026">
               <div class="yr">2026</div>
               <div>
-                <span class="paper-title">Constraints on cyclotron features and accretion regime in the high-mass X-ray binary 4U 1700–37 from NuSTAR</span>
+                <a class="paper-title" href="https://www.sciencedirect.com/science/article/abs/pii/S2214404826000194" target="_blank" rel="noopener">Constraints on cyclotron features and accretion regime in the high-mass X-ray binary 4U 1700–37 from NuSTAR</a>
                 <span class="paper-authors">L. West Ocampo, F. A. Fogantini, <b>E. A. Saavedra</b>, J. A. Combi, F. García, P. L. Luque Escamilla, J. Martí, S. Chaty, J. F. Albacete Colombo.</span>
                 <span class="paper-journal">Journal of High Energy Astrophysics, 52, 100567</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://www.sciencedirect.com/science/article/abs/pii/S2214404826000194" target="_blank" rel="noopener" aria-label="Open journal page for 4U 1700-37 paper">Journal <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://www.sciencedirect.com/science/article/abs/pii/S2214404826000194" target="_blank" rel="noopener">Journal <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper">
+            <article class="paper" data-year="2026">
               <div class="yr">2026</div>
               <div>
-                <span class="paper-title">The hard ultraluminous state of NGC 5055 ULX X-1</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2025arXiv251113686C/abstract" target="_blank" rel="noopener">The hard ultraluminous state of NGC 5055 ULX X-1</a>
                 <span class="paper-authors">N. Cruz-Sanchez, <b>E. A. Saavedra</b>, F. A. Fogantini, F. García, J. A. Combi.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 705, A136</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025arXiv251113686C/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for NGC 5055 ULX X-1 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025arXiv251113686C/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper">
+            <article class="paper" data-year="2025">
               <div class="yr">2025</div>
               <div>
-                <span class="paper-title">GX 340+0: In and Out of Focus</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250320050L/abstract" target="_blank" rel="noopener">GX 340+0: In and Out of Focus</a>
                 <span class="paper-authors">S. Li, R. M. Ludlam, D. J. K. Buisson, M. Sudha, S. Rossland, G. Mastroserio, M. C. Brumback, J. A. García, B. W. Grefenstette, F. La Monaca, <b>E. A. Saavedra</b>, A. Di Marco.</span>
                 <span class="paper-journal">The Astrophysical Journal, 994, 2, 169</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250320050L/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for GX 340+0 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250320050L/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper">
+            <article class="paper" data-year="2025">
               <div class="yr">2025</div>
               <div>
-                <span class="paper-title">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.122C/abstract" target="_blank" rel="noopener">A broadband X-ray view of the ultraluminous sources in the galaxies ESO 501-023 and IC 5052</a>
                 <span class="paper-authors">N. Cruz-Sanchez, F. A. Fogantini, <b>E. A. Saavedra</b>, L. Abaroa, F. García, J. A. Combi, G. E. Romero.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 693, A122</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.122C/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for ESO 501-023 and IC 5052 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.122C/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
-            <article class="paper">
+            <article class="paper" data-year="2024">
               <div class="yr">2024</div>
               <div>
-                <span class="paper-title">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A.121C/abstract" target="_blank" rel="noopener">Simultaneous NICER and NuSTAR observations of the Ultraluminous source NGC 4190 ULX-1</a>
                 <span class="paper-authors">J. A. Combi, F. A. Fogantini, <b>E. A. Saavedra</b>, G. E. Romero, L. Abaroa, F. García, P. Luque Escamilla, J. Martí, N. Cruz-Sanchez.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics, 686, A121</span>
               </div>
               <div class="paper-links">
-                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A.121C/abstract" target="_blank" rel="noopener" aria-label="Open ADS record for NGC 4190 ULX-1 paper">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A.121C/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
@@ -1913,7 +2392,7 @@
         </div>
 
         <div class="pub-all">
-          <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener" aria-label="View all Enzo Saavedra records on ADS">View all records on ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
+          <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Saavedra%2C%20Enzo%22&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener">View all records on ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
     </section>
@@ -1927,6 +2406,40 @@
             <h2 class="sec-title">Observing <em>proposals</em></h2>
           </div>
           <p class="sec-note">Facilities, observing programmes, allocated time and proposal role.</p>
+        </div>
+
+        <div class="obs-summary">
+          <div>
+            <span class="obs-summary-num"><span data-target="880">0</span><em>h</em></span>
+            <span class="obs-summary-label">Total awarded telescope time · 19 programmes · 11 as PI</span>
+          </div>
+          <div class="obs-bars" id="obsBars">
+            <div class="obs-bar-row">
+              <span>NuSTAR</span>
+              <div class="obs-bar-track"><div class="obs-bar-fill" data-pct="55"></div></div>
+              <span class="obs-bar-val">550 ks</span>
+            </div>
+            <div class="obs-bar-row">
+              <span>LCO</span>
+              <div class="obs-bar-track"><div class="obs-bar-fill" data-pct="70"></div></div>
+              <span class="obs-bar-val">296 h</span>
+            </div>
+            <div class="obs-bar-row">
+              <span>Liverpool</span>
+              <div class="obs-bar-track"><div class="obs-bar-fill" data-pct="8"></div></div>
+              <span class="obs-bar-val">60 h</span>
+            </div>
+            <div class="obs-bar-row">
+              <span>ESO</span>
+              <div class="obs-bar-track"><div class="obs-bar-fill" data-pct="9"></div></div>
+              <span class="obs-bar-val">3 nights</span>
+            </div>
+            <div class="obs-bar-row">
+              <span>Others</span>
+              <div class="obs-bar-track"><div class="obs-bar-fill" data-pct="18"></div></div>
+              <span class="obs-bar-val">36+ h</span>
+            </div>
+          </div>
         </div>
 
         <div class="obs-grid">
@@ -1949,6 +2462,7 @@
               <span class="obs-band">Optical</span>
             </header>
             <ul class="obs-list">
+              <li><span class="obs-target">ToO 2026B<span class="obs-exp">50 h</span></span><span class="role role--pi">PI</span></li>
               <li><span class="obs-target">ToO 2026A<span class="obs-exp">90 h</span></span><span class="role role--pi">PI</span></li>
               <li><span class="obs-target">ToO 2025B<span class="obs-exp">40 h</span></span><span class="role role--pi">PI</span></li>
               <li><span class="obs-target">ToO 2025A<span class="obs-exp">66 h</span></span><span class="role role--pi">PI</span></li>
@@ -1963,7 +2477,7 @@
             </header>
             <ul class="obs-list">
               <li><span class="obs-target">4U 1822-00 — HiPERCAM<span class="obs-exp">7 h</span></span><span class="role">Co-PI</span></li>
-              <li><span class="obs-target">ToO — OSIRIS</span><span class="role">Co-PI</span></li>
+              <li><span class="obs-target">ToO — OSIRIS<span class="obs-exp">10 h/sem · 2024–2026</span></span><span class="role">Co-PI</span></li>
             </ul>
           </article>
 
@@ -1973,9 +2487,9 @@
               <span class="obs-band">Optical</span>
             </header>
             <ul class="obs-list">
-              <li><span class="obs-target">ToO 2026A<span class="obs-exp">10 h</span></span><span class="role role--pi">PI</span></li>
-              <li><span class="obs-target">ToO 2025A/B<span class="obs-exp">10 h</span></span><span class="role role--pi">PI</span></li>
-              <li><span class="obs-target">ToO 2024A/B<span class="obs-exp">10 h</span></span><span class="role role--pi">PI</span></li>
+              <li><span class="obs-target">ToO 2026A/B<span class="obs-exp">20 h</span></span><span class="role role--pi">PI</span></li>
+              <li><span class="obs-target">ToO 2025A/B<span class="obs-exp">20 h</span></span><span class="role role--pi">PI</span></li>
+              <li><span class="obs-target">ToO 2024A/B<span class="obs-exp">20 h</span></span><span class="role role--pi">PI</span></li>
             </ul>
           </article>
 
@@ -2007,6 +2521,37 @@
       </div>
     </section>
 
+    <!-- ===================== TIMELINE ===================== -->
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="kicker"><span class="bar"></span>Journey</span>
+            <h2 class="sec-title">Academic <em>timeline</em></h2>
+          </div>
+          <p class="sec-note">A short path through institutions and milestones.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2024 — Present</div>
+            <div class="tl-title">PhD in Astrophysics</div>
+            <div class="tl-place">Instituto de Astrofísica de Canarias · Universidad de La Laguna</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2022 — 2023</div>
+            <div class="tl-title">Teaching Assistant</div>
+            <div class="tl-place">Universidad Nacional de La Plata — General Astronomy, Physics, Calculus</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2017 — 2023</div>
+            <div class="tl-title">BSc + MSc in Astronomy</div>
+            <div class="tl-place">Universidad Nacional de La Plata · IAR — X-ray binaries &amp; compact objects</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== ACTIVITY ===================== -->
     <section class="section" id="activity">
       <div class="wrap">
@@ -2022,24 +2567,24 @@
           <article class="act-card">
             <h3>Selected Conferences</h3>
             <ul class="act-list">
-              <li><span class="act-kind">Talk</span><span class="act-what">Relativistic X-Ray Reflection in GX 13+1 · 65° AAA</span></li>
-              <li><span class="act-kind">Talk</span><span class="act-what">Ion tori around f(R)-Kerr black holes · 64° AAA</span></li>
+              <li><span class="act-kind">Talk</span><span class="act-what">Relativistic X-Ray Reflection in GX 13+1 · 65° AAA (2023)</span></li>
+              <li><span class="act-kind">Talk</span><span class="act-what">Ion tori around f(R)-Kerr black holes · 64° AAA (2022)</span></li>
               <li><span class="act-kind">Poster</span><span class="act-what">The hunting of Ultracompact X-ray Binaries · Vasto Accretion Meeting</span></li>
               <li><span class="act-kind">Poster</span><span class="act-what">A NuSTAR view of SS433 · Heidelberg</span></li>
               <li><span class="act-kind">Poster</span><span class="act-what">NuSTAR/NICER view of 4U 0114+65 · Heidelberg</span></li>
-              <li><span class="act-kind">Poster</span><span class="act-what">LS I +61°303 in high-energy X-rays · 64° AAA</span></li>
+              <li><span class="act-kind">Poster</span><span class="act-what">LS I +61°303 in high-energy X-rays · 64° AAA (2022)</span></li>
             </ul>
           </article>
 
           <article class="act-card">
             <h3>Teaching Experience</h3>
             <ul class="act-list">
-              <li><span class="act-kind">UNLP</span><span class="act-what">Teaching Assistant · 2022–2023</span></li>
+              <li><span class="act-kind">2022–2023</span><span class="act-what"><b>Teaching Assistant</b> · Universidad Nacional de La Plata</span></li>
               <li><span class="act-kind">Course</span><span class="act-what">General Astronomy</span></li>
               <li><span class="act-kind">Course</span><span class="act-what">Physics I &amp; II</span></li>
               <li><span class="act-kind">Course</span><span class="act-what">Calculus I &amp; II</span></li>
               <li><span class="act-kind">Course</span><span class="act-what">Differential Equations</span></li>
-              <li><span class="act-kind">Course</span><span class="act-what">Admission Course</span></li>
+              <li><span class="act-kind">Course</span><span class="act-what">University Admission Course</span></li>
             </ul>
           </article>
         </div>
@@ -2081,8 +2626,8 @@
   (function () {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---- scroll reveal (enhancement only) ---- */
-    var revealSel = '.section .sec-head, .about-grid, .pubgroup, .obs-card, .act-card, .contact';
+    /* ---- scroll reveal ---- */
+    var revealSel = '.section .sec-head, .about-grid, .xrb, .featured, .pub-filters, .pubgroup, .obs-summary, .obs-card, .act-card, .timeline, .contact';
     var items = Array.prototype.slice.call(document.querySelectorAll(revealSel));
     if (reduce || !('IntersectionObserver' in window)) {
       items.forEach(function (el) { el.classList.add('in-view'); });
@@ -2095,63 +2640,79 @@
       items.forEach(function (el) { io.observe(el); });
     }
 
-    /* ---- hero glow follows the pointer (subtle, fine-pointer only) ---- */
+    /* ---- hero glow follows the pointer ---- */
     var finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
     if (!reduce && finePointer) {
-      var heroEl = document.querySelector('.hero');
       var px = null, py = null, rafGlow = false;
       function applyGlow() {
         rafGlow = false;
-        // map pointer across viewport to a gentle range around the resting position
-        var gx = 70 + (px / window.innerWidth) * 18;     // 70%–88%
-        var gy = -14 + (py / window.innerHeight) * 16;    // -14%–2%
+        var gx = 70 + (px / window.innerWidth) * 18;
+        var gy = -14 + (py / window.innerHeight) * 16;
         document.documentElement.style.setProperty('--gx', gx.toFixed(1) + '%');
         document.documentElement.style.setProperty('--gy', gy.toFixed(1) + '%');
       }
       window.addEventListener('pointermove', function (e) {
-        // only react while near the top of the page, where the wash lives
         if ((window.scrollY || 0) > window.innerHeight) return;
         px = e.clientX; py = e.clientY;
         if (!rafGlow) { rafGlow = true; requestAnimationFrame(applyGlow); }
       }, { passive: true });
     }
 
-    /* ---- stats band: reveal + count up ---- */
+    /* ---- stats count-up ---- */
+    function runCounters(scope) {
+      var nums = scope.querySelectorAll('[data-target]');
+      nums.forEach(function (n) {
+        if (n.dataset.done) return;
+        var target = parseInt(n.getAttribute('data-target'), 10) || 0;
+        if (reduce) { n.textContent = target; n.dataset.done = '1'; return; }
+        var dur = 1400, start = null;
+        n.textContent = '0';
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          n.textContent = Math.round(eased * target);
+          if (p < 1) requestAnimationFrame(step);
+          else { n.textContent = target; n.dataset.done = '1'; }
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
     var statsBand = document.querySelector('.stats');
     if (statsBand) {
-      var nums = Array.prototype.slice.call(statsBand.querySelectorAll('.stat-num'));
-      function runStats() {
-        statsBand.classList.add('in-view');
-        if (reduce) {
-          nums.forEach(function (n) { n.textContent = n.getAttribute('data-target'); });
-          return;
-        }
-        nums.forEach(function (n) {
-          var target = parseInt(n.getAttribute('data-target'), 10) || 0;
-          var dur = 1100, start = null;
-          n.textContent = '0';
-          function step(ts) {
-            if (!start) start = ts;
-            var p = Math.min((ts - start) / dur, 1);
-            var eased = 1 - Math.pow(1 - p, 3);
-            n.textContent = Math.round(eased * target);
-            if (p < 1) requestAnimationFrame(step);
-            else n.textContent = target;
-          }
-          requestAnimationFrame(step);
-        });
-      }
       if (reduce || !('IntersectionObserver' in window)) {
-        runStats();
+        statsBand.classList.add('in-view');
+        runCounters(statsBand);
       } else {
         var sObs = new IntersectionObserver(function (es) {
-          es.forEach(function (e) { if (e.isIntersecting) { runStats(); sObs.disconnect(); } });
+          es.forEach(function (e) {
+            if (e.isIntersecting) { statsBand.classList.add('in-view'); runCounters(statsBand); sObs.disconnect(); }
+          });
         }, { threshold: 0.4 });
         sObs.observe(statsBand);
       }
     }
 
-    /* ---- portrait lens parallax (fine pointer + hover only) ---- */
+    /* ---- obs-summary counter ---- */
+    var obsSummary = document.querySelector('.obs-summary');
+    if (obsSummary) {
+      var oObs = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) {
+            runCounters(obsSummary);
+            obsSummary.querySelectorAll('.obs-bar-fill').forEach(function (b) {
+              var pct = b.getAttribute('data-pct');
+              setTimeout(function () { b.style.width = pct + '%'; }, 80);
+            });
+            oObs.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      oObs.observe(obsSummary);
+    }
+
+    /* ---- portrait lens parallax ---- */
     var plate = document.querySelector('.plate');
     var frame = plate && plate.querySelector('.plate-frame');
     var hoverFine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -2171,10 +2732,68 @@
         pty = (e.clientY - r.top) / r.height - 0.5;
         if (!pRaf) pRaf = requestAnimationFrame(applyTilt);
       });
-      plate.addEventListener('pointerleave', function () {
-        frame.style.transform = '';
-      });
+      plate.addEventListener('pointerleave', function () { frame.style.transform = ''; });
     }
+
+    /* ---- X-ray binary diagram interactivity ---- */
+    (function initXRB() {
+      var diagram = document.getElementById('xrbDiagram');
+      if (!diagram) return;
+      var parts = diagram.querySelectorAll('.xrb-part');
+      var tabs = document.querySelectorAll('.xrb-tab');
+      var detail = document.getElementById('xrbDetail');
+      var data = {
+        donor: { title: 'Donor star', text: 'The companion star that fills its Roche lobe. Matter is pulled through the inner Lagrangian point (L1) towards the compact object. Its spectral type defines the class of the binary.' },
+        stream: { title: 'Mass transfer stream', text: 'The trajectory of matter flowing from the donor star. Due to the Coriolis effect, the stream curves and impacts the outer edge of the accretion disk, creating a shock-heated bright spot.' },
+        disk: { title: 'Accretion disk', text: 'A flattened, rotating structure of gas spiraling inward. Viscous dissipation heats the innermost regions to millions of degrees, emitting predominantly in X-rays. The geometry and temperature profile are key to my multiwavelength modeling.' },
+        compact: { title: 'Compact object', text: 'A neutron star or black hole at the center of the disk. Its extreme gravitational potential well is the engine of the system, releasing vast amounts of energy as matter falls inward.' },
+        jet: { title: 'Relativistic jet', text: 'Collimated outflows of plasma launched at relativistic speeds perpendicular to the disk plane. These are observed in systems near or above the Eddington limit, dominating the broadband spectrum from radio to gamma-rays.' }
+      };
+
+      function setActive(name) {
+        parts.forEach(function (p) {
+          var pn = p.getAttribute('data-part');
+          p.classList.toggle('is-active', pn === name);
+          p.classList.toggle('dim', pn !== name);
+        });
+        tabs.forEach(function (t) {
+          t.classList.toggle('active', t.getAttribute('data-tab') === name);
+        });
+        if (detail && data[name]) {
+          detail.style.opacity = '0';
+          setTimeout(function () {
+            detail.innerHTML = '<b>' + data[name].title + '</b>' + data[name].text;
+            detail.style.opacity = '1';
+          }, 150);
+        }
+      }
+
+      parts.forEach(function (p) {
+        p.addEventListener('mouseenter', function () { setActive(p.getAttribute('data-part')); });
+        p.addEventListener('click', function () { setActive(p.getAttribute('data-part')); });
+      });
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { setActive(t.getAttribute('data-tab')); });
+      });
+      setActive('donor');
+    })();
+
+    /* ---- publication year filter ---- */
+    (function initFilter() {
+      var filters = document.querySelectorAll('.pub-filter');
+      var papers = document.querySelectorAll('.paper');
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          var year = f.getAttribute('data-year');
+          filters.forEach(function (x) { x.classList.toggle('active', x === f); });
+          papers.forEach(function (p) {
+            var py = p.getAttribute('data-year');
+            var show = (year === 'all' || py === year);
+            p.classList.toggle('hidden', !show);
+          });
+        });
+      });
+    })();
 
     /* ---- scroll-spy nav + progress + topbar elevation ---- */
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
@@ -2218,7 +2837,7 @@
     window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
 
-    /* ---- live night-sky canvas: drifting, twinkling stars + parallax + shooting stars ---- */
+    /* ---- live night-sky canvas ---- */
     (function initSky() {
       var section = document.querySelector('.section--dark');
       var canvas = section && section.querySelector('.skycanvas');
@@ -2322,31 +2941,25 @@
       } else { start(); }
     })();
 
-    /* ---- interactive cosmic field: drifting motes + cursor constellations (whole page) ---- */
+    /* ---- subtle drifting cosmic dust (very soft, non-interactive) ---- */
     (function initCosmos() {
       var canvas = document.getElementById('dust');
       if (!canvas || !canvas.getContext) return;
       var ctx = canvas.getContext('2d');
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       var W = 0, H = 0, motes = [], running = false, raf = null, last = 0, hidden = false;
-      var pointer = { x: -9999, y: -9999, active: false };
-      var off = { x: 0, y: 0 }, target = { x: 0, y: 0 };
-      var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-      var LINK = 166;
 
       function build() {
-        var count = Math.round(W * H / 14000);
-        count = Math.max(52, Math.min(132, count));
+        var count = Math.round(W * H / 20000);
+        count = Math.max(30, Math.min(90, count));
         motes = [];
         for (var i = 0; i < count; i++) {
           motes.push({
             x: Math.random() * W, y: Math.random() * H,
-            r: Math.random() * 1.9 + 0.9,
-            a: Math.random() * 0.07 + 0.05,
-            vy: -(Math.random() * 0.22 + 0.07),
-            vx: (Math.random() - 0.5) * 0.14,
-            sway: Math.random() * 6.2832, sws: Math.random() * 0.5 + 0.2,
-            depth: Math.random() * 0.8 + 0.3,
+            r: Math.random() * 30 + 20, // Large radius for extreme blur
+            a: Math.random() * 0.04 + 0.01, // Very low opacity
+            vy: -(Math.random() * 0.1 + 0.02),
+            vx: (Math.random() - 0.5) * 0.05,
             warm: Math.random() < 0.6
           });
         }
@@ -2361,9 +2974,13 @@
       function drawStatic() {
         ctx.clearRect(0, 0, W, H);
         for (var k = 0; k < motes.length; k++) {
-          var mm = motes[k]; var c2 = mm.warm ? '249,150,72' : '150,170,200';
-          ctx.fillStyle = 'rgba(' + c2 + ',' + Math.min(0.5, mm.a * 2.6).toFixed(3) + ')';
-          ctx.beginPath(); ctx.arc(mm.x, mm.y, mm.r * 0.7, 0, 6.2832); ctx.fill();
+          var mm = motes[k];
+          var c2 = mm.warm ? '249,150,72' : '120,140,180';
+          var g = ctx.createRadialGradient(mm.x, mm.y, 0, mm.x, mm.y, mm.r);
+          g.addColorStop(0, 'rgba(' + c2 + ',' + mm.a.toFixed(3) + ')');
+          g.addColorStop(1, 'rgba(' + c2 + ',0)');
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(mm.x, mm.y, mm.r, 0, 6.2832); ctx.fill();
         }
       }
       function frame(now) {
@@ -2372,64 +2989,19 @@
         last = now;
         ctx.clearRect(0, 0, W, H);
 
-        if (pointer.active && fine) {
-          target.x = (pointer.x - W / 2) * 0.02;
-          target.y = (pointer.y - H / 2) * 0.02;
-        } else { target.x = 0; target.y = 0; }
-        off.x += (target.x - off.x) * 0.06;
-        off.y += (target.y - off.y) * 0.06;
-
-        var near = [];
         for (var i = 0; i < motes.length; i++) {
           var m = motes[i];
-          m.sway += m.sws * dt;
-          m.y += m.vy; m.x += m.vx + Math.sin(m.sway) * 0.07;
-          if (m.y < -8) { m.y = H + 8; m.x = Math.random() * W; }
-          if (m.x < -8) m.x = W + 8; else if (m.x > W + 8) m.x = -8;
+          m.y += m.vy;
+          m.x += m.vx;
+          if (m.y < -m.r) { m.y = H + m.r; m.x = Math.random() * W; }
+          if (m.x < -m.r) m.x = W + m.r; else if (m.x > W + m.r) m.x = -m.r;
 
-          var sx = m.x + off.x * m.depth, sy = m.y + off.y * m.depth;
-          m._sx = sx; m._sy = sy;
-
-          var boost = 0;
-          if (pointer.active && fine) {
-            var dx = sx - pointer.x, dy = sy - pointer.y, d2 = dx * dx + dy * dy;
-            if (d2 < LINK * LINK) { near.push(m); boost = (1 - Math.sqrt(d2) / LINK) * 0.5; }
-          }
-
-          var col = m.warm ? '249,150,72' : '150,170,200';
-          var rad = m.r * 3.2;
-          var g = ctx.createRadialGradient(sx, sy, 0, sx, sy, rad);
-          g.addColorStop(0, 'rgba(' + col + ',' + (m.a + boost * 0.4).toFixed(3) + ')');
+          var col = m.warm ? '249,150,72' : '120,140,180';
+          var g = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r);
+          g.addColorStop(0, 'rgba(' + col + ',' + m.a.toFixed(3) + ')');
           g.addColorStop(1, 'rgba(' + col + ',0)');
           ctx.fillStyle = g;
-          ctx.beginPath(); ctx.arc(sx, sy, rad, 0, 6.2832); ctx.fill();
-          ctx.fillStyle = 'rgba(' + col + ',' + Math.min(0.6, m.a * 2.6 + boost).toFixed(3) + ')';
-          ctx.beginPath(); ctx.arc(sx, sy, m.r * 0.7 + boost * 1.4, 0, 6.2832); ctx.fill();
-        }
-
-        if (near.length && fine) {
-          ctx.lineWidth = 1;
-          for (var j = 0; j < near.length; j++) {
-            var p = near[j];
-            var pdx = p._sx - pointer.x, pdy = p._sy - pointer.y, pd = Math.sqrt(pdx * pdx + pdy * pdy);
-            ctx.strokeStyle = 'rgba(249,140,60,' + ((1 - pd / LINK) * 0.6).toFixed(3) + ')';
-            ctx.beginPath(); ctx.moveTo(pointer.x, pointer.y); ctx.lineTo(p._sx, p._sy); ctx.stroke();
-          }
-          for (var a2 = 0; a2 < near.length; a2++) {
-            for (var b2 = a2 + 1; b2 < near.length; b2++) {
-              var m1 = near[a2], m2 = near[b2];
-              var ddx = m1._sx - m2._sx, ddy = m1._sy - m2._sy, dd = Math.sqrt(ddx * ddx + ddy * ddy);
-              if (dd < LINK) {
-                ctx.strokeStyle = 'rgba(249,140,60,' + ((1 - dd / LINK) * 0.4).toFixed(3) + ')';
-                ctx.beginPath(); ctx.moveTo(m1._sx, m1._sy); ctx.lineTo(m2._sx, m2._sy); ctx.stroke();
-              }
-            }
-          }
-          var pg = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 62);
-          pg.addColorStop(0, 'rgba(249,140,60,0.13)');
-          pg.addColorStop(1, 'rgba(249,140,60,0)');
-          ctx.fillStyle = pg;
-          ctx.beginPath(); ctx.arc(pointer.x, pointer.y, 62, 0, 6.2832); ctx.fill();
+          ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.2832); ctx.fill();
         }
 
         raf = requestAnimationFrame(frame);
@@ -2440,9 +3012,6 @@
       resize();
       var dT;
       window.addEventListener('resize', function () { clearTimeout(dT); dT = setTimeout(resize, 200); }, { passive: true });
-      window.addEventListener('pointermove', function (e) { pointer.x = e.clientX; pointer.y = e.clientY; pointer.active = true; }, { passive: true });
-      document.addEventListener('mouseleave', function () { pointer.active = false; });
-      window.addEventListener('blur', function () { pointer.active = false; });
       document.addEventListener('visibilitychange', function () {
         hidden = document.hidden; if (hidden) stop(); else start();
       });
@@ -2450,7 +3019,7 @@
       start();
     })();
 
-    /* ---- theme toggle: light <-> dark, persisted ---- */
+    /* ---- theme toggle ---- */
     (function () {
       var root = document.documentElement;
       var btn = document.querySelector('.theme-toggle');
@@ -2477,7 +3046,7 @@
       }
     })();
 
-    /* ---- guiño: a message for anyone who opens the console ---- */
+    /* ---- console message ---- */
     try {
       console.log(
         '%cEnzo A. Saavedra%c · Astrophysics — IAC, Tenerife',
@@ -2494,7 +3063,7 @@
       );
     } catch (e) {}
 
-    /* ---- guiño: the tab title waits for you while you're away ---- */
+    /* ---- dynamic tab title ---- */
     var realTitle = document.title;
     document.addEventListener('visibilitychange', function () {
       document.title = document.hidden ? '✦ awaiting the next observation…' : realTitle;
