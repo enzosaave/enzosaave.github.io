@@ -169,6 +169,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: clip;
       -webkit-text-size-adjust: 100%;
       background: var(--paper);
       scrollbar-width: thin;
@@ -177,6 +178,7 @@
 
     body {
       margin: 0;
+      overflow-x: clip;
       color: var(--ink);
       font-family: var(--sans);
       font-size: 16px;
@@ -1097,11 +1099,95 @@
     .stream-flow { stroke-dasharray: 8 6; animation: stream-dash 1.2s linear infinite; }
     @keyframes stream-dash { to { stroke-dashoffset: -28; } }
     
-    .jet-pulse { animation: jet-glow 2.2s ease-in-out infinite; transform-origin: 320px 240px; }
-    @keyframes jet-glow { 0%,100%{opacity:.6; transform: scaleY(1)} 50%{opacity:1; transform: scaleY(1.05)} }
 
     .pulse-core { animation: core-pulse 1.5s ease-in-out infinite; transform-origin: 320px 240px; }
     @keyframes core-pulse { 0%,100%{opacity:0.8} 50%{opacity:1} }
+
+
+    /* Generic BH-LMXB accretion-flow schematic — audited geometry */
+    .xrb-diagram--bhlmxb {
+      aspect-ratio: 41 / 28;
+      background:
+        radial-gradient(88% 76% at 42% 54%, var(--brand-glow), transparent 62%),
+        linear-gradient(180deg, color-mix(in srgb, var(--paper-2) 94%, var(--steel) 6%), var(--paper-2));
+      isolation: isolate;
+    }
+    .xrb-diagram--bhlmxb svg {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .xrb-diagram--bhlmxb .orbital-plane {
+      stroke: color-mix(in srgb, var(--ink) 30%, transparent);
+      stroke-width: 1.15;
+      stroke-dasharray: 7 7;
+    }
+    .xrb-diagram--bhlmxb .component-label {
+      opacity: .88;
+      transition: opacity .24s var(--ease);
+    }
+    .xrb-diagram--bhlmxb .label-line {
+      opacity: .68;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      fill: none;
+      transition: opacity .24s var(--ease);
+    }
+    .xrb-diagram--bhlmxb .xrb-part {
+      outline: none;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .xrb-diagram--bhlmxb .xrb-part:hover .component-label,
+    .xrb-diagram--bhlmxb .xrb-part.is-active .component-label,
+    .xrb-diagram--bhlmxb .xrb-part:hover .label-line,
+    .xrb-diagram--bhlmxb .xrb-part.is-active .label-line {
+      opacity: 1;
+    }
+    .xrb-diagram--bhlmxb .xrb-part:focus-visible {
+      filter: drop-shadow(0 0 10px rgba(249,115,22,.55));
+    }
+    .xrb-diagram--bhlmxb .xrb-part.dim {
+      opacity: .46;
+      filter: saturate(.72);
+    }
+    .xrb-diagram--bhlmxb .disc-flow-line,
+    .xrb-diagram--bhlmxb .hot-flow-line {
+      stroke-dasharray: 15 11;
+      animation: bhlmxb-orbit-flow 9s linear infinite;
+    }
+    .xrb-diagram--bhlmxb .hot-flow-line {
+      stroke-dasharray: 10 8;
+      animation-duration: 5.8s;
+    }
+    @keyframes bhlmxb-orbit-flow { to { stroke-dashoffset: -52; } }
+    .xrb-diagram--bhlmxb .stream-flow {
+      stroke-dasharray: 10 8;
+      animation: stream-dash 1.15s linear infinite;
+    }
+    .xrb-diagram--bhlmxb .jet-pulse,
+    .xrb-diagram--bhlmxb .jet-envelope { animation: none; }
+    .xrb-diagram--bhlmxb .jet-spine {
+      pointer-events: none;
+      filter: drop-shadow(0 0 5px rgba(112, 82, 180, .24));
+    }
+    .xrb-diagram--bhlmxb .impact-glow {
+      animation: impact-glow 2.6s ease-in-out infinite;
+    }
+    @keyframes impact-glow {
+      0%,100% { opacity: .82; }
+      50% { opacity: 1; }
+    }
+    .xrb-detail {
+      min-height: 6.4em;
+    }
+
+    @media (max-width: 720px) {
+      .xrb-diagram--bhlmxb { aspect-ratio: 4 / 3; }
+      .xrb-diagram--bhlmxb .component-label,
+      .xrb-diagram--bhlmxb .label-line { display: none; }
+      .xrb-detail { min-height: 0; }
+    }
 
     /* ---------- FEATURED PUBLICATION ---------- */
     .featured {
@@ -1935,7 +2021,7 @@
           <div class="plate-frame">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
-            <img src="profile0.png" alt="Portrait of Enzo A. Saavedra"
+            <img src="profile6.jpeg" alt="Portrait of Enzo A. Saavedra"
                  onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27520%27%20height=%27520%27%20viewBox=%270%200%20520%20520%27%3E%3Crect%20width=%27520%27%20height=%27520%27%20fill=%27%23f8f8f6%27/%3E%3Ctext%20x=%2750%25%27%20y=%2752%25%27%20text-anchor=%27middle%27%20dominant-baseline=%27central%27%20font-family=%27Georgia,%20Times%20New%20Roman,%20serif%27%20font-style=%27italic%27%20font-weight=%27600%27%20font-size=%27208%27%20letter-spacing=%27-6%27%20fill=%27%23f97316%27%3EEA%3C/text%3E%3Ctext%20x=%2750%25%27%20y=%2786%25%27%20text-anchor=%27middle%27%20dominant-baseline=%27central%27%20font-family=%27Consolas,%20Menlo,%20monospace%27%20font-weight=%27700%27%20font-size=%2720%27%20letter-spacing=%276%27%20fill=%27%239aa1ad%27%3EE.%20A.%20SAAVEDRA%3C/text%3E%3C/svg%3E';" />
           </div>
           <div class="plate-cap">
@@ -2012,165 +2098,195 @@
       </div>
     </section>
 
-    <!-- ===================== RESEARCH (X-RAY BINARY DIAGRAM) ===================== -->
+    <!-- ===================== RESEARCH (GENERIC BH-LMXB ANATOMY) ===================== -->
     <section class="section" id="research">
       <div class="wrap">
         <div class="sec-head">
           <div>
             <span class="kicker"><span class="bar"></span>Research</span>
-            <h2 class="sec-title">Anatomy of an <em>X-ray binary</em></h2>
+            <h2 class="sec-title">Anatomy of a <em>BH-LMXB</em></h2>
           </div>
-          <p class="sec-note">Hover the diagram — or tap a label — to explore the physical components I study.</p>
+          <p class="sec-note">Select a component to inspect the mass-transfer path and the state-dependent accretion geometry.</p>
         </div>
 
         <div class="xrb">
-          <div class="xrb-diagram" id="xrbDiagram">
-            <svg viewBox="0 0 640 480" role="img" aria-label="Schematic of an X-ray binary system">
+          <div class="xrb-diagram xrb-diagram--bhlmxb" id="xrbDiagram">
+            <svg viewBox="0 0 820 560" role="img" aria-labelledby="bhlmxbDiagramTitle bhlmxbDiagramDesc">
+              <title id="bhlmxbDiagramTitle">Generic anatomy of a black-hole low-mass X-ray binary</title>
+              <desc id="bhlmxbDiagramDesc">A Roche-lobe-filling low-mass donor transfers gas through the inner Lagrangian point. The ballistic stream meets the outer rim of a tidally limited accretion disc at a shock-heated impact region. The drawing shows a generic BH-LMXB hard-state or quiescent geometry: a cool outer thin disc and a thicker, mildly tilted hot inner flow around a stellar-mass black hole. The hot inner flow is drawn with characteristic H/R of order 0.1 to 0.5 and the compact bipolar outflow is aligned schematically with the inner-flow axis. Explanatory details are provided in the adjacent component descriptions rather than inside the figure.</desc>
+
               <defs>
-                <radialGradient id="donorGrad" cx="35%" cy="35%" r="65%">
-                  <stop offset="0%" stop-color="#ffe4c4"/>
-                  <stop offset="40%" stop-color="#ff9b54"/>
-                  <stop offset="85%" stop-color="#d24814"/>
-                  <stop offset="100%" stop-color="#842902"/>
+                <radialGradient id="bhlmxbDonor" cx="34%" cy="30%" r="78%">
+                  <stop offset="0%" stop-color="#fff4cf"/>
+                  <stop offset="36%" stop-color="#f0c57a"/>
+                  <stop offset="72%" stop-color="#cd8740"/>
+                  <stop offset="100%" stop-color="#8a4f24"/>
                 </radialGradient>
-                
-                <radialGradient id="diskTemp" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-                  <stop offset="15%" stop-color="#fde68a" stop-opacity="1"/>
-                  <stop offset="40%" stop-color="#fb923c" stop-opacity="0.9"/>
-                  <stop offset="70%" stop-color="#c2410c" stop-opacity="0.5"/>
-                  <stop offset="100%" stop-color="#7c2d12" stop-opacity="0"/>
-                </radialGradient>
-                
-                <linearGradient id="jetGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-                  <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0"/>
-                  <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.4"/>
-                  <stop offset="50%" stop-color="#e0f2fe" stop-opacity="0.9"/>
-                  <stop offset="70%" stop-color="#38bdf8" stop-opacity="0.4"/>
-                  <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
+                <linearGradient id="bhlmxbDonorShade" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#8e4920" stop-opacity=".28"/>
+                  <stop offset="48%" stop-color="#fff8d8" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#5e2f17" stop-opacity=".28"/>
                 </linearGradient>
-                
-                <radialGradient id="hotspot" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-                  <stop offset="50%" stop-color="#ffe4c4" stop-opacity="0.8"/>
-                  <stop offset="100%" stop-color="#ff9b54" stop-opacity="0"/>
+                <radialGradient id="bhlmxbDiscSurface" gradientUnits="userSpaceOnUse" cx="330" cy="300" r="236">
+                  <stop offset="0%" stop-color="#dfe7ee" stop-opacity=".98"/>
+                  <stop offset="30%" stop-color="#b8c4cf" stop-opacity=".94"/>
+                  <stop offset="70%" stop-color="#708294" stop-opacity=".89"/>
+                  <stop offset="100%" stop-color="#3a4d61" stop-opacity=".86"/>
                 </radialGradient>
-                
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
+                <linearGradient id="bhlmxbDiscRim" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#95a6b4" stop-opacity=".76"/>
+                  <stop offset="100%" stop-color="#334556" stop-opacity=".94"/>
+                </linearGradient>
+                <radialGradient id="bhlmxbHotFlow" gradientUnits="userSpaceOnUse" cx="330" cy="294" r="110">
+                  <stop offset="0%" stop-color="#fbe7b8" stop-opacity=".95"/>
+                  <stop offset="32%" stop-color="#ddb170" stop-opacity=".95"/>
+                  <stop offset="68%" stop-color="#b8753f" stop-opacity=".95"/>
+                  <stop offset="100%" stop-color="#6d3a22" stop-opacity=".97"/>
+                </radialGradient>
+                <linearGradient id="bhlmxbJet" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#53627e" stop-opacity=".04"/>
+                  <stop offset="50%" stop-color="#c3d0ea" stop-opacity=".62"/>
+                  <stop offset="100%" stop-color="#53627e" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="bhlmxbStream" gradientUnits="userSpaceOnUse" x1="592" y1="300" x2="534" y2="324.47">
+                  <stop offset="0%" stop-color="#c77a4b"/>
+                  <stop offset="65%" stop-color="#e8b07a"/>
+                  <stop offset="100%" stop-color="#fff0d6"/>
+                </linearGradient>
+                <filter id="bhlmxbSoftGlow" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur stdDeviation="3.4" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
+                <filter id="bhlmxbImpactGlow" x="-120%" y="-120%" width="340%" height="340%">
+                  <feGaussianBlur stdDeviation="5.2" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <marker id="bhlmxbArrowWarm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 Z" fill="#d96a18"/>
+                </marker>
+                <marker id="bhlmxbArrowCool" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 Z" fill="#70839a"/>
+                </marker>
               </defs>
 
-              <!-- Background Stars -->
-              <g opacity="0.5">
-                <circle cx="80" cy="60" r="1.5" fill="#fff" filter="url(#glow)"/>
-                <circle cx="540" cy="100" r="1.2" fill="#fff" opacity="0.8"/>
-                <circle cx="120" cy="380" r="0.8" fill="#fff" opacity="0.6"/>
-                <circle cx="600" cy="320" r="1.4" fill="#fff" filter="url(#glow)"/>
-                <circle cx="450" cy="40" r="0.9" fill="#fff" opacity="0.7"/>
-                <circle cx="300" cy="450" r="1.1" fill="#fff" opacity="0.9"/>
-                <circle cx="30" cy="200" r="0.5" fill="#fff"/>
-                <circle cx="610" cy="150" r="0.7" fill="#fff" opacity="0.5"/>
-                <circle cx="580" cy="420" r="1" fill="#fff" opacity="0.8"/>
-              </g>
+              <!-- Reference geometry -->
+              <line class="orbital-plane" x1="45" y1="300" x2="788" y2="300"/>
 
-              <!-- Jets -->
-              <g class="xrb-part cool" data-part="jet">
-                <g class="jet-pulse">
-                  <polygon points="310,240 330,240 340,50 300,50" fill="url(#jetGrad)" filter="url(#glow)"/>
-                  <line x1="320" y1="60" x2="320" y2="230" stroke="#e0f2fe" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
-                  <circle cx="320" cy="120" r="4" fill="#e0f2fe" opacity="0.6" filter="url(#glow)"/>
-                  <circle cx="320" cy="180" r="3" fill="#7dd3fc" opacity="0.4" filter="url(#glow)"/>
-                  
-                  <polygon points="310,240 330,240 340,430 300,430" fill="url(#jetGrad)" filter="url(#glow)"/>
-                  <line x1="320" y1="250" x2="320" y2="420" stroke="#e0f2fe" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
-                  <circle cx="320" cy="360" r="4" fill="#e0f2fe" opacity="0.6" filter="url(#glow)"/>
-                  <circle cx="320" cy="300" r="3" fill="#7dd3fc" opacity="0.4" filter="url(#glow)"/>
+              <!-- Compact hard-state outflow, behind the accretion flow -->
+              <g class="xrb-part cool" data-part="jet" tabindex="0" role="button" aria-label="Jet">
+                <g class="jet-envelope" transform="rotate(13 330 300)">
+                  <path d="M324 286 L301 73 Q330 60 359 73 L336 286 Z" fill="url(#bhlmxbJet)" opacity=".62" filter="url(#bhlmxbSoftGlow)"/>
+                  <path d="M324 314 L309 477 Q330 487 351 477 L336 314 Z" fill="url(#bhlmxbJet)" opacity=".26"/>
+                  <path d="M330 315 L330 452" fill="none" stroke="#b6c2d9" stroke-width="2.1" stroke-linecap="round" opacity=".18"/>
+                  <path d="M330 315 L330 440" fill="none" stroke="#e5ebf6" stroke-width="0.85" stroke-linecap="round" opacity=".16"/>
                 </g>
-                <path d="M 320 100 L 320 80" stroke-width="1" class="label-line"/>
-                <text x="320" y="70" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">RELATIVISTIC JETS</text>
+                <text class="component-label" x="399" y="116" fill="#66789a" font-family="IBM Plex Mono, monospace" font-size="11.2" font-weight="700">JET</text>
               </g>
 
-              <!-- Donor Star -->
-              <g class="xrb-part warm" data-part="donor">
-                <path d="M 120 160 C 40 160 40 320 120 320 C 160 320 190 280 200 240 C 190 200 160 160 120 160 Z" fill="url(#donorGrad)" filter="url(#glow)"/>
-                <circle cx="200" cy="240" r="4" fill="#ffe4c4" opacity="0.8" filter="url(#glow)"/>
-                <path d="M 90 180 Q 110 170 130 190" stroke="#ffe4c4" stroke-width="2" fill="none" opacity="0.3"/>
-                <path d="M 80 240 Q 100 230 120 250" stroke="#d24814" stroke-width="3" fill="none" opacity="0.4"/>
-                <path d="M 90 290 Q 110 300 130 280" stroke="#ffe4c4" stroke-width="2" fill="none" opacity="0.3"/>
-                
-                <path d="M 130 320 L 110 340" stroke-width="1" class="label-line"/>
-                <text x="110" y="355" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">DONOR STAR</text>
+              <!-- Outer disc vertical rim -->
+              <g class="xrb-part cool" data-part="thin-disk" tabindex="0" role="button" aria-label="Cool geometrically thin outer accretion disc">
+                <path d="M105 300 A225 58 0 0 0 555 300 L555 310 A225 58 0 0 1 105 310 Z" fill="url(#bhlmxbDiscRim)" opacity=".88"/>
+
+                <!-- Optically thick annular surface -->
+                <path d="M555 300 A225 58 0 1 1 105 300 A225 58 0 1 1 555 300 Z
+                         M432 300 A102 29 0 1 0 228 300 A102 29 0 1 0 432 300 Z"
+                      fill="url(#bhlmxbDiscSurface)" fill-rule="evenodd" opacity=".96"/>
+                <ellipse cx="330" cy="300" rx="225" ry="58" fill="none" stroke="#52677f" stroke-width="2.1" opacity=".9"/>
+                <ellipse cx="330" cy="300" rx="102" ry="29" fill="none" stroke="#a7b7c8" stroke-width="1.25" opacity=".58"/>
+                <ellipse class="disc-flow-line" cx="330" cy="300" rx="194" ry="49" fill="none" stroke="#d1dbe6" stroke-width="1.05" opacity=".42"/>
+                <ellipse class="disc-flow-line" cx="330" cy="300" rx="158" ry="40" fill="none" stroke="#d1dbe6" stroke-width=".9" opacity=".32"/>
+                <path d="M504 338 C456 365 212 371 153 337" fill="none" stroke="#70839a" stroke-width="1.45" opacity=".72" marker-end="url(#bhlmxbArrowCool)"/>
+                <path class="label-line" d="M470 247 C508 202 540 181 566 176" stroke="#677d95"/>
+                <text class="component-label" x="582" y="178" fill="#5f7184" font-family="IBM Plex Mono, monospace" font-size="11.3" font-weight="700">OUTER THIN DISC</text>
               </g>
 
-              <!-- Mass Transfer Stream -->
-              <g class="xrb-part warm" data-part="stream">
-                <path class="stream-flow" d="M 200 240 Q 220 270 240 250 Q 250 245 245 240" stroke="#ffe4c4" stroke-width="3" fill="none" filter="url(#glow)"/>
-                
-                <path d="M 240 270 L 255 285" stroke-width="1" class="label-line"/>
-                <text x="255" y="300" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">STREAM</text>
-              </g>
-
-              <!-- Accretion Disk -->
-              <g class="xrb-part warm" data-part="disk">
-                <g transform="rotate(-8 320 240)">
-                  <ellipse cx="320" cy="240" rx="130" ry="36" fill="url(#diskTemp)" opacity="0.15" filter="url(#glow)"/>
-                  <ellipse cx="320" cy="240" rx="110" ry="30" fill="url(#diskTemp)" opacity="0.6"/>
-                  <ellipse cx="320" cy="240" rx="80" ry="21" fill="url(#diskTemp)" opacity="0.8"/>
-                  <ellipse cx="320" cy="240" rx="50" ry="13" fill="url(#diskTemp)" opacity="1"/>
-                  
-                  <g class="disk-rot-1">
-                    <ellipse cx="320" cy="240" rx="100" ry="27" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="8 4"/>
-                  </g>
-                  <g class="disk-rot-2">
-                    <ellipse cx="320" cy="240" rx="70" ry="19" fill="none" stroke="#fde68a" stroke-width="1.5" opacity="0.3" stroke-dasharray="6 6"/>
-                  </g>
-                  <g class="disk-rot-3">
-                    <ellipse cx="320" cy="240" rx="40" ry="11" fill="none" stroke="#e0f2fe" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>
-                  </g>
-
-                  <circle cx="225" cy="238" r="7" fill="url(#hotspot)" filter="url(#glow)"/>
+              <!-- Flattened, geometrically thicker hot inner flow -->
+              <g class="xrb-part warm" data-part="hot-flow" tabindex="0" role="button" aria-label="Hot inner flow">
+                <g transform="rotate(13 330 300)">
+                  <path d="M246 300
+                           C250 274 282 259 330 259
+                           C378 259 410 274 414 300
+                           C410 326 378 341 330 341
+                           C282 341 250 326 246 300 Z
+                           M304 300
+                           C306 289 316 283 330 283
+                           C344 283 354 289 356 300
+                           C354 311 344 317 330 317
+                           C316 317 306 311 304 300 Z"
+                        fill="url(#bhlmxbHotFlow)" fill-rule="evenodd" opacity=".95" filter="url(#bhlmxbSoftGlow)"/>
+                  <path d="M259 309 C276 328 301 335 330 335 C359 335 384 328 401 309"
+                        fill="none" stroke="#8e4526" stroke-width="7.5" stroke-linecap="round" opacity=".15"/>
+                  <ellipse class="hot-flow-line" cx="330" cy="300" rx="62" ry="28" fill="none" stroke="#ffe1a7" stroke-width="0.82" opacity=".22"/>
+                  <ellipse class="hot-flow-line" cx="330" cy="300" rx="39" ry="19" fill="none" stroke="#ffe1a7" stroke-width="0.7" opacity=".14"/>
+                  <ellipse cx="330" cy="300" rx="22" ry="11.5" fill="#341d14" opacity=".68"/>
                 </g>
-                
-                <ellipse cx="320" cy="240" rx="12" ry="3" fill="var(--paper-2)" transform="rotate(-8 320 240)"/>
-
-                <path d="M 320 210 L 320 180" stroke-width="1" class="label-line"/>
-                <text x="320" y="170" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">ACCRETION DISK</text>
+                <path class="label-line" d="M258 282 C248 242 240 220 232 209" stroke="#a96a45"/>
+                <text class="component-label" x="219" y="203" text-anchor="end" fill="#a86b45" font-family="IBM Plex Mono, monospace" font-size="11.4" font-weight="700">HOT INNER FLOW</text>
               </g>
 
-              <!-- Compact Object -->
-              <g class="xrb-part cool" data-part="compact">
-                <g class="pulse-core">
-                  <circle cx="320" cy="240" r="8" fill="#0f1521" stroke="#e0f2fe" stroke-width="1.5" opacity="0.8"/>
-                  <circle cx="320" cy="240" r="5" fill="#ffffff" opacity="1" filter="url(#glow)"/>
-                </g>
-                <path d="M 335 240 L 365 240" stroke-width="1" class="label-line"/>
-                <text x="375" y="244" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" letter-spacing="1">COMPACT OBJECT</text>
+              <!-- Foreground jet spine: same axis and pivot as the hot flow; it meets the black-hole poles exactly -->
+              <g class="jet-spine" transform="rotate(13 330 300)" aria-hidden="true">
+                <path id="jetAxisUpper" d="M330 285 L330 86" fill="none" stroke="#c5d2e7" stroke-width="3.8" stroke-linecap="round" opacity=".42"/>
+                <path d="M330 285 L330 108" fill="none" stroke="#edf2fb" stroke-width="1.2" stroke-linecap="round" opacity=".58"/>
+              </g>
+
+              <!-- Black hole, schematic and deliberately not to scale -->
+              <g class="xrb-part cool" data-part="black-hole" tabindex="0" role="button" aria-label="Stellar-mass black hole">
+                <circle id="blackHoleMarker" cx="330" cy="300" r="15" fill="#06070a" stroke="#d8b07b" stroke-width="1" opacity=".98" filter="url(#bhlmxbSoftGlow)"/>
+                <circle cx="330" cy="300" r="8.5" fill="#000"/>
+                <path class="label-line" d="M346 291 C372 277 392 273 414 273" stroke="#43566d"/>
+                <text class="component-label" x="430" y="277" fill="#43566d" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="700">BLACK HOLE</text>
+              </g>
+
+              <!-- Roche-lobe-filling donor -->
+              <g class="xrb-part warm" data-part="donor" tabindex="0" role="button" aria-label="Roche-lobe-filling low-mass donor star and the inner Lagrangian point">
+                <path d="M592 300 C602 253 649 228 710 232 C766 235 799 267 799 300 C799 333 766 365 710 368 C649 372 602 347 592 300 Z" fill="url(#bhlmxbDonor)" stroke="#c94f08" stroke-width="1.4"/>
+                <path d="M592 300 C602 253 649 228 710 232 C766 235 799 267 799 300 C799 333 766 365 710 368 C649 372 602 347 592 300 Z" fill="url(#bhlmxbDonorShade)" opacity=".62"/>
+                <path d="M592 300 C602 253 649 228 710 232 C766 235 799 267 799 300 C799 333 766 365 710 368 C649 372 602 347 592 300 Z" fill="none" stroke="#ffd17e" stroke-width=".75" opacity=".46"/>
+                <ellipse cx="741" cy="273" rx="8" ry="4.2" fill="#8f2a08" opacity=".16" transform="rotate(-18 741 273)"/>
+                <ellipse cx="720" cy="330" rx="6.5" ry="3.4" fill="#8f2a08" opacity=".13" transform="rotate(14 720 330)"/>
+                <circle cx="592" cy="300" r="4.2" fill="#d85a08"/>
+                <text class="component-label" x="592" y="287" text-anchor="middle" fill="#c94f08" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700">L1</text>
+                                <text class="component-label" x="684" y="219" fill="#a86537" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="700">LOW-MASS DONOR</text>
+              </g>
+
+              <!-- Ballistic stream: its endpoint is exactly the impact location at (534,325) -->
+              <g class="xrb-part warm" data-part="stream" tabindex="0" role="button" aria-label="Ballistic mass-transfer stream from L1 to the disc rim">
+                <path d="M592 300 C580 304 576 316 565 322 C553 330 542 329 534 324.47" fill="none" stroke="url(#bhlmxbStream)" stroke-width="8.2" stroke-linecap="round" opacity=".58"/>
+                <path class="stream-flow" d="M592 300 C580 304 576 316 565 322 C553 330 542 329 534 324.47" fill="none" stroke="#fff2c3" stroke-width="2.15" stroke-linecap="round"/>
+                <path d="M572 319 C568 322 565 323 561 325" fill="none" stroke="#d96a18" stroke-width="1.2" marker-end="url(#bhlmxbArrowWarm)"/>
+                <path class="label-line" d="M568 324 C607 349 624 378 628 405" stroke="#c67b46"/>
+                <text class="component-label" x="632" y="421" fill="#af6c40" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">BALLISTIC STREAM</text>
+              </g>
+
+              <!-- Impact region located at the exact stream endpoint and disc edge -->
+              <g class="xrb-part warm" data-part="impact" tabindex="0" role="button" aria-label="Shock-heated stream-disc impact and downstream rim bulge">
+                <path d="M534 324.47 C516 339 488 349 456 352" fill="none" stroke="#e57a22" stroke-width="8" stroke-linecap="round" opacity=".22"/>
+                <path d="M534 324.47 C516 339 488 349 456 352" fill="none" stroke="#ffc566" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>
+                <ellipse class="impact-glow" cx="534" cy="324.47" rx="14" ry="7.2" transform="rotate(-28 534 324.47)" fill="#fff1ae" stroke="#e26f18" stroke-width="1.45" filter="url(#bhlmxbImpactGlow)"/>
+                <path d="M526 318 C534 320 540 326 542 334" fill="none" stroke="#fff8da" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                <path class="label-line" d="M527 337 C512 373 499 400 482 426" stroke="#c67b46"/>
+                <text class="component-label" x="477" y="443" text-anchor="end" fill="#af6c40" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">IMPACT + RIM BULGE</text>
               </g>
             </svg>
-            
-            <div class="xrb-caption">Schematic · not to scale</div>
+
+            <div class="xrb-caption">Generic BH-LMXB geometry · schematic, not to scale</div>
           </div>
 
           <div class="xrb-info">
-            <h3>Multiwavelength fingerprints of accretion</h3>
-            <p>Each component emits at a different wavelength. By combining IR, optical and X-ray data I can reconstruct the geometry and physics of the system — even when it is unresolved by any telescope.</p>
-
-            <div class="xrb-tabs" role="tablist">
-              <button class="xrb-tab active" data-tab="donor" role="tab">Donor</button>
-              <button class="xrb-tab" data-tab="stream" role="tab">Stream</button>
-              <button class="xrb-tab" data-tab="disk" role="tab">Disk</button>
-              <button class="xrb-tab" data-tab="compact" role="tab">Compact</button>
-              <button class="xrb-tab" data-tab="jet" role="tab">Jet</button>
+            <div class="xrb-tabs" role="tablist" aria-label="BH-LMXB components">
+              <button class="xrb-tab" id="xrbTabDonor" data-tab="donor" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Donor + L1</button>
+              <button class="xrb-tab" id="xrbTabStream" data-tab="stream" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Stream</button>
+              <button class="xrb-tab" id="xrbTabImpact" data-tab="impact" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Impact / rim</button>
+              <button class="xrb-tab" id="xrbTabThinDisc" data-tab="thin-disk" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Thin disc</button>
+              <button class="xrb-tab active" id="xrbTabHotFlow" data-tab="hot-flow" role="tab" aria-selected="true" aria-controls="xrbDetail" tabindex="0">Hot flow</button>
+              <button class="xrb-tab" id="xrbTabBlackHole" data-tab="black-hole" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Black hole</button>
+              <button class="xrb-tab" id="xrbTabOutflow" data-tab="jet" role="tab" aria-selected="false" aria-controls="xrbDetail" tabindex="-1">Jet</button>
             </div>
 
-            <div class="xrb-detail" id="xrbDetail">
-              <b>Donor star</b>
-              The companion star that fills its Roche lobe. Matter is pulled through the inner Lagrangian point (L1) towards the compact object. Its spectral type defines the class of the binary.
+            <div class="xrb-detail" id="xrbDetail" role="tabpanel" aria-live="polite" aria-labelledby="xrbTabHotFlow" tabindex="0">
+              <b>Hot inner accretion flow</b>
+              In hard and quiescent states, the inner flow can be hot, optically thin and geometrically thick, with H/R ≈ 0.1–0.5. Thermal Comptonization produces the hard X-ray continuum, while mild misalignment may support global precession.
             </div>
           </div>
         </div>
@@ -2193,25 +2309,20 @@
         <!-- FEATURED -->
         <article class="featured">
           <span class="featured-tag">Featured · most recent</span>
-          <h3>Resolving SLX 1744-299 and SLX 1744-300 in the hard X-ray band: implications for their ultracompact nature</h3>
-          <p class="featured-authors"><b>E. A. Saavedra</b>, M. Armas Padilla, T. Muñoz-Darias.</p>
+          <h3>Superorbital variability in the quiescent black hole X-ray transient A0620–00</h3>
+          <p class="featured-authors"><b>E. A. Saavedra</b>, R. Alonso, T. Muñoz-Darias, J. Casares, M. A. P. Torres, M. Armas Padilla, J. F. Steiner, D. M. Russell, G. J. Escobar, F. García, F. Lewis, D. Mata Sánchez, P. Rodríguez-Gil.</p>
           <p class="featured-abstract">
-            "We present the first hard X-ray characterization of two persistent sources in the Galactic Centre region.
-            The NuSTAR spectra allow us to accurately characterize their X-ray emission and place tight constraints
-            on their orbital periods, providing key insights into the nature of these systems."
+            Long-term ZTF, LCO and ATLAS monitoring reveals a robust 261.9 ± 9.4 d superorbital modulation in the quiescent black hole binary A0620–00. The active and passive optical states vary systematically with superorbital phase, and the cycle may trace retrograde nodal precession of the inner hot accretion flow near the thin-disc transition at roughly 0.13 times the binary separation.
           </p>
           <div class="featured-meta">
-            <span><b>2026</b> · Astronomy &amp; Astrophysics, 711, A214</span>
-            <a class="featured-link" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" target="_blank" rel="noopener">
-              Read on ADS <i class="fas fa-arrow-up-right-from-square"></i>
-            </a>
+            <span><b>2026</b> · Accepted in Astronomy &amp; Astrophysics</span>
           </div>
         </article>
 
         <!-- FILTERS -->
         <div class="pub-filters" role="tablist" aria-label="Filter publications by year">
-          <button class="pub-filter active" data-year="all">All <span class="count">12</span></button>
-          <button class="pub-filter" data-year="2026">2026 <span class="count">4</span></button>
+          <button class="pub-filter active" data-year="all">All <span class="count">13</span></button>
+          <button class="pub-filter" data-year="2026">2026 <span class="count">5</span></button>
           <button class="pub-filter" data-year="2025">2025 <span class="count">3</span></button>
           <button class="pub-filter" data-year="2024">2024 <span class="count">1</span></button>
           <button class="pub-filter" data-year="2023">2023 <span class="count">3</span></button>
@@ -2219,8 +2330,20 @@
         </div>
 
         <div class="pubgroup">
-          <div class="pubgroup-label">First-author publications <span class="count">— 6</span></div>
+          <div class="pubgroup-label">First-author publications <span class="count">— 7</span></div>
           <div class="papers">
+
+            <article class="paper paper--lead" data-year="2026">
+              <div class="yr">2026</div>
+              <div>
+                <span class="paper-title">Superorbital variability in the quiescent black hole X-ray transient A0620–00</span>
+                <span class="paper-authors"><b>E. A. Saavedra</b>, R. Alonso, T. Muñoz-Darias, J. Casares, M. A. P. Torres, M. Armas Padilla, J. F. Steiner, D. M. Russell, G. J. Escobar, F. García, F. Lewis, D. Mata Sánchez, P. Rodríguez-Gil.</span>
+                <span class="paper-journal">Astronomy &amp; Astrophysics — accepted</span>
+              </div>
+              <div class="paper-links">
+                <span class="reflink" aria-label="Accepted manuscript; publication link pending">Accepted <i class="fas fa-check"></i></span>
+              </div>
+            </article>
 
             <article class="paper paper--lead" data-year="2026">
               <div class="yr">2026</div>
@@ -2721,7 +2844,7 @@
       plate.addEventListener('pointerleave', function () { frame.style.transform = ''; });
     }
 
-    /* ---- X-ray binary diagram interactivity ---- */
+    /* ---- Generic BH-LMXB component interactivity ---- */
     (function initXRB() {
       var diagram = document.getElementById('xrbDiagram');
       if (!diagram) return;
@@ -2729,21 +2852,50 @@
       var tabs = document.querySelectorAll('.xrb-tab');
       var detail = document.getElementById('xrbDetail');
       var data = {
-        donor: { title: 'Donor star', text: 'The companion star that fills its Roche lobe. Matter is pulled through the inner Lagrangian point (L1) towards the compact object. Its spectral type defines the class of the binary.' },
-        stream: { title: 'Mass transfer stream', text: 'The trajectory of matter flowing from the donor star. Due to the Coriolis effect, the stream curves and impacts the outer edge of the accretion disk, creating a shock-heated bright spot.' },
-        disk: { title: 'Accretion disk', text: 'A flattened, rotating structure of gas spiraling inward. Viscous dissipation heats the innermost regions to millions of degrees, emitting predominantly in X-rays. The geometry and temperature profile are key to my multiwavelength modeling.' },
-        compact: { title: 'Compact object', text: 'A neutron star or black hole at the center of the disk. Its extreme gravitational potential well is the engine of the system, releasing vast amounts of energy as matter falls inward.' },
-        jet: { title: 'Relativistic jet', text: 'Collimated outflows of plasma launched at relativistic speeds perpendicular to the disk plane. These are observed in systems near or above the Eddington limit, dominating the broadband spectrum from radio to gamma-rays.' }
+        donor: {
+          title: 'Roche-lobe-filling donor + L1',
+          text: 'The low-mass companion fills its Roche lobe and transfers gas through the inner Lagrange point, L1. The mass ratio and orbital separation set the stream’s initial velocity and specific angular momentum.'
+        },
+        stream: {
+          title: 'Ballistic mass-transfer stream',
+          text: 'After crossing L1, the gas follows an approximately ballistic trajectory in the corotating frame. Gravity and Coriolis forces curve the stream toward the outer disc, where its specific angular momentum is redistributed.'
+        },
+        impact: {
+          title: 'Stream–disc impact and rim bulge',
+          text: 'The velocity mismatch between the stream and the outer disc produces shocks, local heating and an azimuthally extended rim bulge. Some gas may overflow the rim and re-impact the disc at smaller radii.'
+        },
+        'thin-disk': {
+          title: 'Cool outer accretion disc',
+          text: 'The outer disc is nearly Keplerian, optically thick and geometrically thin, with H/R ≪ 1. Turbulent stresses transport angular momentum outward and mass inward, producing a multitemperature thermal spectrum; tidal torques limit the outer radius.'
+        },
+        'hot-flow': {
+          title: 'Hot inner accretion flow',
+          text: 'In hard and quiescent states, the inner flow can be hot, optically thin and geometrically thick, with H/R ≈ 0.1–0.5. Thermal Comptonization produces the hard X-ray continuum, while mild misalignment may support global precession.'
+        },
+        'black-hole': {
+          title: 'Stellar-mass black hole',
+          text: 'The event horizon forms the inner causal boundary of the accretion flow. The ISCO radius depends on black-hole spin and orbital orientation, setting the binding energy available in the innermost stable orbits.'
+        },
+        jet: {
+          title: 'Jet',
+          text: 'Hard-state BH-LMXBs commonly launch compact, magnetised jets. Stratified, partially self-absorbed synchrotron emission produces a flat or inverted radio-to-infrared spectrum, while the jet is strongly suppressed in disc-dominated soft states.'
+        }
       };
 
       function setActive(name) {
         parts.forEach(function (p) {
           var pn = p.getAttribute('data-part');
-          p.classList.toggle('is-active', pn === name);
-          p.classList.toggle('dim', pn !== name);
+          var activePart = pn === name;
+          p.classList.toggle('is-active', activePart);
+          p.classList.toggle('dim', !activePart);
+          p.setAttribute('aria-pressed', activePart ? 'true' : 'false');
         });
         tabs.forEach(function (t) {
-          t.classList.toggle('active', t.getAttribute('data-tab') === name);
+          var active = t.getAttribute('data-tab') === name;
+          t.classList.toggle('active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.setAttribute('tabindex', active ? '0' : '-1');
+          if (active && detail && t.id) detail.setAttribute('aria-labelledby', t.id);
         });
         if (detail && data[name]) {
           detail.style.opacity = '0';
@@ -2757,11 +2909,29 @@
       parts.forEach(function (p) {
         p.addEventListener('mouseenter', function () { setActive(p.getAttribute('data-part')); });
         p.addEventListener('click', function () { setActive(p.getAttribute('data-part')); });
+        p.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActive(p.getAttribute('data-part'));
+          }
+        });
       });
       tabs.forEach(function (t) {
         t.addEventListener('click', function () { setActive(t.getAttribute('data-tab')); });
+        t.addEventListener('keydown', function (e) {
+          var current = Array.prototype.indexOf.call(tabs, t);
+          var next = current;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (current + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (current - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          setActive(tabs[next].getAttribute('data-tab'));
+          tabs[next].focus();
+        });
       });
-      setActive('donor');
+      setActive('hot-flow');
     })();
 
     /* ---- publication year filter ---- */
@@ -3049,11 +3219,6 @@
       );
     } catch (e) {}
 
-    /* ---- dynamic tab title ---- */
-    var realTitle = document.title;
-    document.addEventListener('visibilitychange', function () {
-      document.title = document.hidden ? '✦ awaiting the next observation…' : realTitle;
-    });
   })();
   </script>
 </body>
