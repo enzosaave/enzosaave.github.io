@@ -647,7 +647,25 @@
       letter-spacing: .06em; text-transform: uppercase;
       color: var(--muted);
     }
-    .plate-cap .coord { color: var(--brand-ink); }
+    .plate-cap .portrait-note {
+      max-width: 38ch;
+      font-family: var(--serif);
+      font-size: .94rem;
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink-2);
+    }
+    .plate-cap .portrait-note em {
+      color: var(--brand-ink);
+      font-style: italic;
+    }
+    .plate-cap .coord {
+      flex-shrink: 0;
+      color: var(--brand-ink);
+      text-align: right;
+    }
 
     /* ---------- SPECTRUM ---------- */
     .spectrum {
@@ -2027,7 +2045,7 @@
                  onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27520%27%20height=%27520%27%20viewBox=%270%200%20520%20520%27%3E%3Crect%20width=%27520%27%20height=%27520%27%20fill=%27%23f8f8f6%27/%3E%3Ctext%20x=%2750%25%27%20y=%2752%25%27%20text-anchor=%27middle%27%20dominant-baseline=%27central%27%20font-family=%27Georgia,%20Times%20New%20Roman,%20serif%27%20font-style=%27italic%27%20font-weight=%27600%27%20font-size=%27208%27%20letter-spacing=%27-6%27%20fill=%27%23f97316%27%3EEA%3C/text%3E%3Ctext%20x=%2750%25%27%20y=%2786%25%27%20text-anchor=%27middle%27%20dominant-baseline=%27central%27%20font-family=%27Consolas,%20Menlo,%20monospace%27%20font-weight=%27700%27%20font-size=%2720%27%20letter-spacing=%276%27%20fill=%27%239aa1ad%27%3EE.%20A.%20SAAVEDRA%3C/text%3E%3C/svg%3E';" />
           </div>
           <div class="plate-cap">
-            <span>E. A. Saavedra</span>
+            <span class="portrait-note">Among mountains and greenery, with a <em>mate</em> in hand — a small piece of Argentina I carry wherever I go.</span>
             <span class="coord">28.3°N 16.5°W · Tenerife</span>
           </div>
         </aside>
@@ -2317,6 +2335,7 @@
           </p>
           <div class="featured-meta">
             <span><b>2026</b> · Accepted in Astronomy &amp; Astrophysics</span>
+            <a class="featured-link" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
           </div>
         </article>
 
@@ -2337,12 +2356,12 @@
             <article class="paper paper--lead" data-year="2026">
               <div class="yr">2026</div>
               <div>
-                <span class="paper-title">Superorbital variability in the quiescent black hole X-ray transient A0620–00</span>
+                <a class="paper-title" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" target="_blank" rel="noopener">Superorbital variability in the quiescent black hole X-ray transient A0620–00</a>
                 <span class="paper-authors"><b>E. A. Saavedra</b>, R. Alonso, T. Muñoz-Darias, J. Casares, M. A. P. Torres, M. Armas Padilla, J. F. Steiner, D. M. Russell, G. J. Escobar, F. García, F. Lewis, D. Mata Sánchez, P. Rodríguez-Gil.</span>
                 <span class="paper-journal">Astronomy &amp; Astrophysics — accepted</span>
               </div>
               <div class="paper-links">
-                <span class="reflink" aria-label="Accepted manuscript; publication link pending">Accepted <i class="fas fa-check"></i></span>
+                <a class="reflink" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" target="_blank" rel="noopener">ADS <i class="fas fa-arrow-up-right-from-square"></i></a>
               </div>
             </article>
 
