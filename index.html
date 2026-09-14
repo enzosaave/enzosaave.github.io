@@ -253,7 +253,7 @@
       .research-intro { grid-template-columns: 1fr; gap: 17px; margin-top: 22px; }
       .research-intro p { font-size: 14px; }
       .research-topics { margin-top: 25px; gap: 18px; }
-      .research-topics h3 { font-size: 13px; }
+      .research-topics h3 { font-size: 13px; color: color-mix(in srgb, var(--accent) 62%, var(--ink)); }
       .research-topics p { font-size: 11px; }
       .publications-heading { flex-wrap: wrap; gap: 9px; }
       .publications-heading>span { font-size: 10px; }
@@ -393,29 +393,29 @@
     /* Monochrome, ordered editorial system. */
     :root {
       color-scheme: light;
-      --paper: #ffffff;
-      --ink: #111111;
-      --muted: #666666;
-      --accent: #111111;
-      --line: #d9d9d9;
-      --wash: #f5f5f5;
-      --rust: #111111;
+      --paper: #fffaf6;
+      --ink: #171514;
+      --muted: #6f655d;
+      --accent: #c97346;
+      --line: #e7d8cd;
+      --wash: #fcf3ec;
+      --rust: #c97346;
       --white: #ffffff;
-      --night: #111111;
+      --night: #171514;
       --edge: clamp(20px, 5vw, 72px);
       --max: 1080px;
     }
     :root[data-theme="dark"] {
       color-scheme: dark;
-      --paper: #0b0b0b;
-      --ink: #f4f4f4;
-      --muted: #a8a8a8;
-      --accent: #ffffff;
-      --line: #333333;
-      --wash: #161616;
-      --rust: #ffffff;
-      --white: #0b0b0b;
-      --night: #000000;
+      --paper: #120f0d;
+      --ink: #f5efe9;
+      --muted: #b7aaa0;
+      --accent: #dd9365;
+      --line: #433830;
+      --wash: #1c1714;
+      --rust: #dd9365;
+      --white: #100f0e;
+      --night: #0a0908;
     }
 
     html { scroll-padding-top: 78px; }
@@ -432,19 +432,22 @@
     }
     .header-inner { min-height: 68px; border-bottom: 0; gap: 22px; }
     .wordmark { font-size: 13px; letter-spacing: -.01em; }
-    .wordmark span { color: var(--ink); font-size: 20px; margin-right: 10px; }
+    .wordmark span { color: var(--accent); font-size: 20px; margin-right: 10px; }
     .nav { gap: 22px; }
     .nav a { font-size: 12px; color: var(--muted); }
-    .nav a:hover, .nav a[aria-current] { color: var(--ink); }
+    .nav a:hover, .nav a[aria-current] { color: var(--accent); }
     .theme-button:hover { background: transparent; }
 
-    .hero { padding: clamp(72px, 10vw, 124px) 0 0; }
-    .hero-kicker { color: var(--muted); }
-    .hero-kicker::before { background: var(--ink); width: 18px; }
+    .hero { padding: clamp(58px, 8vw, 96px) 0 0; }
+    .hero-kicker { color: color-mix(in srgb, var(--accent) 38%, var(--muted)); }
+    .hero-kicker::before { background: color-mix(in srgb, var(--accent) 55%, var(--ink)); width: 18px; }
     .hero-grid {
       display: block;
-      padding: 30px 0 54px;
+      padding: 20px 0 40px;
       max-width: 900px;
+    }
+    .hero-grid > div {
+      max-width: 760px;
     }
     h1 {
       font-family: var(--sans);
@@ -453,31 +456,32 @@
       font-weight: 600;
       letter-spacing: -.078em;
       margin-left: -.06em;
+      margin-bottom: 0;
       max-width: 8.5ch;
     }
     .intro {
       font-size: clamp(22px, 2.6vw, 31px);
       line-height: 1.35;
       max-width: 28ch;
-      margin-top: 38px;
+      margin-top: 18px;
       letter-spacing: -.035em;
     }
-    .hero-description { max-width: 58ch; margin-top: 15px; font-size: 14px; }
-    .hero-actions { margin-top: 30px; gap: 28px; }
+    .hero-description { max-width: 58ch; margin-top: 10px; font-size: 14px; }
+    .hero-actions { margin-top: 20px; gap: 24px; }
     .primary-link {
       padding: 0;
       background: transparent;
       color: var(--ink);
-      border-bottom: 1px solid var(--ink);
+      border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, var(--ink));
       gap: 20px;
       font-size: 12px;
     }
-    .primary-link:hover { background: transparent; color: var(--ink); }
-    .hero-actions .text-link { font-size: 12px; color: var(--muted); }
-    .hero-actions .text-link:hover { color: var(--ink); }
+    .primary-link:hover { background: transparent; color: var(--accent); }
+    .hero-actions .text-link { font-size: 12px; color: color-mix(in srgb, var(--accent) 28%, var(--muted)); }
+    .hero-actions .text-link:hover { color: var(--accent); }
     .hero-foot {
       grid-template-columns: 1.4fr 1fr 1fr;
-      padding: 18px 0;
+      padding: 15px 0;
       border-block: 1px solid var(--line);
       font-size: 11px;
     }
@@ -488,8 +492,8 @@
       grid-template-columns: 120px minmax(0, 1fr);
       gap: clamp(34px, 6vw, 74px);
     }
-    .section-marker { padding-top: 10px; color: var(--muted); }
-    .section-marker span { color: var(--ink); }
+    .section-marker { padding-top: 10px; color: color-mix(in srgb, var(--accent) 24%, var(--muted)); }
+    .section-marker span { color: var(--accent); }
     h2 {
       font-family: var(--sans);
       font-size: clamp(36px, 5vw, 58px);
@@ -510,7 +514,7 @@
     }
     .research-topics div { border-top: 0; padding: 16px 18px 18px 0; }
     .research-topics div + div { border-left: 1px solid var(--line); padding-left: 18px; }
-    .research-topics h3 { font-size: 13px; }
+    .research-topics h3 { font-size: 13px; color: color-mix(in srgb, var(--accent) 62%, var(--ink)); }
     .research-topics p { font-size: 11px; }
 
     .research-plate {
@@ -524,11 +528,11 @@
     .binary-diagram .warm { stroke: var(--ink); }
     .binary-diagram .surface { fill: var(--paper); }
     .figure-note { padding-top: 13px; }
-    .figure-note > span { color: var(--ink); }
+    .figure-note > span { color: var(--accent); }
 
     .glossary { margin-top: 42px; }
     .glossary > summary { padding: 16px 0; }
-    .component summary { color: var(--ink); }
+    .component summary { color: color-mix(in srgb, var(--accent) 55%, var(--ink)); }
 
     .recent {
       display: grid;
@@ -561,11 +565,11 @@
     .year-filters { gap: 0 22px; }
     .year-filters button { min-width: 0; padding: 9px 0 7px; }
     .year-filters button[aria-pressed="true"] { border-color: var(--ink); }
-    .paper-list { border-top: 1px solid var(--ink); }
+    .paper-list { border-top: 1px solid color-mix(in srgb, var(--accent) 35%, var(--ink)); }
     .paper { grid-template-columns: 54px 1fr 74px; gap: 20px; padding: 22px 0; }
     .paper h3 { font-size: 16px; line-height: 1.42; }
-    .authorship { color: var(--ink); }
-    .paper-links { color: var(--muted); }
+    .authorship { color: color-mix(in srgb, var(--accent) 72%, var(--ink)); }
+    .paper-links { color: color-mix(in srgb, var(--accent) 24%, var(--muted)); }
 
     .facility-list { margin-top: 40px; border-top: 1px solid var(--ink); }
     .facility > summary { padding: 17px 0; }
@@ -600,15 +604,15 @@
     .activity-grid h3 { font-size: 15px; }
 
     .contact-section {
-      background: var(--ink);
+      background: color-mix(in srgb, var(--accent) 8%, var(--ink));
       color: var(--paper);
       padding-block: 72px;
       margin-top: 0;
     }
     .contact-section .section-marker,
-    .contact-section .section-marker span { color: #bdbdbd; }
+    .contact-section .section-marker span { color: color-mix(in srgb, var(--accent) 35%, #d0c9c2); }
     .contact-body h2 { font-family: var(--sans); font-size: clamp(34px, 5vw, 52px); }
-    .email { font-size: clamp(22px, 3vw, 31px); border-color: #777; }
+    .email { font-size: clamp(22px, 3vw, 31px); border-color: color-mix(in srgb, var(--accent) 45%, #777); }
     .contact-location, .profile-links small { color: #bdbdbd; }
     .profile-links a { border-color: #333; }
     footer { background: var(--ink); color: #bdbdbd; }
@@ -618,10 +622,10 @@
       html { scroll-padding-top: 70px; }
       .header-inner { min-height: 62px; }
       .nav { gap: 18px; padding-bottom: 11px; }
-      .hero { padding-top: 64px; }
-      .hero-grid { padding-top: 24px; padding-bottom: 40px; }
+      .hero { padding-top: 52px; }
+      .hero-grid { padding-top: 16px; padding-bottom: 32px; }
       h1 { font-size: clamp(56px, 16vw, 86px); max-width: 8ch; }
-      .intro { font-size: 22px; margin-top: 30px; }
+      .intro { font-size: 22px; margin-top: 16px; }
       .hero-foot { grid-template-columns: 1fr; gap: 3px; }
       .hero-foot span:last-child { text-align: left; }
       .section { padding-block: 64px; }
@@ -661,7 +665,7 @@
     .nav a { font-size: 14px; }
     .menu-toggle { font-size: 14px; }
 
-    .hero-description { font-size: 17px; line-height: 1.65; max-width: 56ch; }
+    .hero-description { font-size: 17px; line-height: 1.65; max-width: 56ch; margin-top: 10px; }
     .primary-link, .hero-actions .text-link { font-size: 14px; }
     .hero-foot { font-size: 13px; line-height: 1.55; }
 
@@ -745,7 +749,7 @@
 
     @media print {
       :root, :root[data-theme="dark"] {
-        --paper:#fff; --ink:#111; --muted:#555; --accent:#111; --line:#ccc; --wash:#f7f7f7;
+        --paper:#fff; --ink:#111; --muted:#555; --accent:#b7693e; --line:#ccc; --wash:#f7f7f7;
       }
     }
   </style>
