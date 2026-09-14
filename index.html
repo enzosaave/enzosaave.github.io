@@ -182,7 +182,7 @@
     .about-text p+p { margin-top: 15px; }
     .about-text a { text-decoration-color: var(--line); }
     .portrait { margin: 28px 0; max-width: 360px; }
-    .portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .portrait img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center 28%; display: block; }
     .portrait figcaption { font-family: var(--serif); color: var(--muted); font-size: 15px; line-height: 1.6; margin-top: 12px; }
     .personal-note { font-family: var(--serif); color: var(--accent); font-size: 23px; line-height: 1.55; margin-top: 25px; max-width: 45ch; }
     .timeline { list-style: none; padding: 0; margin-top: 36px; }
@@ -586,6 +586,7 @@
       max-width: 52ch;
     }
     .portrait { max-width: 300px; margin-bottom: 0; }
+    .portrait img { aspect-ratio: 1 / 1; object-position: center 28%; }
     .portrait figcaption {
       font-family: var(--sans);
       color: var(--muted);
@@ -776,6 +777,9 @@
     list-style: none;
   }
   .research-glossary > summary::-webkit-details-marker { display: none; }
+  .research-glossary > summary::marker,
+  .research-glossary .component > summary::marker { content: ""; }
+  .research-glossary .component > summary::-webkit-details-marker { display: none; }
   .research-glossary > summary::after {
     content: '+';
     grid-column: 3;
@@ -813,6 +817,48 @@
     .research-glossary .glossary-grid { padding: 0 0 18px; }
   }
 </style>
+
+<style id="final-layout-fixes">
+  /* Authoritative fixes: square portrait + plain section labels. */
+  .section-marker,
+  .contact-section .section-marker {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  .section-marker::before,
+  .section-marker::after { content: none !important; display: none !important; }
+
+  .portrait {
+    width: min(100%, 340px);
+    max-width: 340px;
+    margin: 32px 0 0;
+  }
+  .portrait-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #e9e9e9;
+  }
+  .portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  .portrait figcaption { margin-top: 10px; }
+
+  @media (max-width: 760px) {
+    .portrait { width: min(100%, 320px); max-width: 320px; }
+  }
+
+  @media print {
+    .portrait { width: 150px; max-width: 150px; float: right; margin: 0 0 16px 20px; }
+    .portrait-frame { aspect-ratio: 1 / 1; }
+  }
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -841,7 +887,7 @@
 <div class="hero-foot"><span>Instituto de Astrofísica de Canarias</span><span>PhD candidate · 2024–present</span><span>Infrared / Optical / X-ray</span></div>
 </section>
 <section aria-labelledby="research-title" class="section" id="research">
-<div class="section-layout"><div class="section-marker label"><span>01 /</span> Research</div>
+<div class="section-layout"><div class="section-marker label">01 / Research</div>
 <div><h2 id="research-title">Accretion at low luminosities.</h2>
 <div class="research-intro"><div><p>My PhD focuses on low-luminosity accretion in low-mass X-ray binaries. I combine infrared, optical and X-ray observations to investigate these systems.</p><p>I also work on high-mass X-ray binaries and ultraluminous X-ray sources.</p></div></div>
 <div class="research-topics"><div><h3>Infrared</h3><p>Flamingos2<br/>Imaging &amp; spectroscopy</p></div><div><h3>Optical</h3><p>GTC · Las Cumbres<br/>Liverpool · NTT</p></div><div><h3>X-ray</h3><p>NuSTAR · XMM-Newton<br/>NICER</p></div></div><div class="research-module"><div class="research-feature"><figure class="research-plate">
@@ -852,18 +898,18 @@
 <desc id="binary-desc">A low-mass donor star transfers gas through L1 into an outer accretion disc. A hot inner flow surrounds the black hole and a bipolar jet extends from the centre. Schematic of a possible hard or quiescent state, not to scale.</desc>
 <defs><marker id="arrowhead" markerheight="5" markerwidth="5" orient="auto" refx="7" refy="4" viewbox="0 0 8 8"><path d="M1 1 7 4 1 7" fill="none" stroke="currentColor"></path></marker></defs>
 <g class="line soft"><path d="M32 192H527" stroke-dasharray="3 5"></path><path d="M194 192 171 313" stroke-dasharray="3 4"></path></g>
-<g class="line"><path d="M184 192 205 51M202 192 229 51"></path><path class="soft" d="M191 192 218 51"></path><path class="soft" d="M190 208 162 298M198 208 176 298"></path></g>
+<g class="line soft"><path d="M190 208 168 298M198 208 176 298"></path></g>
 <g class="line surface"><ellipse cx="194" cy="199" rx="143" ry="47"></ellipse><path d="M51 199v6a143 47 0 0 0 286 0v-6"></path></g>
 <g class="line soft"><ellipse cx="194" cy="199" rx="128" ry="42"></ellipse><ellipse cx="194" cy="199" rx="113" ry="37"></ellipse><ellipse cx="194" cy="199" rx="97" ry="32"></ellipse><ellipse cx="194" cy="199" rx="81" ry="27"></ellipse></g>
 <g class="line warm" transform="rotate(12 194 199)"><ellipse class="surface" cx="194" cy="199" rx="59" ry="29"></ellipse><ellipse cx="194" cy="199" rx="46" ry="23"></ellipse><ellipse cx="194" cy="199" rx="32" ry="17"></ellipse><path d="M138 199c15 34 97 34 112 0"></path></g>
 <circle cx="194" cy="199" fill="var(--ink)" r="11"></circle>
-<path class="line" d="M198 188 218 59"></path>
+<g class="line"><path d="M186 188 206 51M202 188 222 51"></path><path class="soft" d="M194 188 214 51"></path><path d="M194 188 214 59"></path></g>
 <path class="line" d="M366 199C379 157 416 139 454 143C499 147 518 174 518 199C518 224 499 251 454 255C416 259 379 241 366 199Z" fill="var(--wash)"></path>
 <g class="line soft"><path d="M366 199h152M374 181c39-10 101-9 140 0M374 217c39 10 101 9 140 0M390 160c28 14 29 62 0 79M418 144c36 21 36 89 0 109M454 143c35 19 37 89 0 112M482 152c24 26 23 68 0 94"></path></g>
 <path class="line warm" d="M366 199c-15 5-16 18-29 21-7 2-13 0-16-2" marker-end="url(#arrowhead)" stroke-width="2"></path>
 <circle cx="366" cy="199" fill="var(--rust)" r="2.5"></circle>
 <circle cx="322" cy="219" fill="var(--rust)" r="3"></circle>
-<g class="line soft"><path d="M230 65h28"></path><path d="M452 143V113h-50"></path><path d="M102 229 72 263H34"></path><path d="M172 183 138 134H58"></path><path d="M196 211 219 281h30"></path></g>
+<g class="line soft"><path d="M218 65h40"></path><path d="M452 143V113h-50"></path><path d="M102 229 72 263H34"></path><path d="M172 183 138 134H58"></path><path d="M196 211 219 281h30"></path></g>
 <text x="266" y="68">Jet</text><text x="386" y="103">Low-mass donor</text><text x="34" y="281">Outer disc</text><text x="58" y="124">Hot inner flow</text><text x="257" y="284">Black hole</text><text x="350" y="183">L1</text>
 </svg>
 <figcaption class="figure-note"><span aria-hidden="true">01</span><p><strong>From a companion star to an accretion flow.</strong> A schematic of the systems I study. Hard or quiescent state; not to scale.</p></figcaption>
@@ -873,7 +919,7 @@
 </div>
 </section>
 <section aria-labelledby="publications-title" class="section" id="publications">
-<div class="section-layout"><div class="section-marker label"><span>02 /</span> Publications</div>
+<div class="section-layout"><div class="section-marker label">02 / Publications</div>
 <div><div class="publications-heading"><h2 id="publications-title">Selected publications</h2><span>2022–2026</span></div>
 <p class="section-intro">First-author and collaborative work on accreting compact objects, X-ray binaries, ultraluminous sources and massive-star binaries.</p>
 <div aria-label="Filter selected publications" class="publication-tools" role="search">
@@ -992,7 +1038,7 @@
 </div>
 </section>
 <section aria-labelledby="observing-title" class="section" id="observing">
-<div class="section-layout"><div class="section-marker label"><span>03 /</span> Observing</div>
+<div class="section-layout"><div class="section-marker label">03 / Observing</div>
 <div><h2 id="observing-title">From proposals to observations.</h2><p class="section-intro">Observing programmes across space- and ground-based facilities, with allocated time and my role in each proposal.</p>
 <!-- Preserve native exposure units: hours, kiloseconds and nights are not directly comparable. -->
 <div class="facility-list"><details class="facility" open="">
@@ -1023,11 +1069,11 @@
 </div>
 </section>
 <section aria-labelledby="about-title" class="section" id="about">
-<div class="section-layout"><div class="section-marker label"><span>04 /</span> About</div>
+<div class="section-layout"><div class="section-marker label">04 / About</div>
 <div><h2 id="about-title">From La Plata to Tenerife.</h2>
 <div class="about-text"><p>I am a PhD candidate at the Instituto de Astrofísica de Canarias and the Universidad de La Laguna, supervised by Montserrat Armas Padilla and Teo Muñoz-Darias.</p><p>I studied Astronomy at the Universidad Nacional de La Plata, Argentina, where I also worked as a teaching assistant before moving to Tenerife.</p></div>
 <!-- Optional original portrait. Set this path if the asset is stored elsewhere. -->
-<figure class="portrait" hidden="" id="portrait"><img alt="Enzo A. Saavedra outdoors, with mate in hand" data-src="profile6.jpeg" height="900" id="portrait-image" loading="lazy" width="720"/><figcaption>Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</figcaption></figure>
+<figure class="portrait" hidden="" id="portrait"><div class="portrait-frame"><img alt="Enzo A. Saavedra outdoors, with mate in hand" data-src="profile6.jpeg" id="portrait-image" loading="lazy"/></div><figcaption>Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</figcaption></figure>
 <p class="personal-note" id="personal-note">Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</p>
 <ol aria-label="Academic background" class="timeline" id="timeline"><li><span class="timeline-date">2024 — Present</span><div><h3>PhD candidate in Astrophysics</h3><p>Instituto de Astrofísica de Canarias · Universidad de La Laguna, Spain</p></div></li>
 <li><span class="timeline-date">2022 — 2023</span><div><h3>Teaching Assistant</h3><p>Universidad Nacional de La Plata, Argentina — General Astronomy, Physics, Calculus</p></div></li>
@@ -1043,7 +1089,7 @@
 </div>
 </section>
 </div>
-<section aria-labelledby="contact-title" class="contact-section" id="contact"><div class="wrap section-layout"><div class="section-marker label"><span>05 /</span> Contact</div><div class="contact-body"><div><h2 id="contact-title">Correspondence</h2><a class="email" href="mailto:saavedra@iac.es">saavedra@iac.es</a><p class="contact-location">Instituto de Astrofísica de Canarias<br/>Tenerife, Spain</p></div><ul class="profile-links"><li><a href="https://orcid.org/0000-0003-4841-8302" rel="noopener noreferrer" target="_blank"><span>ORCID<small>0000-0003-4841-8302</small></span><span aria-hidden="true">↗</span></a></li><li><a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar <span aria-hidden="true">↗</span></a></li><li><a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0003-4841-8302&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0" rel="noopener noreferrer" target="_blank">NASA ADS <span aria-hidden="true">↗</span></a></li><li><a href="https://x.com/enzosaave" rel="noopener noreferrer" target="_blank">X / enzosaave <span aria-hidden="true">↗</span></a></li></ul></div></div></section>
+<section aria-labelledby="contact-title" class="contact-section" id="contact"><div class="wrap section-layout"><div class="section-marker label">05 / Contact</div><div class="contact-body"><div><h2 id="contact-title">Correspondence</h2><a class="email" href="mailto:saavedra@iac.es">saavedra@iac.es</a><p class="contact-location">Instituto de Astrofísica de Canarias<br/>Tenerife, Spain</p></div><ul class="profile-links"><li><a href="https://orcid.org/0000-0003-4841-8302" rel="noopener noreferrer" target="_blank"><span>ORCID<small>0000-0003-4841-8302</small></span><span aria-hidden="true">↗</span></a></li><li><a href="https://scholar.google.com/citations?user=5KqUTOoAAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar <span aria-hidden="true">↗</span></a></li><li><a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0003-4841-8302&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0" rel="noopener noreferrer" target="_blank">NASA ADS <span aria-hidden="true">↗</span></a></li><li><a href="https://x.com/enzosaave" rel="noopener noreferrer" target="_blank">X / enzosaave <span aria-hidden="true">↗</span></a></li></ul></div></div></section>
 </main>
 <footer><div class="wrap footer-inner"><span>© 2026 Enzo A. Saavedra</span><a href="#top">Back to top ↑</a></div></footer>
 <script>
