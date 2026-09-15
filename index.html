@@ -634,9 +634,26 @@
 
     .activity-grid { margin-top: 52px; grid-template-columns: 1.25fr .75fr; gap: 48px; }
     .activity-grid h3 { font-size: 16px; }
+    .conference-list li {
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-top: 18px;
+    }
+    .conference-list .activity-kind {
+      font-size: 11px;
+      line-height: 1.35;
+      letter-spacing: .035em;
+      color: color-mix(in srgb, var(--accent) 72%, var(--ink));
+      padding-top: 3px;
+    }
     .conference-entry { display: block; }
-    .conference-entry strong { font-weight: 500; color: var(--ink); }
-    .conference-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .conference-entry strong { display: block; font-weight: 500; color: var(--ink); line-height: 1.45; }
+    .conference-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    @media (max-width: 560px) {
+      .conference-list li { grid-template-columns: 1fr; gap: 5px; }
+      .conference-list .activity-kind { padding-top: 0; }
+    }
 
     .contact-section {
       background: color-mix(in srgb, var(--accent) 8%, var(--ink));
@@ -1200,13 +1217,8 @@
 <ol aria-label="Academic background" class="timeline" id="timeline"><li><span class="timeline-date">2024 — Present</span><div><h3>PhD candidate in Astrophysics</h3><p>Instituto de Astrofísica de Canarias · Universidad de La Laguna, Spain</p></div></li>
 <li><span class="timeline-date">2022 — 2023</span><div><h3>Teaching Assistant</h3><p>Universidad Nacional de La Plata, Argentina — General Astronomy, Physics, Calculus</p></div></li>
 <li><span class="timeline-date">2017 — 2023</span><div><h3>BSc + MSc in Astronomy</h3><p>Universidad Nacional de La Plata, Argentina — X-ray binaries &amp; compact objects</p></div></li></ol>
-<div class="research-stays" id="research-stays"><h3>Research stays</h3><ul class="stay-list"><li><span class="stay-year">2026</span><span class="stay-place">Observatorio de La Plata, Argentina<small>With Federico García</small></span><span class="stay-duration">2.5 months</span></li><li><span class="stay-year">2026</span><span class="stay-place">University of Amsterdam, Netherlands<small>With Nathalie Degenaar</small></span><span class="stay-duration">1 month</span></li><li><span class="stay-year">2025</span><span class="stay-place">Observatorio de La Plata, Argentina<small>With Federico García</small></span><span class="stay-duration">2.5 months</span></li></ul></div>
-<div class="activity-grid" id="activity"><div><h3>Selected conferences</h3><ul class="activity-list"><li><span class="activity-kind">Poster + flash talk</span><span class="conference-entry"><strong>A Superorbital Modulation connecting the quiescent states of A0620-00</strong><small class="conference-meta">The many tones of accretion · Cefalù (2026)</small></span></li><li><span class="activity-kind">Talk</span><span>Relativistic X-Ray Reflection in GX 13+1 · 65° AAA (2023)</span></li>
-<li><span class="activity-kind">Talk</span><span>Ion tori around f(R)-Kerr black holes · 64° AAA (2022)</span></li>
-<li><span class="activity-kind">Poster + flash talk</span><span>The hunting of Ultracompact X-ray Binaries · Vasto Accretion Meeting</span></li>
-<li><span class="activity-kind">Poster</span><span>A NuSTAR view of SS433 · Heidelberg</span></li>
-<li><span class="activity-kind">Poster</span><span>NuSTAR/NICER view of 4U 0114+65 · Heidelberg</span></li>
-<li><span class="activity-kind">Poster</span><span>LS I +61°303 in high-energy X-rays · 64° AAA (2022)</span></li></ul></div><div class="teaching"><h3>Teaching</h3><p><strong>Teaching Assistant · 2022–2023</strong><br/>Universidad Nacional de La Plata</p><ul class="course-list"><li>General Astronomy</li><li>Physics I &amp; II</li><li>Calculus I &amp; II</li><li>Differential Equations</li><li>University Admission Course</li></ul></div></div>
+<div class="research-stays" id="research-stays"><h3>Research stays</h3><ul class="stay-list"><li><span class="stay-year">2026</span><span class="stay-place">University of Amsterdam, Netherlands<small>With Nathalie Degenaar</small></span><span class="stay-duration">1 month</span></li><li><span class="stay-year">2026</span><span class="stay-place">Observatorio de La Plata, Argentina<small>With Federico García</small></span><span class="stay-duration">2.5 months</span></li><li><span class="stay-year">2025</span><span class="stay-place">Observatorio de La Plata, Argentina<small>With Federico García</small></span><span class="stay-duration">2.5 months</span></li></ul></div>
+<div class="activity-grid" id="activity"><div><h3>Selected conferences</h3><ul class="activity-list conference-list"><li><span class="activity-kind">Poster + flash talk</span><span class="conference-entry"><strong>A Superorbital Modulation connecting the quiescent states of A0620-00</strong><small class="conference-meta">The many tones of accretion · Cefalù, Italy (2026)</small></span></li><li><span class="activity-kind">Poster + flash talk</span><span class="conference-entry"><strong>The hunting of Ultracompact X-ray Binaries</strong><small class="conference-meta">Vasto Accretion Meeting · Vasto, Italy (2025)</small></span></li><li><span class="activity-kind">Talk</span><span class="conference-entry"><strong>Relativistic X-Ray Reflection in GX 13+1</strong><small class="conference-meta">65° AAA (2023)</small></span></li><li><span class="activity-kind">Talk</span><span class="conference-entry"><strong>Ion tori around f(R)-Kerr black holes</strong><small class="conference-meta">64° AAA (2022)</small></span></li><li><span class="activity-kind">Poster</span><span class="conference-entry"><strong>LS I +61°303 in high-energy X-rays</strong><small class="conference-meta">64° AAA (2022)</small></span></li><li><span class="activity-kind">Poster</span><span class="conference-entry"><strong>A NuSTAR view of SS433</strong><small class="conference-meta">Heidelberg</small></span></li><li><span class="activity-kind">Poster</span><span class="conference-entry"><strong>NuSTAR/NICER view of 4U 0114+65</strong><small class="conference-meta">Heidelberg</small></span></li></ul></div><div class="teaching"><h3>Teaching</h3><p><strong>Teaching Assistant · 2022–2023</strong><br/>Universidad Nacional de La Plata</p><ul class="course-list"><li>General Astronomy</li><li>Physics I &amp; II</li><li>Calculus I &amp; II</li><li>Differential Equations</li><li>University Admission Course</li></ul></div></div>
 <button class="print-profile" type="button">Print academic profile <span aria-hidden="true">↗</span></button>
 </div>
 </div>
