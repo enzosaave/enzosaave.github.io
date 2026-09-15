@@ -579,6 +579,13 @@
     table { margin-bottom: 8px; }
     th { padding-top: 14px; }
     td { padding-block: 11px; }
+    .observation-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
 
     .about-text { margin-top: 34px; font-size: 17px; max-width: 64ch; }
     .personal-note {
@@ -884,6 +891,59 @@
     .paper-meta, .authors p, .paper-links { font-size: 13px; }
   }
 </style>
+
+<style id="observing-totals-style">
+  .observing-totals {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    column-gap: 28px;
+    row-gap: 8px;
+    max-width: 560px;
+    margin-top: 34px;
+    padding: 18px 0 17px;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 38%, var(--line));
+    border-bottom: 1px solid var(--line);
+  }
+  .observing-total {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .observing-total + .observing-total {
+    padding-left: 26px;
+    border-left: 1px solid var(--line);
+  }
+  .observing-total strong {
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.045em;
+    color: color-mix(in srgb, var(--accent) 78%, var(--ink));
+  }
+  .observing-total span {
+    max-width: 12ch;
+    font: 11px/1.35 var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .observing-total-note {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  @media (max-width: 520px) {
+    .observing-totals { grid-template-columns: 1fr; gap: 13px; margin-top: 28px; }
+    .observing-total + .observing-total { padding: 13px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+    .observing-total-note { margin-top: 2px; }
+  }
+  @media print {
+    .observing-totals { break-inside: avoid; }
+  }
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -1065,7 +1125,12 @@
 <section aria-labelledby="observing-title" class="section" id="observing">
 <div class="section-layout"><div class="section-marker label">03 / Observing</div>
 <div><h2 id="observing-title">From proposals to observations.</h2><p class="section-intro">Observing programmes across space- and ground-based facilities, with allocated time and my role in each proposal.</p>
-<!-- Preserve native exposure units: hours, kiloseconds and nights are not directly comparable. -->
+<div class="observing-totals" aria-label="Observing time summary">
+  <div class="observing-total"><strong id="observing-hours">—</strong><span>allocated hours</span></div>
+  <div class="observing-total"><strong id="observing-nights">—</strong><span>observing nights</span></div>
+  <p class="observing-total-note">Hours include ks converted to hours. Nights remain separate.</p>
+</div>
+<!-- Native exposure units are preserved in the tables; the summary above is calculated automatically. -->
 <div class="facility-list"><details class="facility" open="">
 <summary><span class="facility-name">NuSTAR</span><span class="facility-band">X-ray</span><span aria-hidden="true" class="expand"></span></summary>
 <div class="table-wrap"><table><caption class="sr-only">NuSTAR observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>NGC 628 ULX1 — Cycle 11</td><td>110 ks + 60 ks XMM-Newton</td><td>PI</td></tr><tr><td>IRAS 18293-0941 — Cycle 11</td><td>180 ks</td><td>Co-PI</td></tr><tr><td>IGR J17252-3616 — Cycle 12</td><td>260 ks</td><td>Co-PI</td></tr></tbody></table></div>
@@ -1076,7 +1141,7 @@
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">GTC</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>ToO — OSIRIS</td><td>10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
+<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>SS433 — GTC / HiPERCAM<small class="observation-note">Simultaneous with NuSTAR, Einstein Probe, LT and Calar Alto</small></td><td>9.75 h</td><td>—</td></tr><tr><td>V1405 Cas — GTC / HiPERCAM</td><td>8.35 h</td><td>—</td></tr><tr><td>ToO — OSIRIS</td><td data-hours="60">10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">Liverpool</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
@@ -1194,6 +1259,57 @@
         filterPapers(); search.focus();
       });
       filterPapers();
+
+      // Derive observing totals from the allocated-time column so the summary stays current as rows are added.
+      const observingSection = document.querySelector('#observing');
+      const observingHours = document.querySelector('#observing-hours');
+      const observingNights = document.querySelector('#observing-nights');
+      const number = value => Number(String(value).replace(',', '.'));
+      function hoursFromCell(cell) {
+        if (cell.dataset.hours) return number(cell.dataset.hours);
+        const raw = cell.textContent.trim().replace(/[−–—]/g, '-');
+        if (!raw || raw === '-') return 0;
+
+        // Recurring semester allocations such as "10 h/sem · 2024–2026".
+        const recurring = raw.match(/([0-9]+(?:[.,][0-9]+)?)\s*h\s*\/\s*sem.*?(\d{4})\s*-\s*(\d{4})/i);
+        if (recurring) {
+          const perSemester = number(recurring[1]);
+          const start = Number(recurring[2]);
+          const end = Number(recurring[3]);
+          if (end >= start) return perSemester * (end - start + 1) * 2;
+        }
+
+        let total = 0;
+        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*h/gi)) total += number(match[1]);
+        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*ks/gi)) total += number(match[1]) / 3.6;
+        return total;
+      }
+      function nightsFromCell(cell) {
+        const raw = cell.textContent.trim().replace(/[−–—]/g, '-');
+        const matches = [...raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*nights?/gi)];
+        return {
+          value: matches.reduce((sum, match) => sum + number(match[1]), 0),
+          lowerBound: />\s*[0-9]+(?:[.,][0-9]+)?\s*nights?/i.test(raw)
+        };
+      }
+      function updateObservingTotals() {
+        if (!observingSection) return;
+        const cells = [...observingSection.querySelectorAll('tbody tr td:nth-child(2)')];
+        const hours = cells.reduce((sum, cell) => sum + hoursFromCell(cell), 0);
+        const nights = cells.reduce((state, cell) => {
+          const parsed = nightsFromCell(cell);
+          state.value += parsed.value;
+          state.lowerBound ||= parsed.lowerBound;
+          return state;
+        }, {value: 0, lowerBound: false});
+        const format = value => Number.isInteger(value) ? String(value) : value.toFixed(1);
+        observingHours.textContent = `${format(hours)} h`;
+        observingNights.textContent = `${nights.lowerBound ? '>' : ''}${format(nights.value)}`;
+      }
+      updateObservingTotals();
+      if ('MutationObserver' in window && observingSection) {
+        new MutationObserver(updateObservingTotals).observe(observingSection, {childList: true, subtree: true, characterData: true});
+      }
 
       // Only insert a photo after the original file has successfully loaded.
       const portrait = document.querySelector('#portrait');
