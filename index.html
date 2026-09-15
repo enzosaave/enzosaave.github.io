@@ -7,13 +7,13 @@
 <title>Enzo A. Saavedra — Astrophysicist</title>
 <meta content="Enzo A. Saavedra, PhD candidate at the Instituto de Astrofísica de Canarias. Research on accretion, X-ray binaries and ultraluminous X-ray sources." name="description"/>
 <meta content="Enzo A. Saavedra" name="author"/>
-<meta content="#ffffff" name="theme-color"/>
+<meta content="#fffaf6" name="theme-color"/>
 <meta content="Enzo A. Saavedra — Astrophysicist" property="og:title"/>
 <meta content="Accreting compact objects. Infrared, optical and X-ray observations. PhD candidate at IAC, Tenerife." property="og:description"/>
 <meta content="profile" property="og:type"/>
 <meta content="Enzo A. Saavedra" property="og:site_name"/>
 <meta content="summary" name="twitter:card"/>
-<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='white'%3Ee%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23c97346'%3Ee%3C/text%3E%3C/svg%3E" rel="icon"/>
 <script>
     document.documentElement.classList.add('js');
     try { if (localStorage.getItem('enzo-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (_) {}
@@ -975,7 +975,7 @@
 <div class="section-layout"><div class="section-marker label">01 / Research</div>
 <div><h2 id="research-title">Accretion at low luminosities.</h2>
 <div class="research-intro"><div><p>My PhD focuses on low-luminosity accretion in low-mass X-ray binaries. I combine infrared, optical and X-ray observations to investigate these systems.</p><p>I also work on high-mass X-ray binaries and ultraluminous X-ray sources.</p></div></div>
-<div class="research-topics"><div><h3>Infrared</h3><p>Flamingos2<br/>Imaging &amp; spectroscopy</p></div><div><h3>Optical</h3><p>GTC · Las Cumbres<br/>Liverpool · NTT</p></div><div><h3>X-ray</h3><p>NuSTAR · XMM-Newton<br/>NICER</p></div></div><div class="research-module"><div class="research-feature"><figure class="research-plate">
+<div class="research-topics"><div><h3>Infrared</h3><p>FLAMINGOS-2<br/>Imaging &amp; spectroscopy</p></div><div><h3>Optical</h3><p>GTC · Las Cumbres<br/>Liverpool · NTT</p></div><div><h3>X-ray</h3><p>NuSTAR · XMM-Newton<br/>NICER</p></div></div><div class="research-module"><div class="research-feature"><figure class="research-plate">
 <div class="plate-heading"><span class="label">A black-hole binary</span><span>BH–LMXB</span></div>
 <!-- Conceptual vector drawing, not an observation or a quantitative model. -->
 <svg aria-labelledby="binary-title binary-desc" class="binary-diagram" role="img" viewbox="0 0 550 345">
@@ -1126,34 +1126,38 @@
 <div class="section-layout"><div class="section-marker label">03 / Observing</div>
 <div><h2 id="observing-title">From proposals to observations.</h2><p class="section-intro">Observing programmes across space- and ground-based facilities, with allocated time and my role in each proposal.</p>
 <div class="observing-totals" aria-label="Observing time summary">
-  <div class="observing-total"><strong id="observing-hours">—</strong><span>allocated hours</span></div>
+  <div class="observing-total"><strong id="observing-hours">—</strong><span>total observing hours</span></div>
   <div class="observing-total"><strong id="observing-nights">—</strong><span>observing nights</span></div>
-  <p class="observing-total-note">Hours include ks converted to hours. Nights remain separate.</p>
+  <p class="observing-total-note">Every listed exposure is included. Simultaneous multi-facility campaigns count once per facility; ks are converted to hours. Nights remain separate.</p>
 </div>
-<!-- Native exposure units are preserved in the tables; the summary above is calculated automatically. -->
+<!-- Native exposure units are preserved. Standard h/ks cells are parsed automatically; use data-hours only when one row represents multiple simultaneous facilities. -->
 <div class="facility-list"><details class="facility" open="">
 <summary><span class="facility-name">NuSTAR</span><span class="facility-band">X-ray</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">NuSTAR observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>NGC 628 ULX1 — Cycle 11</td><td>110 ks + 60 ks XMM-Newton</td><td>PI</td></tr><tr><td>IRAS 18293-0941 — Cycle 11</td><td>180 ks</td><td>Co-PI</td></tr><tr><td>IGR J17252-3616 — Cycle 12</td><td>260 ks</td><td>Co-PI</td></tr></tbody></table></div>
+<div class="table-wrap"><table><caption class="sr-only">NuSTAR observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>NGC 628 ULX1 — Cycle 11</td><td>110 ks<small class="observation-note">+ 60 ks XMM-Newton</small></td><td>PI</td></tr><tr><td>IRAS 18293-0941 — Cycle 11</td><td>180 ks</td><td>Co-PI</td></tr><tr><td>IGR J17252-3616 — Cycle 12</td><td>260 ks</td><td>Co-PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
-<summary><span class="facility-name">Las Cumbres</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">Las Cumbres observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>ToO 2026B</td><td>50 h</td><td>PI</td></tr><tr><td>ToO 2026A</td><td>90 h</td><td>PI</td></tr><tr><td>ToO 2025B</td><td>40 h</td><td>PI</td></tr><tr><td>ToO 2025A</td><td>66 h</td><td>PI</td></tr><tr><td>ToO 2024B</td><td>50 h</td><td>PI</td></tr></tbody></table></div>
+<summary><span class="facility-name">Las Cumbres Observatory</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
+<div class="table-wrap"><table><caption class="sr-only">Las Cumbres Observatory observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>ToO 2026B</td><td>50 h</td><td>PI</td></tr><tr><td>ToO 2026A</td><td>90 h</td><td>PI</td></tr><tr><td>ToO 2025B</td><td>40 h</td><td>PI</td></tr><tr><td>ToO 2025A</td><td>66 h</td><td>PI</td></tr><tr><td>ToO 2024B</td><td>50 h</td><td>PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">GTC</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>SS433 — GTC / HiPERCAM<small class="observation-note">Simultaneous with NuSTAR, Einstein Probe, LT and Calar Alto</small></td><td>9.75 h</td><td>—</td></tr><tr><td>V1405 Cas — GTC / HiPERCAM</td><td>8.35 h</td><td>—</td></tr><tr><td>ToO — OSIRIS</td><td data-hours="60">10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
+<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>SS433 — HiPERCAM<small class="observation-note">Simultaneous with NuSTAR, Einstein Probe, LT and Calar Alto</small></td><td data-hours="48.75">9.75 h</td><td>—</td></tr><tr><td>V1405 Cas — HiPERCAM</td><td>8.35 h</td><td>—</td></tr><tr><td>ToO — OSIRIS</td><td data-hours="60">10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
-<summary><span class="facility-name">Liverpool</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">Liverpool observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>ToO 2026A/B</td><td>20 h</td><td>PI</td></tr><tr><td>ToO 2025A/B</td><td>20 h</td><td>PI</td></tr><tr><td>ToO 2024A/B</td><td>20 h</td><td>PI</td></tr></tbody></table></div>
+<summary><span class="facility-name">Liverpool Telescope</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
+<div class="table-wrap"><table><caption class="sr-only">Liverpool Telescope observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>ToO 2026A/B</td><td>20 h</td><td>PI</td></tr><tr><td>ToO 2025A/B</td><td>20 h</td><td>PI</td></tr><tr><td>ToO 2024A/B</td><td>20 h</td><td>PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">ESO</span><span class="facility-band">Optical / NIR</span><span aria-hidden="true" class="expand"></span></summary>
 <div class="table-wrap"><table><caption class="sr-only">ESO observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>NTT — ULTRACAM</td><td>3 nights</td><td>PI</td></tr><tr><td>VLT — ToO X-SHOOTER</td><td>—</td><td>Co-PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
-<summary><span class="facility-name">Gemini &amp; Others</span><span class="facility-band">Optical / NIR</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">Gemini &amp; Others observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>Gemini — Flamingos2</td><td>—</td><td>dPI</td></tr><tr><td>Gemini — GHOST</td><td>—</td><td>dPI</td></tr><tr><td>CASLEO</td><td>&gt; 30 nights</td><td>PI</td></tr><tr><td>NOT — SOFIN</td><td>6 h</td><td>Co-PI</td></tr></tbody></table></div>
+<summary><span class="facility-name">Gemini</span><span class="facility-band">Optical / NIR</span><span aria-hidden="true" class="expand"></span></summary>
+<div class="table-wrap"><table><caption class="sr-only">Gemini observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>FLAMINGOS-2</td><td>—</td><td>dPI</td></tr><tr><td>GHOST</td><td>—</td><td>dPI</td></tr></tbody></table></div>
+</details>
+<details class="facility" open="">
+<summary><span class="facility-name">Other facilities</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
+<div class="table-wrap"><table><caption class="sr-only">Other observing facilities</caption><thead><tr><th scope="col">Facility / instrument</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>CASLEO</td><td>&gt; 30 nights</td><td>PI</td></tr><tr><td>NOT — SOFIN</td><td>6 h</td><td>Co-PI</td></tr></tbody></table></div>
 </details></div><p class="roles-note">PI: principal investigator · Co-PI: co-principal investigator · ToO: target of opportunity.</p>
 </div>
 </div>
@@ -1164,7 +1168,7 @@
 <div class="about-text"><p>I am a PhD candidate at the Instituto de Astrofísica de Canarias and the Universidad de La Laguna, supervised by Montserrat Armas Padilla and Teo Muñoz-Darias.</p><p>I studied Astronomy at the Universidad Nacional de La Plata, Argentina, where I also worked as a teaching assistant before moving to Tenerife.</p></div>
 <!-- Optional original portrait. Set this path if the asset is stored elsewhere. -->
 <figure class="portrait" hidden="" id="portrait"><div class="portrait-frame"><img alt="Enzo A. Saavedra outdoors, with mate in hand" data-src="profile6.jpeg" id="portrait-image" loading="lazy"/></div><figcaption>Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</figcaption></figure>
-<p class="personal-note" id="personal-note">Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</p>
+<p class="personal-note" hidden="" id="personal-note">Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</p><noscript><p class="personal-note">Mountains, greenery and a mate in hand. A small piece of Argentina, wherever I go.</p></noscript>
 <ol aria-label="Academic background" class="timeline" id="timeline"><li><span class="timeline-date">2024 — Present</span><div><h3>PhD candidate in Astrophysics</h3><p>Instituto de Astrofísica de Canarias · Universidad de La Laguna, Spain</p></div></li>
 <li><span class="timeline-date">2022 — 2023</span><div><h3>Teaching Assistant</h3><p>Universidad Nacional de La Plata, Argentina — General Astronomy, Physics, Calculus</p></div></li>
 <li><span class="timeline-date">2017 — 2023</span><div><h3>BSc + MSc in Astronomy</h3><p>Universidad Nacional de La Plata, Argentina — X-ray binaries &amp; compact objects</p></div></li></ol>
@@ -1280,13 +1284,13 @@
         }
 
         let total = 0;
-        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*h/gi)) total += number(match[1]);
-        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*ks/gi)) total += number(match[1]) / 3.6;
+        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*h\b/gi)) total += number(match[1]);
+        for (const match of raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*ks\b/gi)) total += number(match[1]) / 3.6;
         return total;
       }
       function nightsFromCell(cell) {
         const raw = cell.textContent.trim().replace(/[−–—]/g, '-');
-        const matches = [...raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*nights?/gi)];
+        const matches = [...raw.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*nights?\b/gi)];
         return {
           value: matches.reduce((sum, match) => sum + number(match[1]), 0),
           lowerBound: />\s*[0-9]+(?:[.,][0-9]+)?\s*nights?/i.test(raw)
@@ -1320,7 +1324,7 @@
         portrait.hidden = false;
         document.querySelector('#personal-note').hidden = true;
       };
-      probe.onerror = () => { portrait.hidden = true; };
+      probe.onerror = () => { portrait.hidden = true; document.querySelector('#personal-note').hidden = false; };
       const loadPortrait = () => { probe.src = portraitImage.dataset.src; };
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {
