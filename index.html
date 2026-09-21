@@ -7,13 +7,13 @@
 <title>Enzo A. Saavedra — Astrophysicist</title>
 <meta content="Enzo A. Saavedra, PhD candidate at the Instituto de Astrofísica de Canarias. Research on accretion, X-ray binaries and ultraluminous X-ray sources." name="description"/>
 <meta content="Enzo A. Saavedra" name="author"/>
-<meta content="#fffaf6" name="theme-color"/>
+<meta content="#ffffff" name="theme-color"/>
 <meta content="Enzo A. Saavedra — Astrophysicist" property="og:title"/>
 <meta content="Accreting compact objects. Infrared, optical and X-ray observations. PhD candidate at IAC, Tenerife." property="og:description"/>
 <meta content="profile" property="og:type"/>
 <meta content="Enzo A. Saavedra" property="og:site_name"/>
 <meta content="summary" name="twitter:card"/>
-<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23c97346'%3Ee%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080808'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23ff6a00'/%3E%3C/svg%3E" rel="icon"/>
 <script>
     document.documentElement.classList.add('js');
     try { if (localStorage.getItem('enzo-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (_) {}
@@ -989,12 +989,329 @@
     .observing-totals { break-inside: avoid; }
   }
 </style>
+
+<style id="final-audit-refinement">
+  /* Authoritative warm-minimal colour system. */
+  :root {
+    --paper: #fff7ef;
+    --ink: #181411;
+    --muted: #74665c;
+    --accent: #df7b43;
+    --accent-deep: #b95f2f;
+    --line: #e8cdb9;
+    --wash: #fcefe4;
+    --rust: #df7b43;
+    --night: #181411;
+  }
+  :root[data-theme="dark"] {
+    --paper: #130f0c;
+    --ink: #f6eee7;
+    --muted: #bba99d;
+    --accent: #efa06d;
+    --accent-deep: #f0a778;
+    --line: #49382f;
+    --wash: #211914;
+    --rust: #efa06d;
+    --night: #0b0807;
+  }
+
+  body { background: var(--paper); }
+  .site-header {
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    border-bottom-color: color-mix(in srgb, var(--accent) 24%, var(--line));
+  }
+  .header-inner { min-height: 70px; }
+  .wordmark {
+    display: inline-grid;
+    gap: 2px;
+    line-height: 1;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .wordmark .wordmark-name {
+    display: block;
+    margin-right: 0;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+  }
+  .wordmark small {
+    font: 10px/1.15 var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--accent) 74%, var(--muted));
+  }
+  .nav a { color: color-mix(in srgb, var(--accent) 22%, var(--muted)); }
+  .nav a:hover, .nav a[aria-current] { color: var(--accent-deep); }
+  .nav a::after { background: var(--accent); }
+  .theme-symbol { border-color: color-mix(in srgb, var(--accent) 65%, var(--ink)); }
+
+  .hero-kicker { color: color-mix(in srgb, var(--accent) 62%, var(--muted)); }
+  .hero-kicker::before { background: var(--accent); }
+  .hero-description { color: color-mix(in srgb, var(--accent) 10%, var(--muted)); }
+  .primary-link { border-bottom-color: color-mix(in srgb, var(--accent) 78%, var(--ink)); }
+  .primary-link:hover, .hero-actions .text-link:hover { color: var(--accent-deep); }
+  .hero-actions .text-link { color: color-mix(in srgb, var(--accent) 34%, var(--muted)); }
+  .hero-foot {
+    border-block-color: color-mix(in srgb, var(--accent) 36%, var(--line));
+    color: color-mix(in srgb, var(--accent) 8%, var(--muted));
+  }
+
+  /* Full-page warmth: alternate sections get an almost imperceptible orange wash. */
+  #publications, #about {
+    background: color-mix(in srgb, var(--accent) 2.8%, var(--paper));
+    box-shadow: 0 0 0 100vmax color-mix(in srgb, var(--accent) 2.8%, var(--paper));
+    clip-path: inset(0 -100vmax);
+  }
+  #research, #observing {
+    background: color-mix(in srgb, var(--accent) 0.8%, var(--paper));
+    box-shadow: 0 0 0 100vmax color-mix(in srgb, var(--accent) 0.8%, var(--paper));
+    clip-path: inset(0 -100vmax);
+  }
+
+  .section-marker { color: color-mix(in srgb, var(--accent) 52%, var(--muted)); }
+  .section-marker span, .stay-year, .figure-note > span { color: var(--accent-deep); }
+  #research h2::after,
+  #publications h2::after,
+  #observing h2::after,
+  #about h2::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-top: 18px;
+    background: var(--accent);
+  }
+
+  .research-topics,
+  .publication-tools,
+  .timeline,
+  .research-stays > h3,
+  .activity-grid h3,
+  .facility-list,
+  .paper-list,
+  .research-module {
+    border-color: color-mix(in srgb, var(--accent) 34%, var(--line));
+  }
+  .research-topics div + div { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+  .research-topics h3,
+  .component summary,
+  .authorship { color: color-mix(in srgb, var(--accent) 72%, var(--ink)); }
+
+  /* Keep the schematic mostly black, but let physical emphasis use the accent. */
+  .binary-diagram { color: color-mix(in srgb, var(--accent) 8%, var(--ink)); }
+  .binary-diagram .warm { stroke: var(--accent); }
+  .binary-diagram .soft { opacity: .34; }
+  .plate-heading { border-bottom-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+  .figure-note { border-top-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+  .research-result-label { color: color-mix(in srgb, var(--accent) 68%, var(--muted)); }
+  .research-result h3 { color: color-mix(in srgb, var(--accent) 12%, var(--ink)); }
+  .research-result-link { color: var(--accent-deep); }
+  .research-glossary > summary::after { color: var(--accent); }
+
+  .publication-tools input[type="search"],
+  .publication-tools select { border-bottom-color: color-mix(in srgb, var(--accent) 44%, var(--ink)); }
+  .year-filters button[aria-pressed="true"] {
+    color: var(--accent-deep);
+    border-color: var(--accent);
+  }
+  .paper { transition: background-color .15s ease; }
+  .paper:hover { background: color-mix(in srgb, var(--accent) 4%, transparent); }
+  .paper-year { color: color-mix(in srgb, var(--accent) 50%, var(--muted)); }
+  .paper h3 a:hover { color: var(--accent-deep); }
+  .authors b { color: color-mix(in srgb, var(--accent) 32%, var(--ink)); }
+  .paper-links { color: color-mix(in srgb, var(--accent) 46%, var(--muted)); }
+
+  .observing-totals {
+    border-color: color-mix(in srgb, var(--accent) 44%, var(--line));
+    background: color-mix(in srgb, var(--accent) 3.5%, transparent);
+  }
+  .observing-total strong { color: var(--accent-deep); }
+  .observing-total + .observing-total { border-left-color: color-mix(in srgb, var(--accent) 34%, var(--line)); }
+  .facility > summary { transition: background-color .15s ease; }
+  .facility > summary:hover { background: color-mix(in srgb, var(--accent) 4%, transparent); }
+  .facility > summary:hover .facility-name,
+  .facility[open] > summary .facility-name { color: color-mix(in srgb, var(--accent) 58%, var(--ink)); }
+  .facility-band, th { color: color-mix(in srgb, var(--accent) 38%, var(--muted)); }
+  .expand::before, .expand::after { background: var(--accent); }
+  tbody tr { transition: background-color .15s ease; }
+  tbody tr:hover { background: color-mix(in srgb, var(--accent) 3.5%, transparent); }
+  .observation-note { color: color-mix(in srgb, var(--accent) 20%, var(--muted)); }
+  .role-pi { color: var(--accent-deep); font-weight: 650; }
+  .pi-priority td:first-child { color: color-mix(in srgb, var(--accent) 14%, var(--ink)); }
+
+  .timeline li, .stay-list li, .activity-list li {
+    border-top-color: color-mix(in srgb, var(--accent) 28%, var(--line));
+  }
+  .timeline-date { color: color-mix(in srgb, var(--accent) 64%, var(--muted)); }
+  .timeline h3 { color: color-mix(in srgb, var(--accent) 10%, var(--ink)); }
+  .stay-place { font-size: 17px; }
+  .stay-place small { font-size: 14px; color: color-mix(in srgb, var(--accent) 14%, var(--muted)); }
+  .stay-duration { color: color-mix(in srgb, var(--accent) 34%, var(--muted)); }
+
+  .conference-list li {
+    grid-template-columns: 154px minmax(0, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+  }
+  .conference-list .activity-kind {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 28px;
+    padding: 4px 10px;
+    border: 1px solid color-mix(in srgb, var(--accent) 46%, var(--line));
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 9%, var(--paper));
+    color: var(--accent-deep);
+    letter-spacing: .02em;
+  }
+  .conference-entry strong { font-size: 16px; color: color-mix(in srgb, var(--accent) 10%, var(--ink)); }
+  .conference-meta { margin-top: 6px; color: color-mix(in srgb, var(--accent) 16%, var(--muted)); }
+  .teaching p strong { color: color-mix(in srgb, var(--accent) 64%, var(--ink)); }
+  .course-list li::marker { color: var(--accent); }
+  .portrait-frame { background: color-mix(in srgb, var(--accent) 8%, var(--wash)); }
+  .portrait figcaption { color: color-mix(in srgb, var(--accent) 12%, var(--muted)); }
+
+  .contact-section { background: color-mix(in srgb, var(--accent) 14%, var(--ink)); }
+  .contact-section .section-marker { color: color-mix(in srgb, var(--accent) 64%, #d9cec6); }
+  .email { border-color: color-mix(in srgb, var(--accent) 62%, #777); }
+  .email:hover { color: #ffc09a; border-color: #ffc09a; }
+  .profile-links a { border-color: color-mix(in srgb, var(--accent) 24%, #333); }
+  .profile-links a:hover { color: #ffc09a; }
+  footer { background: color-mix(in srgb, var(--accent) 10%, var(--ink)); }
+  .footer-inner { border-color: color-mix(in srgb, var(--accent) 22%, #333); }
+
+  @media (max-width: 760px) {
+    .wordmark .wordmark-name { font-size: 14px; }
+    .wordmark small { font-size: 9px; }
+    .conference-list li { grid-template-columns: 1fr; gap: 8px; }
+    .conference-list .activity-kind { min-height: 0; }
+    .stay-list li { grid-template-columns: 64px minmax(0,1fr); }
+    .stay-duration { grid-column: 2; }
+    .observing-total + .observing-total { border-left: 0; border-top-color: color-mix(in srgb, var(--accent) 34%, var(--line)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .paper, .facility > summary, tbody tr { transition: none; }
+  }
+
+  @media print {
+    :root, :root[data-theme="dark"] {
+      --paper:#fff; --ink:#111; --muted:#555; --accent:#c86d3b; --accent-deep:#9d4f28; --line:#d8c6b9; --wash:#f8f3ef;
+    }
+    #publications, #about, #research, #observing { background: transparent; box-shadow: none; clip-path: none; }
+  }
+</style>
+
+<style id="black-orange-final">
+  /* Final identity: neutral black/white surfaces with a strong, clean orange accent. */
+  :root {
+    --paper: #ffffff;
+    --ink: #0b0b0b;
+    --muted: #666666;
+    --accent: #ff6a00;
+    --accent-deep: #e95f00;
+    --line: #dedede;
+    --wash: #fff4ec;
+    --rust: #ff6a00;
+    --night: #050505;
+  }
+  :root[data-theme="dark"] {
+    --paper: #080808;
+    --ink: #f5f5f5;
+    --muted: #aaaaaa;
+    --accent: #ff7a1a;
+    --accent-deep: #ff8a33;
+    --line: #303030;
+    --wash: #111111;
+    --rust: #ff7a1a;
+    --night: #000000;
+  }
+
+  body { background: var(--paper); color: var(--ink); }
+  .site-header { background: color-mix(in srgb, var(--paper) 96%, transparent); border-bottom-color: var(--line); }
+  .wordmark small, .nav a:hover, .nav a[aria-current], .hero-kicker,
+  .section-marker, .stay-year, .figure-note > span, .authorship,
+  .research-result-label, .research-result-link, .role-pi, .timeline-date { color: var(--accent); }
+  .hero-kicker::before, .nav a::after, .expand::before, .expand::after,
+  #research h2::after, #publications h2::after, #observing h2::after, #about h2::after { background: var(--accent); }
+  .nav a, .hero-description, .hero-foot, .paper-year, .paper-links,
+  .facility-band, th, .observation-note, .stay-place small, .stay-duration,
+  .conference-meta, .portrait figcaption { color: var(--muted); }
+
+  #publications, #about {
+    background: var(--wash);
+    box-shadow: 0 0 0 100vmax var(--wash);
+    clip-path: inset(0 -100vmax);
+  }
+  #research, #observing {
+    background: var(--paper);
+    box-shadow: 0 0 0 100vmax var(--paper);
+    clip-path: inset(0 -100vmax);
+  }
+
+  .hero-foot, .research-topics, .publication-tools, .timeline,
+  .research-stays > h3, .activity-grid h3, .facility-list, .paper-list,
+  .research-module, .research-topics div + div, .plate-heading, .figure-note,
+  .observing-totals, .timeline li, .stay-list li, .activity-list li { border-color: var(--line); }
+
+  .research-topics h3, .component summary { color: var(--ink); }
+  .research-topics h3::before {
+    content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    margin-right: 8px; background: var(--accent); vertical-align: .08em;
+  }
+  .binary-diagram { color: var(--ink); }
+  .binary-diagram .warm { stroke: var(--accent); }
+  .binary-diagram .surface { fill: var(--paper); }
+  .research-result h3, .timeline h3, .conference-entry strong, .authors b { color: var(--ink); }
+  .research-glossary > summary::after { color: var(--accent); }
+
+  .primary-link { border-bottom-color: var(--accent); }
+  .primary-link:hover, .hero-actions .text-link:hover, .paper h3 a:hover { color: var(--accent); }
+  .publication-tools input[type="search"], .publication-tools select { border-bottom-color: var(--ink); }
+  .year-filters button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+  .paper:hover, tbody tr:hover, .facility > summary:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+  .observing-totals { background: color-mix(in srgb, var(--accent) 5%, var(--paper)); }
+  .observing-total strong { color: var(--accent); }
+  .observing-total + .observing-total { border-color: var(--line); }
+  .facility > summary:hover .facility-name, .facility[open] > summary .facility-name { color: var(--accent); }
+  .pi-priority td:first-child { color: var(--ink); }
+
+  .conference-list .activity-kind {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--paper));
+    color: var(--accent);
+  }
+  .course-list li::marker { color: var(--accent); }
+  .portrait-frame { background: var(--wash); }
+
+  .contact-section { background: #050505; color: #f7f7f7; }
+  .contact-section .section-marker { color: var(--accent); }
+  .contact-location, .profile-links small { color: #aaaaaa; }
+  .email { border-color: var(--accent); }
+  .email:hover, .profile-links a:hover { color: var(--accent); }
+  .profile-links a { border-color: #2d2d2d; }
+  footer { background: #050505; color: #aaaaaa; }
+  .footer-inner { border-color: #2d2d2d; }
+
+  @media print {
+    :root, :root[data-theme="dark"] {
+      --paper:#fff; --ink:#111; --muted:#555; --accent:#f26700; --accent-deep:#d95700; --line:#ccc; --wash:#fff5ed;
+    }
+    #publications, #about, #research, #observing { background: transparent; box-shadow: none; clip-path: none; }
+  }
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
 <div class="wrap header-inner">
-<a class="wordmark" href="#top"><span aria-hidden="true">e.</span> Enzo A. Saavedra</a>
+<a class="wordmark" href="#top"><span class="wordmark-name">Enzo A. Saavedra</span><small>Astrophysics</small></a>
 <nav aria-label="Main navigation" class="nav" id="navigation">
 <a href="#research">Research</a><a href="#publications">Publications</a><a href="#observing">Observing</a><a href="#about">About</a><a href="#contact">Contact</a>
 </nav>
@@ -1043,7 +1360,7 @@
 <text x="266" y="68">Jet</text><text x="386" y="103">Low-mass donor</text><text x="34" y="281">Outer disc</text><text x="58" y="124">Hot inner flow</text><text x="257" y="284">Black hole</text><text x="350" y="183">L1</text>
 </svg>
 <figcaption class="figure-note"><span aria-hidden="true">01</span><p><strong>From a companion star to an accretion flow.</strong> A schematic of the systems I study. Hard or quiescent state; not to scale.</p></figcaption>
-</figure><aside aria-labelledby="research-result-title" class="research-result"><p class="label research-result-label">Recent result · 2026</p><h3 id="research-result-title">A 261.9 ± 9.4 day modulation in A0620–00.</h3><p>Long-term ZTF, LCO and ATLAS monitoring reveals superorbital variability while the black-hole transient is in quiescence. The modulation may trace precession of the inner hot accretion flow.</p><p class="research-result-meta">Astronomy &amp; Astrophysics · Accepted · First author</p><a class="text-link research-result-link" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">Read the paper <span aria-hidden="true" class="arrow">↗</span></a></aside></div>
+</figure><aside aria-labelledby="research-result-title" class="research-result"><p class="label research-result-label">Recent result · 2026</p><h3 id="research-result-title">A 261.9 ± 9.4 day modulation in A0620–00.</h3><p>Long-term ZTF, LCO and ATLAS monitoring reveals superorbital variability while the black-hole transient is in quiescence. The modulation may trace precession of the inner hot accretion flow.</p><p class="research-result-meta">Astronomy &amp; Astrophysics, 713, A182 · First author</p><a class="text-link research-result-link" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">Read the paper <span aria-hidden="true" class="arrow">↗</span></a></aside></div>
 <details class="glossary research-glossary"><summary><span class="label glossary-kicker">Diagram components</span><span class="glossary-title">Inside a black-hole binary</span></summary><div class="glossary-grid"><details class="component"><summary>Roche-lobe-filling donor + L1</summary><p>The low-mass companion fills its Roche lobe and transfers gas through the inner Lagrange point, L1. The mass ratio and orbital separation set the stream’s initial velocity and specific angular momentum.</p></details><details class="component"><summary>Ballistic mass-transfer stream</summary><p>After crossing L1, the gas follows an approximately ballistic trajectory in the corotating frame. Gravity and Coriolis forces curve the stream toward the outer disc, where its specific angular momentum is redistributed.</p></details><details class="component"><summary>Stream–disc impact and rim bulge</summary><p>The velocity mismatch between the stream and the outer disc produces shocks, local heating and an azimuthally extended rim bulge. Some gas may overflow the rim and re-impact the disc at smaller radii.</p></details><details class="component"><summary>Cool outer accretion disc</summary><p>The outer disc is nearly Keplerian, optically thick and geometrically thin, with H/R ≪ 1. Turbulent stresses transport angular momentum outward and mass inward, producing a multitemperature thermal spectrum.</p></details><details class="component"><summary>Hot inner accretion flow</summary><p>In hard and quiescent states, the inner flow can be hot, optically thin and geometrically thick, with H/R ≈ 0.1–0.5. Thermal Comptonization produces the hard X-ray continuum.</p></details><details class="component"><summary>Stellar-mass black hole</summary><p>The event horizon forms the inner causal boundary of the accretion flow. The ISCO radius depends on black-hole spin and orbital orientation, setting the binding energy available in the innermost stable orbits.</p></details><details class="component"><summary>Jet</summary><p>Hard-state LMXBs commonly launch jets. Stratified, partially self-absorbed synchrotron emission produces a flat or inverted radio-to-infrared spectrum, while the jet is strongly suppressed in disc-dominated soft states.</p></details></div></details></div>
 </div>
 </div>
@@ -1066,15 +1383,15 @@
 </article>
 <article class="paper" data-role="co" data-year="2026">
 <div class="paper-year">2026</div>
-<div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260805421M/abstract" rel="noopener noreferrer" target="_blank">The IACOB project XVIII. Prevalence of short-period binaries among Galactic helium rich O-type stars</a></h3>
-<p class="paper-meta">Astronomy &amp; Astrophysics — in press<span aria-hidden="true" class="meta-dot"> · </span><span class="authorship">Co-author</span></p>
+<div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260805421M/abstract" rel="noopener noreferrer" target="_blank">The IACOB project. XVIII. Prevalence of short-period binaries among Galactic He-rich O stars</a></h3>
+<p class="paper-meta">Astronomy &amp; Astrophysics, 713, L11 — Letter to the Editor<span aria-hidden="true" class="meta-dot"> · </span><span class="authorship">Co-author</span></p>
 <div class="authors"><p>C. Martínez-Sebastián, R. Gamen, O. G. Benvenuto, <b>E. A. Saavedra</b>, M. Carretero-Castrillo, M. Contreras, G. Holgado, J. Maíz Apellániz, S. Simón-Díaz.</p></div></div>
-<div class="paper-links"><a aria-label="Open ADS record: The IACOB project XVIII. Prevalence of short-period binaries among Galactic helium rich O-type stars" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260805421M/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a></div>
+<div class="paper-links"><a aria-label="Open ADS record: The IACOB project. XVIII. Prevalence of short-period binaries among Galactic He-rich O stars" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260805421M/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="paper" data-role="first" data-year="2026">
 <div class="paper-year">2026</div>
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">Superorbital variability in the quiescent black hole X-ray transient A0620–00</a></h3>
-<p class="paper-meta">Astronomy &amp; Astrophysics — accepted<span aria-hidden="true" class="meta-dot"> · </span><span class="authorship">First author</span></p>
+<p class="paper-meta">Astronomy &amp; Astrophysics, 713, A182<span aria-hidden="true" class="meta-dot"> · </span><span class="authorship">First author</span></p>
 <div class="authors"><p><b>E. A. Saavedra</b>, R. Alonso, T. Muñoz-Darias, J. Casares, M. A. P. Torres, M. Armas Padilla, J. F. Steiner, D. M. Russell, G. J. Escobar, F. García, F. Lewis, D. Mata Sánchez, P. Rodríguez-Gil.</p></div></div>
 <div class="paper-links"><a aria-label="Open ADS record: Superorbital variability in the quiescent black hole X-ray transient A0620–00" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a></div>
 </article>
@@ -1186,7 +1503,7 @@
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">GTC</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
-<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>SS433 — HiPERCAM<small class="observation-note">Simultaneous with NuSTAR, Einstein Probe, LT and Calar Alto</small></td><td data-hours="48.75">9.75 h</td><td>—</td></tr><tr><td>V1405 Cas — HiPERCAM</td><td>8.35 h</td><td>—</td></tr><tr><td>ToO — OSIRIS</td><td data-hours="60">10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
+<div class="table-wrap"><table><caption class="sr-only">GTC observing proposals</caption><thead><tr><th scope="col">Programme / target</th><th scope="col">Allocated time</th><th scope="col">Role</th></tr></thead><tbody><tr class="pi-priority"><td>SS433 — HiPERCAM<small class="observation-note">Simultaneous with NuSTAR, Einstein Probe, LT and Calar Alto</small></td><td data-hours="48.75">9.75 h<small class="observation-note">48.75 h cumulative across 5 facilities</small></td><td><span class="role-pi">PI</span></td></tr><tr class="pi-priority"><td>V1405 Cas — HiPERCAM</td><td>8.35 h</td><td><span class="role-pi">PI</span></td></tr><tr><td>4U 1822-00 — HiPERCAM</td><td>7 h</td><td>Co-PI</td></tr><tr><td>ToO — OSIRIS</td><td data-hours="60">10 h/sem · 2024–2026</td><td>Co-PI</td></tr></tbody></table></div>
 </details>
 <details class="facility" open="">
 <summary><span class="facility-name">Liverpool Telescope</span><span class="facility-band">Optical</span><span aria-hidden="true" class="expand"></span></summary>
@@ -1238,7 +1555,7 @@
         const label = `Switch to ${dark ? 'light' : 'dark'} theme`;
         themeButton.setAttribute('aria-label', label);
         themeButton.title = label;
-        themeMeta.content = dark ? '#0b0b0b' : '#ffffff';
+        themeMeta.content = dark ? '#080808' : '#ffffff';
       }
       themeButton.addEventListener('click', () => {
         const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
