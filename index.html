@@ -259,7 +259,7 @@
     .result-count { margin-top: 18px; }
     .paper-list { margin-top: 12px; border-top: 2px solid var(--ink); }
     .js .paper-list { margin-top: 10px; }
-    .paper { display: grid; grid-template-columns: 84px minmax(0, 1fr) 96px; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+    .paper { display: grid; grid-template-columns: 84px minmax(0, 1fr) 116px; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
     .paper:first-child { border-top: 0; }
     .paper.is-year-start:not(:first-child) { border-top-color: var(--muted); }
     .js .paper:not(.is-year-start) .paper-year { visibility: hidden; }
@@ -273,9 +273,9 @@
     .authors { margin-top: 4px; }
     .authors b { color: var(--ink); font-weight: 600; }
     .paper-links { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
-    .paper-links a { padding: 3px 0; text-decoration: none; }
+    .paper-links a { display: inline-flex; align-items: center; gap: 4px; padding: 3px 0; text-decoration: none; white-space: nowrap; }
     .paper-links a:hover { text-decoration: underline; }
-    .paper-links .press { color: var(--hot-text); }
+    .paper-links .accent { color: var(--hot-text); }
     .empty-state { padding: 28px 0; color: var(--muted); }
     .reset-filters { display: block; padding: 10px 0; border: 0; background: none; text-decoration: underline; text-underline-offset: 4px; }
     .all-records { margin-top: 28px; }
@@ -380,8 +380,8 @@
       .js .paper:not(.is-year-start) .paper-year { display: none; }
       .paper-year { font-size: 20px; }
       .paper.is-year-start:not(:first-child) { margin-top: 12px; }
-      .paper-links { flex-direction: row; gap: 18px; }
-      .paper-links a { min-height: 36px; display: inline-flex; align-items: center; gap: 4px; }
+      .paper-links { flex-direction: row; flex-wrap: wrap; gap: 0 18px; }
+      .paper-links a { min-height: 36px; }
       .binary-diagram text { font-size: 17px; }
       .paper h3 { font-size: 17px; }
       .observing-summary { font-size: 18px; }
@@ -562,7 +562,7 @@
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260900990M/abstract" rel="noopener noreferrer" target="_blank">A Galactic microblazar as a potential accelerator of ultra-high-energy particles</a></h3>
 <p class="paper-meta">Astronomy &amp; Astrophysics, in press<span class="authorship">Co-author</span></p>
 <div class="authors"><p>J. Martí, P. L. Luque-Escamilla, B. Marcote, L. Abaroa, A. Aguasca-Cabot, J. A. Combi, G. E. Romero, J. M. Paredes, F. García, F. Fogantini, <b>E. A. Saavedra</b>, D. del Ser, J. van den Eijnden.</p></div></div>
-<div class="paper-links"><a aria-label="Open ADS record: A Galactic microblazar as a potential accelerator of ultra-high-energy particles" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260900990M/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a><a class="press" aria-label="Press coverage on Phys.org: Milky Way micro-blazar" href="https://phys.org/news/2026-09-milky-microblazar-fastest-particles-galaxy.html" rel="noopener noreferrer" target="_blank">In the press <span aria-hidden="true">↗</span></a></div>
+<div class="paper-links"><a aria-label="Open ADS record: A Galactic microblazar as a potential accelerator of ultra-high-energy particles" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260900990M/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a><a class="accent" aria-label="Press coverage on Phys.org: Milky Way micro-blazar" href="https://phys.org/news/2026-09-milky-microblazar-fastest-particles-galaxy.html" rel="noopener noreferrer" target="_blank">In the press <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="paper" data-role="co" data-year="2026"><div class="paper-year">2026</div>
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260805421M/abstract" rel="noopener noreferrer" target="_blank">The IACOB project. XVIII. Prevalence of short-period binaries among Galactic He-rich O stars</a></h3>
@@ -574,7 +574,7 @@
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">Superorbital variability in the quiescent black hole X-ray transient A0620–00</a></h3>
 <p class="paper-meta">Astronomy &amp; Astrophysics, 713, A182<span class="authorship is-first">First author</span></p>
 <div class="authors"><p><b>E. A. Saavedra</b>, R. Alonso, T. Muñoz-Darias, J. Casares, M. A. P. Torres, M. Armas Padilla, J. F. Steiner, D. M. Russell, G. J. Escobar, F. García, F. Lewis, D. Mata Sánchez, P. Rodríguez-Gil.</p></div></div>
-<div class="paper-links"><a aria-label="Open ADS record: Superorbital variability in the quiescent black hole X-ray transient A0620–00" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a></div>
+<div class="paper-links"><a aria-label="Open ADS record: Superorbital variability in the quiescent black hole X-ray transient A0620–00" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260716397S/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a><a class="accent" aria-label="Open visual poster: Superorbital variability in the quiescent black hole X-ray transient A0620–00" href="https://docs.google.com/presentation/d/1aZE5b6IUlIgGxcx32-3k-L3OJRDegj6Dyan092gYJF0/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Visual poster <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="paper" data-role="first" data-year="2026"><div class="paper-year">2026</div>
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260611133S/abstract" rel="noopener noreferrer" target="_blank">Resolving SLX 1744-299 and SLX 1744-300 in the hard X-ray band: implications for their ultracompact nature</a></h3>
@@ -586,7 +586,7 @@
 <div class="paper-body"><h3><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" rel="noopener noreferrer" target="_blank">A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1</a></h3>
 <p class="paper-meta">Astronomy &amp; Astrophysics, 707, L20, Letter<span class="authorship">Co-author</span></p>
 <div class="authors"><p>N. Cruz-Sanchez, <b>E. A. Saavedra</b>, F. A. Fogantini, F. García, J. A. Combi, M. Bachetti, M. Imbrogno, L. Sidoli, A. Marino.</p></div></div>
-<div class="paper-links"><a aria-label="Open ADS record: A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a><a aria-label="Open A&amp;A highlight: A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1" href="https://www.aanda.org/2026-highlights/3170" rel="noopener noreferrer" target="_blank">A&amp;A highlight <span aria-hidden="true">↗</span></a></div>
+<div class="paper-links"><a aria-label="Open ADS record: A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1" href="https://ui.adsabs.harvard.edu/abs/2026arXiv260310331C/abstract" rel="noopener noreferrer" target="_blank">ADS <span aria-hidden="true">↗</span></a><a class="accent" aria-label="Open A&amp;A highlight: A candidate proton cyclotron feature in the ultraluminous X-ray source NGC 4656 ULX-1" href="https://www.aanda.org/2026-highlights/3170" rel="noopener noreferrer" target="_blank">A&amp;A highlight <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="paper" data-role="co" data-year="2026"><div class="paper-year">2026</div>
 <div class="paper-body"><h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S2214404826000194" rel="noopener noreferrer" target="_blank">Constraints on cyclotron features and accretion regime in the high-mass X-ray binary 4U 1700–37 from NuSTAR</a></h3>
